@@ -18,7 +18,13 @@
       "Bash(gh auth:*)",
       "Bash(git --version)",
       "Bash(grep -rn 'href=\"\"\"\"/' C:/Users/Miche/Downloads/shark-site-v2/*.html)",
-      "Bash(python3 -c \":*)"
+      "Bash(python3 -c \":*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(__NEW_LINE_1e0f43e904c9d5dc__ grep:*)",
+      "Bash(__NEW_LINE_1e0f43e904c9d5dc__ done:*)",
+      "Skill(anthropic-skills:geo-audit)",
+      "Skill(anthropic-skills:geo-audit:*)"
     ]
   }
 }
