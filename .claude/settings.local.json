@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Read(//c/Users/Miche/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/8b012dbf-07a7-4d7e-b7c5-fd215e034564/de57b7e6-359b-4062-b9a6-0a80ce26b14a/skills/pptx/**)",
+      "Bash(python -m markitdown \"C:\\\\Users\\\\Miche\\\\Downloads\\\\Capturing Buyers at the Moment of Intent.pptx\")",
+      "Bash(pip install:*)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\")",
+      "Read(//c/Users/Miche/Downloads/**)",
+      "Bash(python -c \":*)",
+      "Bash(cp \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\\\\ppt\\\\media\\\\image5.png\" \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx/\")",
+      "Bash(cp \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\\\\ppt\\\\media\\\\image6.png\" \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx/\")",
+      "Bash(cp \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\\\\ppt\\\\media\\\\image7.png\" \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx/\")",
+      "Bash(cp \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\\\\ppt\\\\media\\\\image9.png\" \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx/\")",
+      "Bash(cp \"C:\\\\Users\\\\Miche\\\\Downloads\\\\pptx-extracted\\\\ppt\\\\media\\\\image10.png\" \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx/\")",
+      "Bash(ls \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx\"\" | grep -E \"image10)",
+      "Bash(image17 \")",
+      "Bash(gh auth:*)",
+      "Bash(git --version)"
+    ]
+  }
+}
