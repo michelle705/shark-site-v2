@@ -16,7 +16,9 @@
       "Bash(ls \"C:\\\\Users\\\\Miche\\\\Downloads\\\\shark-site-v2\\\\images\\\\pptx\"\" | grep -E \"image10)",
       "Bash(image17 \")",
       "Bash(gh auth:*)",
-      "Bash(git --version)"
+      "Bash(git --version)",
+      "Bash(grep -rn 'href=\"\"\"\"/' C:/Users/Miche/Downloads/shark-site-v2/*.html)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
