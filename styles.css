@@ -1412,6 +1412,15 @@ img, picture, video, iframe { max-width: 100%; height: auto; display: block; }
   font-style: italic;
 }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.cta-section .btn-ghost {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.35);
+  background: transparent;
+}
+.cta-section .btn-ghost:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
+}
 
 /* ============ FOOTER ============ */
 .footer {
