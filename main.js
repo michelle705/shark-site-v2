@@ -10,9 +10,41 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 
+if (nav && window.scrollY > 20) {
+  nav.classList.add('scrolled');
+}
+
 if (navToggle && navMobile) {
+  const closeMobileNav = () => {
+    navMobile.classList.remove('open');
+    navMobile.hidden = true;
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const openMobileNav = () => {
+    navMobile.hidden = false;
+    navMobile.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  closeMobileNav();
+
   navToggle.addEventListener('click', () => {
-    navMobile.classList.toggle('open');
+    const isOpen = navMobile.classList.contains('open');
+    if (isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+
+  navMobile.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMobileNav();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMobileNav();
   });
 }
 
