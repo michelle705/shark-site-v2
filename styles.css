@@ -426,8 +426,118 @@ body > footer { margin-top: auto; }
 
 .hero-powered {
   font-size: 12px;
-  color: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.62);
   letter-spacing: 0.04em;
+}
+
+.partner-badge {
+  margin-top: 18px;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.partner-badge--dark {
+  max-width: none;
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.16);
+}
+.partner-badge-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.partner-badge-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.partner-badge-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.88);
+}
+.partner-badge-logo {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.98);
+  border: 1px solid rgba(6,28,44,0.08);
+  box-shadow: 0 10px 24px rgba(6,28,44,0.14);
+}
+.partner-badge-logo img {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+  height: auto;
+}
+.partner-badge--dark .partner-badge-copy p {
+  color: rgba(255,255,255,0.82);
+}
+
+.area-switcher {
+  margin-top: 22px;
+  max-width: 520px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(24,181,216,0.18);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 14px 32px rgba(6,28,44,0.08);
+}
+.area-switcher--dark {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: none;
+}
+.area-switcher-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.area-switcher-copy {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.area-switcher--dark .area-switcher-copy,
+.area-switcher--dark .area-switcher-status {
+  color: rgba(255,255,255,0.8);
+}
+.area-switcher-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.area-switcher-select {
+  flex: 1 1 220px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(24,181,216,0.2);
+  font: inherit;
+  color: var(--text-dark);
+  background: var(--white);
+}
+.area-switcher-status {
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-top: 12px;
 }
 
 /* Michelle card removed */
@@ -2118,6 +2228,24 @@ img, picture, video, iframe { max-width: 100%; height: auto; display: block; }
   .hero-sub { font-size: 15px; margin-bottom: 20px; }
   .hero-right { width: 100%; }
   .hero-visual { height: min(82vw, 360px); }
+  .area-switcher {
+    padding: 16px;
+  }
+  .area-switcher-controls {
+    flex-direction: column;
+  }
+  .area-switcher-select {
+    width: 100%;
+  }
+  .partner-badge {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .partner-badge-logo {
+    min-width: 0;
+    width: 100%;
+    max-width: 220px;
+  }
   .scroll-hint { display: none; }
   .problem-grid { grid-template-columns: 1fr; }
   .problem-card { padding: 24px 20px; }

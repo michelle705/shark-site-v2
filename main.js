@@ -1,5 +1,121 @@
 document.documentElement.classList.add('js');
 
+const AREA_STORAGE_KEY = 'sbs_preferred_area';
+const AREA_OPTIONS = {
+  tampa: {
+    label: 'Tampa',
+    path: 'tampa-marketing-consultant.html',
+    coordinates: { lat: 27.9506, lon: -82.4572 }
+  },
+  'tampa-bay': {
+    label: 'Tampa Bay',
+    path: 'tampa-bay-marketing-consultant.html',
+    coordinates: { lat: 27.9506, lon: -82.4572 }
+  },
+  lutz: {
+    label: 'Lutz',
+    path: 'lutz-marketing-consultant.html',
+    coordinates: { lat: 28.1392, lon: -82.4615 }
+  },
+  'land-o-lakes': {
+    label: "Land O' Lakes",
+    path: 'land-o-lakes-marketing-consultant.html',
+    coordinates: { lat: 28.2189, lon: -82.4576 }
+  },
+  'wesley-chapel': {
+    label: 'Wesley Chapel',
+    path: 'wesley-chapel-marketing-consultant.html',
+    coordinates: { lat: 28.2397, lon: -82.3279 }
+  },
+  'st-petersburg': {
+    label: 'St. Petersburg',
+    path: 'st-petersburg-marketing-consultant.html',
+    coordinates: { lat: 27.7676, lon: -82.6403 }
+  }
+};
+const DEFAULT_AREA = 'tampa-bay';
+
+const areaFromPath = Object.entries(AREA_OPTIONS).find(([, area]) =>
+  window.location.pathname.endsWith(`/${area.path}`) || window.location.pathname.endsWith(area.path)
+)?.[0];
+
+const areaQuery = new URLSearchParams(window.location.search).get('area');
+
+const getStoredArea = () => {
+  try {
+    return localStorage.getItem(AREA_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const setStoredArea = (areaKey) => {
+  try {
+    localStorage.setItem(AREA_STORAGE_KEY, areaKey);
+  } catch {
+    // Ignore storage failures and continue with in-memory behavior.
+  }
+};
+
+let activeArea = areaFromPath || areaQuery || getStoredArea() || DEFAULT_AREA;
+if (!AREA_OPTIONS[activeArea]) activeArea = DEFAULT_AREA;
+
+const formatAreaList = (areaLabel) => `${areaLabel}, Tampa Bay, Wesley Chapel, St. Petersburg, Lutz, and Land O' Lakes`;
+
+const applyAreaPersonalization = (areaKey) => {
+  const area = AREA_OPTIONS[areaKey] || AREA_OPTIONS[DEFAULT_AREA];
+  activeArea = areaKey in AREA_OPTIONS ? areaKey : DEFAULT_AREA;
+  setStoredArea(activeArea);
+
+  document.querySelectorAll('[data-area-label]').forEach((node) => {
+    node.textContent = area.label;
+  });
+
+  document.querySelectorAll('[data-area-copy="hero-powered"]').forEach((node) => {
+    node.textContent = `Trusted by ${area.label} businesses. Recognized by Influence Digest 2025.`;
+  });
+
+  document.querySelectorAll('[data-area-copy="contact-service-area"]').forEach((node) => {
+    node.textContent = formatAreaList(area.label);
+  });
+
+  document.querySelectorAll('[data-area-copy="contact-intro"]').forEach((node) => {
+    node.textContent = `Shark Branding Solutions works with businesses across ${formatAreaList(area.label)}. Not sure where to start? Mention it in the form. The team will recommend the right next step based on where your business is today.`;
+  });
+
+  document.querySelectorAll('[data-area-link="service-area"]').forEach((link) => {
+    link.setAttribute('href', area.path);
+  });
+
+  document.querySelectorAll('[data-area-select]').forEach((select) => {
+    select.value = activeArea;
+  });
+};
+
+const toRadians = (degrees) => (degrees * Math.PI) / 180;
+
+const getDistanceKm = (from, to) => {
+  const earthRadiusKm = 6371;
+  const deltaLat = toRadians(to.lat - from.lat);
+  const deltaLon = toRadians(to.lon - from.lon);
+  const startLat = toRadians(from.lat);
+  const endLat = toRadians(to.lat);
+
+  const a = Math.sin(deltaLat / 2) ** 2
+    + Math.cos(startLat) * Math.cos(endLat) * Math.sin(deltaLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return earthRadiusKm * c;
+};
+
+const getNearestArea = (coordinates) => Object.entries(AREA_OPTIONS).reduce((closest, [key, area]) => {
+  const distance = getDistanceKm(coordinates, area.coordinates);
+  if (!closest || distance < closest.distance) {
+    return { key, distance };
+  }
+  return closest;
+}, null);
+
 // Navigation scroll effect
 const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
@@ -88,3 +204,41 @@ if (contactForm) {
     btn.style.background = '#3DBA7A';
   });
 }
+
+applyAreaPersonalization(activeArea);
+
+document.querySelectorAll('[data-area-select]').forEach((select) => {
+  select.addEventListener('change', (event) => {
+    applyAreaPersonalization(event.target.value);
+  });
+});
+
+document.querySelectorAll('[data-area-detect]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const statusNode = document.querySelector('[data-area-status]');
+    if (!navigator.geolocation) {
+      if (statusNode) statusNode.textContent = 'Location lookup is not available in this browser.';
+      return;
+    }
+
+    if (statusNode) statusNode.textContent = 'Checking your location...';
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      const nearest = getNearestArea({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude
+      });
+
+      if (!nearest) return;
+
+      applyAreaPersonalization(nearest.key);
+      if (statusNode) {
+        statusNode.textContent = `Showing the closest local guidance for ${AREA_OPTIONS[nearest.key].label}.`;
+      }
+    }, () => {
+      if (statusNode) {
+        statusNode.textContent = 'We could not detect your location. Choose an area manually instead.';
+      }
+    }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
+  });
+});
