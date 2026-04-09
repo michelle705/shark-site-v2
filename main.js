@@ -59,6 +59,7 @@ const setStoredArea = (areaKey) => {
 
 let activeArea = areaFromPath || areaQuery || getStoredArea() || DEFAULT_AREA;
 if (!AREA_OPTIONS[activeArea]) activeArea = DEFAULT_AREA;
+const hasExplicitAreaPreference = Boolean(areaFromPath || areaQuery || getStoredArea());
 
 const formatAreaList = (areaLabel) => `${areaLabel}, Tampa Bay, Wesley Chapel, St. Petersburg, Lutz, and Land O' Lakes`;
 
@@ -72,7 +73,7 @@ const applyAreaPersonalization = (areaKey) => {
   });
 
   document.querySelectorAll('[data-area-copy="hero-powered"]').forEach((node) => {
-    node.textContent = `Trusted by ${area.label} businesses. Recognized by Influence Digest 2025.`;
+    node.innerHTML = `Trusted by ${area.label} businesses. Recognized by <a href="https://influencedigest.com/marketing-expert/top-marketing-experts-in-tampa-in-2025/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Influence Digest 2025</a>.`;
   });
 
   document.querySelectorAll('[data-area-copy="contact-service-area"]').forEach((node) => {
@@ -115,6 +116,33 @@ const getNearestArea = (coordinates) => Object.entries(AREA_OPTIONS).reduce((clo
   }
   return closest;
 }, null);
+
+const detectNearestArea = ({ statusNode, silent = false } = {}) => {
+  if (!navigator.geolocation) {
+    if (!silent && statusNode) statusNode.textContent = 'Location lookup is not available in this browser.';
+    return;
+  }
+
+  if (!silent && statusNode) statusNode.textContent = 'Checking your location...';
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    const nearest = getNearestArea({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude
+    });
+
+    if (!nearest) return;
+
+    applyAreaPersonalization(nearest.key);
+    if (!silent && statusNode) {
+      statusNode.textContent = `Showing the closest local guidance for ${AREA_OPTIONS[nearest.key].label}.`;
+    }
+  }, () => {
+    if (!silent && statusNode) {
+      statusNode.textContent = 'We could not detect your location.';
+    }
+  }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
+};
 
 // Navigation scroll effect
 const nav = document.getElementById('nav');
@@ -216,29 +244,10 @@ document.querySelectorAll('[data-area-select]').forEach((select) => {
 document.querySelectorAll('[data-area-detect]').forEach((button) => {
   button.addEventListener('click', () => {
     const statusNode = document.querySelector('[data-area-status]');
-    if (!navigator.geolocation) {
-      if (statusNode) statusNode.textContent = 'Location lookup is not available in this browser.';
-      return;
-    }
-
-    if (statusNode) statusNode.textContent = 'Checking your location...';
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      const nearest = getNearestArea({
-        lat: position.coords.latitude,
-        lon: position.coords.longitude
-      });
-
-      if (!nearest) return;
-
-      applyAreaPersonalization(nearest.key);
-      if (statusNode) {
-        statusNode.textContent = `Showing the closest local guidance for ${AREA_OPTIONS[nearest.key].label}.`;
-      }
-    }, () => {
-      if (statusNode) {
-        statusNode.textContent = 'We could not detect your location. Choose an area manually instead.';
-      }
-    }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
+    detectNearestArea({ statusNode });
   });
 });
+
+if (!hasExplicitAreaPreference) {
+  detectNearestArea({ silent: true });
+}
