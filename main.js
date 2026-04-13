@@ -251,3 +251,104 @@ document.querySelectorAll('[data-area-detect]').forEach((button) => {
 if (!hasExplicitAreaPreference) {
   detectNearestArea({ silent: true });
 }
+
+const WORKSHOP_EXPIRATION_MS = 24 * 60 * 60 * 1000;
+
+const workshopReplayHref = (title) =>
+  `mailto:info@sharkbrandingsolutions.com?subject=${encodeURIComponent(`Replay Request: ${title}`)}`;
+
+const markWorkshopRowCompleted = (row) => {
+  row.classList.remove('ws-next', 'ws-upcoming');
+  row.classList.add('ws-completed');
+
+  const badge = row.querySelector('.ws-badge');
+  if (badge) {
+    badge.className = 'ws-badge ws-badge--done';
+    badge.textContent = 'Completed';
+  }
+
+  const action = row.querySelector('.ws-action');
+  if (!action) return;
+
+  const title = row.dataset.workshopTitle || row.querySelector('.ws-title')?.textContent?.trim() || 'Workshop Replay';
+  const replayHref = row.dataset.workshopReplay || workshopReplayHref(title);
+
+  action.innerHTML = `<span class="ws-badge ws-badge--done">Completed</span><a href="${replayHref}" class="btn btn-outline" style="font-size:13px;padding:9px 18px">Request Replay</a>`;
+};
+
+const setNextWorkshopCtas = (row) => {
+  const ctas = document.querySelectorAll('[data-next-workshop-cta]');
+
+  if (!ctas.length) return;
+
+  const fallbackHref = '/contact';
+  const fallbackLabel = 'Request Workshop Updates';
+  const href = row?.dataset.workshopUrl || fallbackHref;
+  const label = row ? `Register for ${row.dataset.workshopTitle || 'the Next Workshop'}` : fallbackLabel;
+
+  ctas.forEach((cta) => {
+    cta.setAttribute('href', href);
+    cta.textContent = label;
+  });
+};
+
+const initWorkshopExpirations = () => {
+  const rows = Array.from(document.querySelectorAll('[data-workshop-start]'));
+  const now = Date.now();
+
+  let nextWorkshopRow = null;
+
+  rows.forEach((row) => {
+    const start = Date.parse(row.dataset.workshopStart);
+    if (Number.isNaN(start)) return;
+
+    const expiresAt = start + WORKSHOP_EXPIRATION_MS;
+
+    if (now >= expiresAt) {
+      markWorkshopRowCompleted(row);
+      return;
+    }
+
+    if (start >= now && !nextWorkshopRow) {
+      nextWorkshopRow = row;
+    }
+  });
+
+  setNextWorkshopCtas(nextWorkshopRow);
+
+  document.querySelectorAll('[data-workshop-expire-section]').forEach((section) => {
+    const start = Date.parse(section.dataset.workshopExpireSection);
+    if (Number.isNaN(start)) return;
+    if (now >= start + WORKSHOP_EXPIRATION_MS) {
+      section.hidden = true;
+    }
+  });
+
+  const workshopStart = document.body?.dataset?.workshopStart;
+  if (!workshopStart) return;
+
+  const start = Date.parse(workshopStart);
+  if (Number.isNaN(start) || now < start + WORKSHOP_EXPIRATION_MS) return;
+
+  const title = document.body.dataset.workshopTitle || document.querySelector('h1')?.textContent?.trim() || 'Workshop Replay';
+  const replayHref = document.body.dataset.workshopReplay || workshopReplayHref(title);
+
+  document.querySelectorAll('[data-workshop-register]').forEach((link) => {
+    if (link.tagName === 'A') {
+      link.setAttribute('href', replayHref);
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+    }
+    link.textContent = 'Request Replay';
+  });
+
+  document.querySelectorAll('[data-workshop-status-label]').forEach((node) => {
+    node.textContent = 'Workshop Replay';
+  });
+
+  document.querySelectorAll('[data-workshop-expired-copy]').forEach((node) => {
+    node.textContent = `This live session has ended. Request the replay for "${title}" and we will send the next-step details.`;
+  });
+};
+
+initWorkshopExpirations();

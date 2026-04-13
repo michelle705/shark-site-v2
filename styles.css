@@ -320,17 +320,26 @@ body > footer { margin-top: auto; }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 560px) minmax(0, 560px);
+  gap: 56px;
   align-items: center;
+  justify-content: center;
   padding-top: 60px;
   padding-bottom: 100px;
+}
+
+.hero-left {
+  max-width: 560px;
+  justify-self: end;
 }
 
 /* Hero Visual */
 .hero-right {
   overflow: visible;
   position: relative;
+  width: 100%;
+  max-width: 560px;
+  justify-self: start;
 }
 
 .hero-visual {
@@ -405,7 +414,7 @@ body > footer { margin-top: auto; }
 
 .partner-badge {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
   gap: 18px;
   align-items: center;
   margin-top: 24px;
@@ -415,6 +424,7 @@ body > footer { margin-top: auto; }
   border-radius: 18px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  width: 100%;
   max-width: 560px;
 }
 .partner-badge-copy {
@@ -438,17 +448,21 @@ body > footer { margin-top: auto; }
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: end;
   background: #ffffff;
   border-radius: 16px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border: 1px solid rgba(6,28,44,0.08);
   box-shadow: 0 14px 30px rgba(6,28,44,0.18);
-  min-height: 88px;
-  min-width: 220px;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 320px;
 }
 .partner-badge-logo img {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  max-width: 280px;
   height: auto;
 }
 .partner-badge--home {
@@ -508,14 +522,14 @@ body > footer { margin-top: auto; }
 .float-badge--1,
 .pill-visibility {
   top: 30px;
-  right: -160px;
+  right: -88px;
   animation-delay: 0s;
 }
 
 .float-badge--2,
 .pill-trust {
   top: 46%;
-  right: -160px;
+  right: -88px;
   transform: translateY(-50%);
   animation-delay: 1.3s;
 }
@@ -523,7 +537,7 @@ body > footer { margin-top: auto; }
 .float-badge--3,
 .pill-conversion {
   bottom: 50px;
-  right: -160px;
+  right: -88px;
   animation-delay: 2.6s;
 }
 
@@ -724,6 +738,22 @@ body > footer { margin-top: auto; }
   border-radius: var(--radius-lg);
   padding: 30px 28px;
   box-shadow: var(--shadow);
+}
+
+.pptx-img-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 26px auto 0;
+  padding: 0 clamp(24px, 4vw, 56px);
+}
+
+.pptx-img-wrap img {
+  display: block;
+  width: min(100%, 960px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .feature-snapshot-grid {
