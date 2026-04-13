@@ -93,9 +93,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
     <a href="free-report.html" class="btn btn-primary nav-cta">Free Visibility Audit</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
-  <div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile" id="navMobile" hidden>
     <a href="index.html" class="nav-link">Home</a><a href="workshops.html" class="nav-link">Workshops</a><a href="plans.html" class="nav-link">Plans</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a>
     <a href="free-report.html" class="btn btn-primary">Free Visibility Audit</a>
   </div>
@@ -116,16 +116,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="section section--light">
   <div class="container" style="max-width:780px">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px" data-animate>
-      <div style="background:#fff;border:1px solid var(--gray-mid);border-radius:12px;padding:24px;text-align:center">
+    <div class="feature-snapshot-grid" data-animate style="margin-bottom:48px">
+      <div class="feature-snapshot-card feature-snapshot-card--center">
         <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px">Search Visibility</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.5">See how your business appears in Google, Bing, maps, and AI-assisted discovery.</div>
       </div>
-      <div style="background:#fff;border:1px solid var(--gray-mid);border-radius:12px;padding:24px;text-align:center">
+      <div class="feature-snapshot-card feature-snapshot-card--center">
         <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px">Reviews and Reputation</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.5">Understand whether trust signals are helping buyers choose you or making them hesitate.</div>
       </div>
-      <div style="background:#fff;border:1px solid var(--gray-mid);border-radius:12px;padding:24px;text-align:center">
+      <div class="feature-snapshot-card feature-snapshot-card--center">
         <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px">Listings and Consistency</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.5">Check whether business data is aligned well enough to support stronger local visibility.</div>
       </div>
