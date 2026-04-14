@@ -221,12 +221,13 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Footer case studies accordion — click on mobile only
-document.querySelectorAll('.footer-accordion-trigger').forEach(trigger => {
-  trigger.addEventListener('click', () => {
+// Nav Case Studies dropdown — toggle on mobile
+document.querySelectorAll('.nav-has-dropdown .nav-link--dropdown').forEach(link => {
+  link.addEventListener('click', (e) => {
     if (window.innerWidth > 768) return;
-    const accordion = trigger.closest('.footer-accordion');
-    accordion.classList.toggle('open');
+    e.preventDefault();
+    const item = link.closest('.nav-has-dropdown');
+    item.classList.toggle('open');
   });
 });
 
