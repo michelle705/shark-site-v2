@@ -7,8 +7,38 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<meta name="description" content="Practical AI visibility guides, tips, and insights for local businesses from Shark Branding Solutions.">
+<meta name="description" content="Practical AI visibility guides, tips, and insights for local businesses from Shark Branding Solutions. Learn how to get found and chosen by ChatGPT, Gemini, and Google AI.">
 <link rel="canonical" href="https://sharkbrandingsolutions.com/ai-resources">
+<meta property="og:title" content="AI Resources | Shark Branding Solutions">
+<meta property="og:description" content="Practical AI visibility guides, tips, and insights for local businesses. Learn how to get found and chosen by ChatGPT, Gemini, and Google AI.">
+<meta property="og:url" content="https://sharkbrandingsolutions.com/ai-resources">
+<meta property="og:site_name" content="Shark Branding Solutions">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cdn.marblism.com/Pa2DPW_JehC.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SharkBranding">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sharkbrandingsolutions.com/"},
+        {"@type": "ListItem", "position": 2, "name": "AI Resources", "item": "https://sharkbrandingsolutions.com/ai-resources"}
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "AI Resources",
+      "description": "Practical AI visibility guides, tips, and insights for local businesses from Shark Branding Solutions.",
+      "url": "https://sharkbrandingsolutions.com/ai-resources",
+      "publisher": {"@type": "Organization", "name": "Shark Branding Solutions", "logo": {"@type": "ImageObject", "url": "https://sharkbrandingsolutions.com/logo.png"}}
+    }
+  ]
+}
+</script>
 <style>
 
 /* ── Page-level fade-in ── */
@@ -281,9 +311,17 @@
   position: absolute; top: 14px; right: 16px; z-index: 1;
   font-family: var(--font-display);
   font-size: 48px; font-weight: 400;
-  color: rgba(255,255,255,.12); line-height: 1;
+  color: rgba(255,255,255,.55); line-height: 1;
   pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
 }
+.post-card-thumb img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.post-card:hover .post-card-thumb img { transform: scale(1.04); }
 
 .post-card-body {
   padding: 26px 28px 30px;
@@ -405,14 +443,7 @@
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="workshops.html" class="nav-link">Workshops</a></li>
       <li><a href="plans.html" class="nav-link">Plans</a></li>
-      <li class="nav-dropdown">
-        <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Case Studies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:2px"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <ul class="nav-dropdown-menu">
-          <li><a href="north-tampa-bay-chamber-ai-visibility-case-study.html">NTBC Chamber</a></li>
-          <li><a href="emorys-rock-realty-ai-visibility-case-study.html">Emory's Rock Realty</a></li>
-          <li><a href="hvac-local-seo-case-study.html">HVAC</a></li>
-        </ul>
-      </li>
+      <li class="nav-has-dropdown"><a href="portfolio.html" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="hvac-local-seo-case-study.html">HVAC Local SEO Case Study</a><a href="emorys-rock-realty-ai-visibility-case-study.html">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study.html">North Tampa Bay Chamber</a></div></li>
       <li><a href="ai-resources.html" class="nav-link active">AI Resources</a></li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -421,18 +452,9 @@
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="workshops.html" class="nav-link">Workshops</a>
-    <a href="plans.html" class="nav-link">Plans</a>
-    <div style="padding:4px 0">
-      <span class="nav-mobile-label">Case Studies</span>
-      <a href="north-tampa-bay-chamber-ai-visibility-case-study.html" class="nav-link nav-link--sub">NTBC Chamber</a>
-      <a href="emorys-rock-realty-ai-visibility-case-study.html" class="nav-link nav-link--sub">Emory's Rock Realty</a>
-      <a href="hvac-local-seo-case-study.html" class="nav-link nav-link--sub">HVAC</a>
-    </div>
-    <a href="ai-resources.html" class="nav-link">AI Resources</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="index.html" class="nav-link">Home</a><a href="workshops.html" class="nav-link">Workshops</a><a href="plans.html" class="nav-link">Plans</a>
+    <div class="nav-mobile-sub"><a href="hvac-local-seo-case-study.html" class="nav-link">HVAC Local SEO</a><a href="emorys-rock-realty-ai-visibility-case-study.html" class="nav-link">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study.html" class="nav-link">North Tampa Bay Chamber</a></div>
+    <a href="ai-resources.html" class="nav-link">AI Resources</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a>
     <a href="free-report.html" class="btn btn-primary">Free Visibility Audit</a>
   </div>
 </nav>
@@ -503,8 +525,7 @@
         </div>
       </div>
       <div class="res-featured-visual">
-        <div class="res-featured-visual-grid"></div>
-        <div class="res-featured-visual-icon">⏱️</div>
+        <img src="https://cdn.marblism.com/Pa2DPW_JehC.webp" alt="The 24-Hour Rule: AI-Assisted Review Responses for Local Trust" loading="eager" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
         <div class="res-featured-visual-badge">
           <p><strong>Key stat:</strong> 73% of consumers only trust reviews from the last 30 days—and they watch how you respond.</p>
         </div>
@@ -529,10 +550,8 @@
 
       <!-- ── POST 1 ── -->
       <a class="post-card fade-up fade-up-d1" href="blog-ai-map-consistent-business-listings.html" data-category="ai-visibility">
-        <div class="post-card-thumb thumb--teal">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">🗺️</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/7iy6leaSINV.webp" alt="AI map showing consistent business listings" loading="lazy">
           <div class="post-card-num">01</div>
         </div>
         <div class="post-card-body">
@@ -550,10 +569,8 @@
 
       <!-- ── POST 2 ── -->
       <a class="post-card fade-up fade-up-d2" href="blog-trusted-ai-review-responses.html" data-category="strategy">
-        <div class="post-card-thumb thumb--deep">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">🤝</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/9UR7nYzKUsH.webp" alt="AI-assisted review responses building local trust" loading="lazy">
           <div class="post-card-num">02</div>
         </div>
         <div class="post-card-body">
@@ -571,10 +588,8 @@
 
       <!-- ── POST 3 ── -->
       <a class="post-card fade-up fade-up-d3" href="blog-ai-funnel-chatgpt-new-front-door.html" data-category="ai-visibility">
-        <div class="post-card-thumb thumb--navy">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">🚪</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/WCQ37axSRBo.webp" alt="ChatGPT as the new front door for local business customers" loading="lazy">
           <div class="post-card-num">03</div>
         </div>
         <div class="post-card-body">
@@ -613,10 +628,8 @@
 
       <!-- ── POST 4 ── -->
       <a class="post-card" href="blog-end-of-phone-tag-google-ai-check-prices.html" data-category="ai-visibility">
-        <div class="post-card-thumb thumb--deep">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">📞</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/pAHnAFvGQW-.webp" alt="End of phone tag with Google AI price check" loading="lazy">
           <div class="post-card-num">04</div>
         </div>
         <div class="post-card-body">
@@ -634,10 +647,8 @@
 
       <!-- ── POST 5 ── -->
       <a class="post-card" href="blog-hvac-invisible-to-number-2-local-search.html" data-category="local-seo">
-        <div class="post-card-thumb thumb--teal">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">📈</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/mUE0AsHh_PI.webp" alt="HVAC business going from invisible to number 2 in local search" loading="lazy">
           <div class="post-card-num">05</div>
         </div>
         <div class="post-card-body">
@@ -655,10 +666,8 @@
 
       <!-- ── POST 6 ── -->
       <a class="post-card" href="blog-seo-old-school-geo-ai-shift.html" data-category="geo">
-        <div class="post-card-thumb thumb--navy">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">🔍</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/2VbuJ2Gidnh.webp" alt="SEO versus GEO for local business AI shift" loading="lazy">
           <div class="post-card-num">06</div>
         </div>
         <div class="post-card-body">
@@ -676,10 +685,8 @@
 
       <!-- ── POST 7 ── -->
       <a class="post-card" href="blog-google-reviews-ai-recommendations.html" data-category="strategy">
-        <div class="post-card-thumb thumb--deep">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">⭐</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/y52lgWLfO0y.webp" alt="Turning Google reviews into AI recommendations" loading="lazy">
           <div class="post-card-num">07</div>
         </div>
         <div class="post-card-body">
@@ -697,10 +704,8 @@
 
       <!-- ── POST 8 ── -->
       <a class="post-card" href="blog-ai-funnel-chatgpt-gemini-path-to-purchase.html" data-category="ai-visibility">
-        <div class="post-card-thumb thumb--teal">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">🛒</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/8f2m0RQROII.webp" alt="ChatGPT and Gemini reshaping the path to purchase" loading="lazy">
           <div class="post-card-num">08</div>
         </div>
         <div class="post-card-body">
@@ -718,10 +723,8 @@
 
       <!-- ── POST 9 ── -->
       <a class="post-card" href="blog-google-ai-price-check-ready-to-be-chosen.html" data-category="ai-visibility">
-        <div class="post-card-thumb thumb--navy">
-          <div class="post-card-thumb-bg"></div>
-          <div class="post-card-thumb-pattern"></div>
-          <div class="post-card-thumb-icon">💰</div>
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/JgoUj9sIFN7.webp" alt="Google AI price check calling local businesses" loading="lazy">
           <div class="post-card-num">09</div>
         </div>
         <div class="post-card-body">

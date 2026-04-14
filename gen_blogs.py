@@ -498,7 +498,7 @@ BODY_6 = """
         <li><strong>Audit Your Citations:</strong> Is your business information identical across the entire web?</li>
         <li><strong>Claim Your Entity:</strong> Make sure your Google Business Profile is robust, updated daily, and filled with high-quality images.</li>
         <li><strong>Optimize for Natural Language:</strong> Write your FAQs like a human would speak them.</li>
-        <li><strong>Leverage Structured Data:</strong> If you don&rsquo;t have Schema markup on your site, you are essentially speaking a language the AI can&rsquo;t understand.</li>
+        <li><strong>Add Structured Data:</strong> If you don&rsquo;t have Schema markup on your site, you are essentially speaking a language the AI can&rsquo;t understand.</li>
       </ol>
       <p>The &ldquo;AI Shift&rdquo; isn&rsquo;t coming; it&rsquo;s already here. You can either stay stuck in the &ldquo;Ten Blue Links&rdquo; past, or you can join the future of <strong>Generative Engine Optimization</strong>. Whether you need support from a full <a href="geo-for-local-businesses.html">AI Visibility Agency</a> or a specific local strategy, Shark Branding Solutions is ready to help you bite back against the competition.</p>"""
 
