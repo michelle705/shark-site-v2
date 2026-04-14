@@ -1720,6 +1720,11 @@ body > footer { margin-top: auto; }
 .article-body li { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 10px; }
 .article-body a { color: var(--blue); text-decoration: underline; text-decoration-color: rgba(24,181,216,.35); transition: text-decoration-color var(--transition); }
 .article-body a:hover { text-decoration-color: var(--blue); }
+/* Override inherited link styles for buttons inside article body */
+.article-body .btn { text-decoration: none; text-decoration-color: transparent; }
+.article-body .btn-primary { color: #fff; }
+.article-body .btn-ghost { color: #fff; }
+.article-body .btn-outline { color: var(--blue); }
 .article-img { width: 100%; height: auto; border-radius: 16px; margin: 36px 0; display: block; box-shadow: 0 8px 32px rgba(6,28,44,.1); }
 .article-hr { border: none; border-top: 1px solid var(--gray-mid); margin: 48px 0; }
 .callout-box {
