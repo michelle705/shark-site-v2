@@ -1,6 +1,4 @@
-I have reverted to the full structure of the original code while removing all bracketed citation markers. This version restores the full navigation menu, the detailed schema markup, the Google Tag Manager scripts, and the complete footer with social icons and service area links.
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,34 +138,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section section--light">
+<section class="section section--light" style="padding: 80px 0;">
   <div class="container" style="max-width:1120px">
-    <div class="section-label">The Problem</div>
-    <h2 class="section-title">96% of businesses are not being recommended by AI</h2>
-    <p class="section-intro">Even great local businesses are being overlooked every day. AI search systems only recommend businesses they can verify and trust; if information is inconsistent or outdated, those businesses get skipped entirely.</p>
-    <div class="chamber-shift-grid">
-      <article class="chamber-shift-card chamber-shift-card--before" data-animate>
-        <span class="chamber-shift-label">Before Toolkit</span>
-        <h3>Traditional visibility was not enough</h3>
-        <ul>
-          <li>Member information was inconsistent across AI-relied platforms</li>
-          <li>Digital authority was tied to legacy search, not generative search</li>
-          <li>AI systems lacked the verification needed to recommend members</li>
+    <div class="section-label">Market Analysis</div>
+    <h2 class="section-title" style="margin-bottom: 24px;">96% of businesses are not being recommended by AI</h2>
+    <p class="section-intro" style="max-width: 800px; margin-bottom: 56px;">
+      Even great local businesses are being overlooked every day. AI search systems only recommend businesses they can verify and trust; if information is inconsistent or outdated, those businesses get skipped entirely.
+    </p>
+    
+    <div class="chamber-shift-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px;">
+      
+      <article class="glass-card" style="
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      ">
+        <header style="margin-bottom: 24px;">
+          <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #666;">Baseline Status</span>
+          <h3 style="font-size: 28px; margin-top: 8px; color: #111; line-height: 1.2;">Before Toolkit: Traditional visibility was not enough</h3>
+        </header>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #444; line-height: 1.7;">
+          <li style="margin-bottom: 16px; display: flex; align-items: flex-start;">
+            <span style="color: #e74c3c; margin-right: 12px;">✕</span>
+            Member information was inconsistent across AI-relied platforms
+          </li>
+          <li style="margin-bottom: 16px; display: flex; align-items: flex-start;">
+            <span style="color: #e74c3c; margin-right: 12px;">✕</span>
+            Digital authority was tied to legacy search, not generative search
+          </li>
+          <li style="display: flex; align-items: flex-start;">
+            <span style="color: #e74c3c; margin-right: 12px;">✕</span>
+            AI systems lacked the verification needed to recommend members
+          </li>
         </ul>
       </article>
-      <article class="chamber-shift-card chamber-shift-card--after" data-animate data-delay="100">
-        <span class="chamber-shift-label">The Solution</span>
-        <h3>Strategic AI Readiness</h3>
-        <ul>
-          <li>Cleaned and aligned business data across the AI ecosystem</li>
-          <li>Established the Chamber as a high-authority local source</li>
-          <li>Made it easier for AI to find, verify, and recommend members</li>
+
+      <article class="glass-card glass-card--accent" style="
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        position: relative;
+        overflow: hidden;
+      ">
+        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(200, 150, 15, 0.1); filter: blur(40px); border-radius: 50%;"></div>
+        
+        <header style="margin-bottom: 24px;">
+          <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary, #c8960f);">The Transformation</span>
+          <h3 style="font-size: 28px; margin-top: 8px; color: #111; line-height: 1.2;">The Solution: Strategic AI Readiness</h3>
+        </header>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #444; line-height: 1.7;">
+          <li style="margin-bottom: 16px; display: flex; align-items: flex-start;">
+            <span style="color: #27ae60; margin-right: 12px;">✓</span>
+            Cleaned and aligned business data across the AI ecosystem
+          </li>
+          <li style="margin-bottom: 16px; display: flex; align-items: flex-start;">
+            <span style="color: #27ae60; margin-right: 12px;">✓</span>
+            Established the Chamber as a high-authority local source
+          </li>
+          <li style="display: flex; align-items: flex-start;">
+            <span style="color: #27ae60; margin-right: 12px;">✓</span>
+            Made it easier for AI to find, verify, and recommend members
+          </li>
         </ul>
       </article>
+
     </div>
   </div>
 </section>
-
 <section class="section section--dark">
   <div class="container" style="max-width:1120px">
     <div class="section-label section-label--light">Strategic Outcomes</div>
