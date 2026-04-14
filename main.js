@@ -221,6 +221,15 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
+// Footer case studies accordion — click on mobile only
+document.querySelectorAll('.footer-accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    if (window.innerWidth > 768) return;
+    const accordion = trigger.closest('.footer-accordion');
+    accordion.classList.toggle('open');
+  });
+});
+
 // Contact form handler (placeholder)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
