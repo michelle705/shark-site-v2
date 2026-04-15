@@ -64,6 +64,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 }
 </script>
+<style>
+@media (max-width: 767px) {
+  .cs-stat-bar-grid { grid-template-columns: 1fr !important; }
+  .cs-stat-bar-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 24px !important; }
+  .cs-stat-bar-grid > div:last-child { border-bottom: none; }
+  .cs-problem-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .cs-problem-sticky { position: static !important; }
+  .cs-steps-grid { grid-template-columns: 1fr !important; }
+  .cs-rank-cards { grid-template-columns: 1fr !important; }
+  .cs-2col { grid-template-columns: 1fr !important; }
+  .cs-section-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .cs-card-pad { padding: 28px 24px !important; }
+  .page-hero-inner h1, .page-hero-inner p { max-width: 100% !important; }
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -79,12 +94,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <li class="nav-has-dropdown"><a href="portfolio.html" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="hvac-local-seo-case-study.html">HVAC Local SEO Case Study</a><a href="emorys-rock-realty-ai-visibility-case-study.html">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study.html">North Tampa Bay Chamber</a></div></li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="ai-resources.html" class="nav-link">AI Resources</a></li>
     </ul>
     <a href="free-report.html" class="btn btn-primary nav-cta">Free Visibility Audit</a>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
     <a href="index.html" class="nav-link">Home</a><a href="workshops.html" class="nav-link">Workshops</a><a href="plans.html" class="nav-link">Plans</a><div class="nav-mobile-sub"><a href="hvac-local-seo-case-study.html" class="nav-link">HVAC Local SEO</a><a href="emorys-rock-realty-ai-visibility-case-study.html" class="nav-link">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study.html" class="nav-link">North Tampa Bay Chamber</a></div><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a>
+    <a href="ai-resources.html" class="nav-link">AI Resources</a>
     <a href="free-report.html" class="btn btn-primary">Free Visibility Audit</a>
   </div>
 </nav>
@@ -128,8 +145,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- THE PROBLEM -->
 <section class="section section--light" style="padding-top:96px;padding-bottom:96px">
   <div class="container" style="max-width:1100px">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start">
-      <div style="position:sticky;top:100px">
+    <div style="class="cs-problem-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start">
+      <div class="cs-problem-sticky" style="position:sticky;top:100px">
         <div class="section-label">The Problem</div>
         <h2 class="section-title" style="font-size:clamp(28px,3vw,38px);margin-bottom:20px">Good at the work. Just not being found fast enough.</h2>
         <p style="color:#555;font-size:16px;line-height:1.75">When people searched for urgent HVAC help, this business wasn't showing up strongly enough in the places that influence quick decisions.</p>
@@ -174,7 +191,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="section-label section-label--light">What the Toolkit Improved</div>
       <h2 class="section-title section-title--light" style="max-width:680px;margin-left:auto;margin-right:auto">The Local Business Toolkit focuses on the signals that shape local visibility now</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="class="cs-steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
       <div data-animate style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:36px 32px">
         <div style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#fff" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
@@ -229,7 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title" style="max-width:680px;margin-left:auto;margin-right:auto">High-intent ranking movement in less than 30 days</h2>
       <p style="color:#555;font-size:17px;line-height:1.75;max-width:640px;margin:16px auto 0">These are the keywords that matter—tied to real service intent, searched at decision time.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px">
+    <div style="class="cs-rank-cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px">
 
       <div data-animate style="background:#fff;border:1px solid #e4e6ea;border-radius:16px;padding:32px 28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:16px">
         <p style="font-size:15px;font-weight:600;color:#1a1a2e;margin:0;line-height:1.4">same day AC repair</p>
@@ -299,7 +316,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="section-label">Why This Matters to Other Businesses</div>
       <h2 class="section-title" style="max-width:680px;margin-left:auto;margin-right:auto">Customers do not search the way they used to</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:48px">
+    <div style="class="cs-2col" style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:48px">
       <div data-animate style="background:#fff;border:1px solid #e4e6ea;border-radius:20px;padding:44px;box-shadow:0 2px 16px rgba(0,0,0,0.05)">
         <div style="display:inline-flex;align-items:center;gap:8px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1d4ed8;margin-bottom:24px">The Shift</div>
         <h3 style="font-size:22px;color:#1a1a2e;margin-bottom:14px">People search across 5+ channels before calling</h3>
@@ -322,7 +339,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container" style="max-width:900px;text-align:center">
     <div class="section-label section-label--light">The Takeaway</div>
     <h2 class="section-title section-title--light" style="margin-bottom:24px">A local business does not need more noise. It needs stronger visibility in the moments that count.</h2>
-    <div data-animate style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px;text-align:left">
+    <div data-animate class="cs-2col" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px;text-align:left">
       <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:32px 36px;display:flex;align-items:flex-start;gap:16px">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <p style="color:rgba(255,255,255,0.85);font-size:16px;line-height:1.7;margin:0">Once the right visibility and authority signals were addressed, ranking movement followed quickly</p>
@@ -366,6 +383,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
         <a href="https://www.facebook.com/sharkbrandingsolutions" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="https://www.instagram.com/sharkbrandingsolutions/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/@SharkBrandingSolutions" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="currentColor" stroke-width="2"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
     <div class="footer-links">
