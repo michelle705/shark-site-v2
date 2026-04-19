@@ -258,6 +258,37 @@ document.querySelectorAll('[data-area-detect]').forEach((button) => {
   });
 });
 
+const chatWidgetId = document.documentElement.dataset.chatWidgetId;
+let chatWidgetLoaded = false;
+
+const loadChatWidget = () => {
+  if (!chatWidgetId || chatWidgetLoaded) return;
+  chatWidgetLoaded = true;
+
+  const script = document.createElement('script');
+  script.src = 'https://cdn.apigateway.co/webchat-client..prod/sdk.js';
+  script.defer = true;
+  script.dataset.widgetId = chatWidgetId;
+  script.crossOrigin = 'anonymous';
+  document.body.appendChild(script);
+};
+
+if (chatWidgetId) {
+  const loadChatOnIdle = () => {
+    window.setTimeout(loadChatWidget, 12000);
+  };
+
+  if (document.readyState === 'complete') {
+    loadChatOnIdle();
+  } else {
+    window.addEventListener('load', loadChatOnIdle, { once: true });
+  }
+
+  ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
+    window.addEventListener(eventName, loadChatWidget, { once: true, passive: true });
+  });
+}
+
 if (!hasExplicitAreaPreference) {
   detectNearestArea({ silent: true });
 }
