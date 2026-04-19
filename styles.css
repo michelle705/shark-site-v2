@@ -62,28 +62,26 @@ img {
   height: auto;
 }
 
-.problem-card,
-.case-study-panel,
-.framework-card,
-.workshop-card,
-.plan-card,
-.plan-page-card,
-.article-cta,
-.callout-box,
-.contact-path-card,
-.contact-detail-card,
-.post-card,
-.res-featured-card,
-.ws-row {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 320px;
-}
+
 
 /* ============ UTILITY ============ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Responsive Grid Utilities */
+.grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+
+@media (max-width: 768px) {
+  .grid-2col, .grid-3col, .grid-4col, .grid-1-2 {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
 }
 
 .section { padding: 88px 0; position: relative; overflow: hidden; }
