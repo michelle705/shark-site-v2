@@ -128,6 +128,19 @@
   <span>How to Rank on ChatGPT</span>
 </div>
 
+<style>
+/* Missing CSS to fix invisible text inside resource-card--dark and missing grid layouts */
+.resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.resource-card { background: #fff; border: 1px solid var(--gray-mid); padding: 36px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+.resource-card h3 { font-size: 20px; margin-bottom: 16px; color: var(--text-dark); }
+.resource-card--dark { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+.resource-card--dark h3 { color: #fff; }
+.resource-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.resource-list li { position: relative; padding-left: 20px; color: inherit; line-height: 1.6; font-size: 15px; }
+.resource-list li::before { content: "→"; color: var(--blue); position: absolute; left: 0; top: 0; font-weight: bold; }
+@media(max-width: 800px) { .resource-grid { grid-template-columns: 1fr; } }
+</style>
+
 <section class="page-hero">
   <div class="hero-grid"></div>
   <div class="page-hero-inner page-hero-inner--wide">
@@ -139,6 +152,25 @@
       <span>By <a href="about.html">Michelle Stanaland</a></span>
       <span>Published April 18, 2026</span>
       <span>Updated April 18, 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- AI Summary Box for AEO Optimization -->
+<section class="section section--light" style="padding-bottom: 40px; padding-top: 40px; background-color: #f8fafc;">
+  <div class="container" style="max-width:980px">
+    <div style="background:#fff; border-left:4px solid var(--blue); padding:32px; border-radius:8px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+      <h2 style="font-size:18px; font-weight:700; color:var(--text-dark); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Quick Answer (AI Summary)
+      </h2>
+      <p style="font-size:15px; color:var(--text-mid); line-height:1.7; margin-bottom:12px;"><strong>How do I rank a local business on ChatGPT?</strong> To rank on ChatGPT and AI Search tools, local businesses must transition from traditional SEO (keywords) to GEO (Generative Engine Optimization). AI systems prioritize businesses that are easy to verify, cite, and recommend.</p>
+      <ul style="font-size:15px; color:var(--text-mid); line-height:1.7; margin:0; padding-left:20px;">
+        <li><strong>Entity Consistency:</strong> Ensure NAP (Name, Address, Phone) is identical across Google Business Profile, Yelp, Apple, Bing, and directories.</li>
+        <li><strong>Service Clarity:</strong> Maintain robust, specific service pages outlining exactly what you do and where.</li>
+        <li><strong>Third-Party Proof:</strong> Consistently collect and quickly respond to local reviews to establish machine-readable trust signals.</li>
+        <li><strong>Structured Context:</strong> Implement LocalBusiness schema and FAQ markup so AI extractors understand your core offer immediately.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -173,7 +205,7 @@
   <div class="container" style="max-width:980px">
     <div class="section-label">What ChatGPT Needs</div>
     <h2 class="section-title">What actually improves your chances of showing up in ChatGPT answers</h2>
-    <div class="problem-grid">
+    <div class="problem-grid grid-3col">
       <div class="problem-card" data-animate>
         <div class="problem-num">01</div>
         <h3>Clear business identity</h3>
@@ -248,7 +280,7 @@
   <div class="container" style="max-width:980px">
     <div class="section-label">Priority Fixes</div>
     <h2 class="section-title">Nine practical moves that give this query real authority</h2>
-    <div class="problem-grid">
+    <div class="problem-grid grid-3col">
       <div class="problem-card" data-animate>
         <div class="problem-num">01</div>
         <h3>Write one definitive page for the query</h3>
