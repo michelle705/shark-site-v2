@@ -227,6 +227,11 @@ img {
   text-decoration: none;
   flex-shrink: 0;
 }
+.nav-logo img {
+  width: auto;
+  height: 58px;
+  max-width: none;
+}
 .logo-shark {
   color: var(--blue);
   font-size: 22px;
@@ -1807,6 +1812,11 @@ img {
   padding-bottom: 48px;
 }
 .footer-brand .nav-logo { margin-bottom: 16px; }
+.footer-brand .nav-logo img {
+  width: auto;
+  height: 50px;
+  max-width: none;
+}
 .footer-brand p {
   font-size: 13px;
   color: rgba(255,255,255,0.4);
