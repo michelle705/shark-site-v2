@@ -294,6 +294,20 @@ const updateAiResourcesNav = () => {
 
 updateAiResourcesNav();
 
+const removePlansLinks = () => {
+  document.querySelectorAll('#nav a[href="plans.html"], #nav a[href="/plans"], .footer a[href="plans.html"], .footer a[href="/plans"]').forEach((link) => {
+    const listItem = link.closest('li');
+    if (listItem) {
+      listItem.remove();
+      return;
+    }
+
+    link.remove();
+  });
+};
+
+removePlansLinks();
+
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
