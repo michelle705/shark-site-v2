@@ -149,6 +149,151 @@ const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
 const navMobile = document.getElementById('navMobile');
 
+const normalizePath = (value = '') => {
+  let normalized = value
+    .replace(/^https?:\/\/[^/]+/i, '')
+    .replace(/[?#].*$/, '')
+    .replace(/\/$/, '');
+
+  try {
+    normalized = decodeURIComponent(normalized);
+  } catch {
+    // Keep the original path if decoding fails.
+  }
+
+  return normalized.toLowerCase();
+};
+
+const currentPath = normalizePath(window.location.pathname);
+const isWorkshopsPath = /(?:^|\/)(workshops|ai & marketing workshops in tampa bay|workshop-[^/]+)(?:\.html)?$/.test(currentPath);
+const isArticlesPath = currentPath.endsWith('/ai-resources')
+  || currentPath.endsWith('/ai-resources.html')
+  || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
+const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
+
+const normalizeNavHref = (href, fallback) => {
+  if (!href) return fallback;
+  if (href === 'workshops.html') return '/workshops';
+  if (href === 'ai-resources.html') return '/ai-resources';
+  return href;
+};
+
+const createDropdownLink = ({ href, label, description, active = false }) => {
+  const link = document.createElement('a');
+  link.href = href;
+  if (active) {
+    link.classList.add('active');
+    link.setAttribute('aria-current', 'page');
+  }
+
+  const content = document.createElement('span');
+  const meta = document.createElement('span');
+  meta.className = 'dd-label';
+  meta.textContent = label;
+  content.appendChild(meta);
+  content.append(description);
+  link.appendChild(content);
+
+  return link;
+};
+
+const updateAiResourcesNav = () => {
+  if (!nav) return;
+
+  const desktopList = nav.querySelector('.nav-links');
+  if (desktopList) {
+    const desktopLinks = Array.from(desktopList.querySelectorAll(':scope > li > a.nav-link'));
+    const workshopsLink = desktopLinks.find((link) => link.textContent.trim() === 'Workshops');
+    const aiResourcesLink = desktopLinks.find((link) => link.textContent.trim() === 'AI Resources');
+    const workshopsHref = normalizeNavHref(workshopsLink?.getAttribute('href'), '/workshops');
+    const articlesHref = normalizeNavHref(aiResourcesLink?.getAttribute('href'), '/ai-resources');
+
+    if (workshopsLink) {
+      workshopsLink.closest('li')?.remove();
+    }
+
+    if (aiResourcesLink) {
+      const aiItem = aiResourcesLink.closest('li');
+      if (aiItem && !aiItem.classList.contains('nav-has-dropdown')) {
+        const dropdownItem = document.createElement('li');
+        dropdownItem.className = 'nav-has-dropdown';
+
+        const trigger = document.createElement('a');
+        trigger.href = articlesHref;
+        trigger.className = 'nav-link nav-link--dropdown';
+        trigger.textContent = 'AI Resources';
+        if (isAiResourcesSection) {
+          trigger.classList.add('active');
+        }
+
+        const dropdown = document.createElement('div');
+        dropdown.className = 'nav-dropdown';
+        dropdown.append(
+          createDropdownLink({
+            href: articlesHref,
+            label: 'Articles',
+            description: 'Blog page',
+            active: isArticlesPath
+          }),
+          createDropdownLink({
+            href: workshopsHref,
+            label: 'Workshops',
+            description: 'Live sessions',
+            active: isWorkshopsPath
+          })
+        );
+
+        dropdownItem.append(trigger, dropdown);
+        aiItem.replaceWith(dropdownItem);
+      }
+    }
+  }
+
+  if (navMobile) {
+    const mobileLinks = Array.from(navMobile.querySelectorAll(':scope > a.nav-link'));
+    const mobileWorkshops = mobileLinks.find((link) => link.textContent.trim() === 'Workshops');
+    const mobileAiResources = mobileLinks.find((link) => link.textContent.trim() === 'AI Resources');
+    const workshopsHref = normalizeNavHref(mobileWorkshops?.getAttribute('href'), '/workshops');
+    const articlesHref = normalizeNavHref(mobileAiResources?.getAttribute('href'), '/ai-resources');
+
+    mobileWorkshops?.remove();
+    mobileAiResources?.remove();
+
+    const aiLink = document.createElement('a');
+    aiLink.href = articlesHref;
+    aiLink.className = 'nav-link';
+    aiLink.textContent = 'AI Resources';
+    if (isAiResourcesSection) {
+      aiLink.classList.add('active');
+    }
+
+    const aiSubNav = document.createElement('div');
+    aiSubNav.className = 'nav-mobile-sub';
+    aiSubNav.append(
+      createDropdownLink({
+        href: articlesHref,
+        label: 'Articles',
+        description: 'Blog page',
+        active: isArticlesPath
+      }),
+      createDropdownLink({
+        href: workshopsHref,
+        label: 'Workshops',
+        description: 'Live sessions',
+        active: isWorkshopsPath
+      })
+    );
+
+    const insertBeforeNode = Array.from(navMobile.children).find((child) =>
+      child.matches?.('a.btn, a[href*="about"], a[href="/about"], a[href="about.html"]')
+    );
+    navMobile.insertBefore(aiLink, insertBeforeNode || null);
+    navMobile.insertBefore(aiSubNav, insertBeforeNode || null);
+  }
+};
+
+updateAiResourcesNav();
+
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');

@@ -363,6 +363,10 @@ img {
   background: #f0f8fb;
   color: var(--blue);
 }
+.nav-dropdown a.active {
+  background: #f0f8fb;
+  color: var(--blue);
+}
 .nav-dropdown a .dd-label {
   display: block;
   font-size: 11px;
@@ -396,6 +400,29 @@ img {
   padding-left: 14px;
   border-left: 2px solid rgba(24,181,216,0.3);
   margin-left: 14px;
+}
+.nav-mobile-sub a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  line-height: 1.45;
+  transition: var(--transition);
+}
+.nav-mobile-sub a:hover,
+.nav-mobile-sub a.active {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+}
+.nav-mobile-sub a .dd-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(24,181,216,0.8);
+  margin-bottom: 3px;
 }
 
 /* ============ HERO ============ */
