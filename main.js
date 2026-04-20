@@ -145,9 +145,9 @@ const detectNearestArea = ({ statusNode, silent = false } = {}) => {
 };
 
 // Navigation scroll effect
-const nav = document.getElementById('nav');
-const navToggle = document.getElementById('navToggle');
-const navMobile = document.getElementById('navMobile');
+let nav = document.getElementById('nav');
+let navToggle = null;
+let navMobile = null;
 
 const normalizePath = (value = '') => {
   let normalized = value
@@ -165,148 +165,123 @@ const normalizePath = (value = '') => {
 };
 
 const currentPath = normalizePath(window.location.pathname);
+const isHomePath = currentPath === '' || currentPath === '/' || currentPath.endsWith('/index.html');
+const isAboutPath = /(?:^|\/)about(?:\.html)?$/.test(currentPath);
+const isContactPath = /(?:^|\/)contact(?:\.html)?$/.test(currentPath);
+const isPortfolioPath = /(?:^|\/)(portfolio|hvac-local-seo-case-study|emorys-rock-realty-ai-visibility-case-study|north-tampa-bay-chamber-ai-visibility-case-study)(?:\.html)?$/.test(currentPath);
 const isWorkshopsPath = /(?:^|\/)(workshops|ai & marketing workshops in tampa bay|workshop-[^/]+)(?:\.html)?$/.test(currentPath);
 const isArticlesPath = currentPath.endsWith('/ai-resources')
   || currentPath.endsWith('/ai-resources.html')
   || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
 const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
-
-const normalizeNavHref = (href, fallback) => {
-  if (!href) return fallback;
-  if (href === 'workshops.html') return '/workshops';
-  if (href === 'ai-resources.html') return '/ai-resources';
-  return href;
+const ROUTES = {
+  home: 'index.html',
+  workshops: 'workshops.html',
+  articles: 'ai-resources.html',
+  portfolio: 'portfolio.html',
+  hvac: 'hvac-local-seo-case-study.html',
+  emory: 'emorys-rock-realty-ai-visibility-case-study.html',
+  chamberCaseStudy: 'north-tampa-bay-chamber-ai-visibility-case-study.html',
+  about: 'about.html',
+  contact: 'contact.html',
+  freeReport: 'free-report.html',
+  consulting: 'ai-visibility-consulting.html',
+  audit: 'local-seo-visibility-audit.html',
+  geo: 'geo-for-local-businesses.html',
+  toolkit: 'north-tampa-bay-chamber-ai-visibility-toolkit.html',
+  tampa: 'tampa-marketing-consultant.html',
+  tampaBay: 'tampa-bay-marketing-consultant.html',
+  lutz: 'lutz-marketing-consultant.html',
+  landOLakes: 'land-o-lakes-marketing-consultant.html',
+  wesleyChapel: 'wesley-chapel-marketing-consultant.html',
+  stPetersburg: 'st-petersburg-marketing-consultant.html'
 };
 
-const createDropdownLink = ({ href, label, description, active = false }) => {
-  const link = document.createElement('a');
-  link.href = href;
-  if (active) {
-    link.classList.add('active');
-    link.setAttribute('aria-current', 'page');
-  }
+const createNavLinkMarkup = ({ href, label, active = false }) =>
+  `<a href="${href}" class="nav-link${active ? ' active' : ''}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
 
-  const content = document.createElement('span');
-  const meta = document.createElement('span');
-  meta.className = 'dd-label';
-  meta.textContent = label;
-  content.appendChild(meta);
-  content.append(description);
-  link.appendChild(content);
+const createDropdownItemMarkup = ({ href, label, description, active = false }) =>
+  `<a href="${href}"${active ? ' class="active" aria-current="page"' : ''}><span><span class="dd-label">${label}</span>${description}</span></a>`;
 
-  return link;
-};
-
-const updateAiResourcesNav = () => {
+const renderSharedNav = () => {
   if (!nav) return;
 
-  const desktopList = nav.querySelector('.nav-links');
-  if (desktopList) {
-    const desktopLinks = Array.from(desktopList.querySelectorAll(':scope > li > a.nav-link'));
-    const workshopsLink = desktopLinks.find((link) => link.textContent.trim() === 'Workshops');
-    const aiResourcesLink = desktopLinks.find((link) => link.textContent.trim() === 'AI Resources');
-    const workshopsHref = normalizeNavHref(workshopsLink?.getAttribute('href'), '/workshops');
-    const articlesHref = normalizeNavHref(aiResourcesLink?.getAttribute('href'), '/ai-resources');
+  nav.innerHTML = `
+  <div class="nav-inner">
+    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <ul class="nav-links">
+      <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
+      <li class="nav-has-dropdown">
+        <a href="${ROUTES.portfolio}" class="nav-link nav-link--dropdown${isPortfolioPath ? ' active' : ''}"${isPortfolioPath ? ' aria-current="page"' : ''}>Case Studies</a>
+        <div class="nav-dropdown">
+          <a href="${ROUTES.hvac}">HVAC Local SEO Case Study</a>
+          <a href="${ROUTES.emory}">Emory's Rock Realty</a>
+          <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
+        </div>
+      </li>
+      <li class="nav-has-dropdown">
+        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>AI Resources</a>
+        <div class="nav-dropdown">
+          ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
+          ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
+        </div>
+      </li>
+      <li>${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}</li>
+      <li>${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}</li>
+    </ul>
+    <a href="${ROUTES.freeReport}" class="btn btn-primary nav-cta">Free Visibility Audit</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="navMobile" hidden>
+    ${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}
+    ${createNavLinkMarkup({ href: ROUTES.portfolio, label: 'Case Studies', active: isPortfolioPath })}
+    <div class="nav-mobile-sub">
+      <a href="${ROUTES.hvac}">HVAC Local SEO</a>
+      <a href="${ROUTES.emory}">Emory's Rock Realty</a>
+      <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
+    </div>
+    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}
+    <div class="nav-mobile-sub">
+      ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
+      ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
+    </div>
+    ${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}
+    ${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}
+    <a href="${ROUTES.freeReport}" class="btn btn-primary">Free Visibility Audit</a>
+  </div>`;
 
-    if (workshopsLink) {
-      workshopsLink.closest('li')?.remove();
-    }
-
-    if (aiResourcesLink) {
-      const aiItem = aiResourcesLink.closest('li');
-      if (aiItem && !aiItem.classList.contains('nav-has-dropdown')) {
-        const dropdownItem = document.createElement('li');
-        dropdownItem.className = 'nav-has-dropdown';
-
-        const trigger = document.createElement('a');
-        trigger.href = articlesHref;
-        trigger.className = 'nav-link nav-link--dropdown';
-        trigger.textContent = 'AI Resources';
-        if (isAiResourcesSection) {
-          trigger.classList.add('active');
-        }
-
-        const dropdown = document.createElement('div');
-        dropdown.className = 'nav-dropdown';
-        dropdown.append(
-          createDropdownLink({
-            href: articlesHref,
-            label: 'Articles',
-            description: 'Blog page',
-            active: isArticlesPath
-          }),
-          createDropdownLink({
-            href: workshopsHref,
-            label: 'Workshops',
-            description: 'Live sessions',
-            active: isWorkshopsPath
-          })
-        );
-
-        dropdownItem.append(trigger, dropdown);
-        aiItem.replaceWith(dropdownItem);
-      }
-    }
-  }
-
-  if (navMobile) {
-    const mobileLinks = Array.from(navMobile.querySelectorAll(':scope > a.nav-link'));
-    const mobileWorkshops = mobileLinks.find((link) => link.textContent.trim() === 'Workshops');
-    const mobileAiResources = mobileLinks.find((link) => link.textContent.trim() === 'AI Resources');
-    const workshopsHref = normalizeNavHref(mobileWorkshops?.getAttribute('href'), '/workshops');
-    const articlesHref = normalizeNavHref(mobileAiResources?.getAttribute('href'), '/ai-resources');
-
-    mobileWorkshops?.remove();
-    mobileAiResources?.remove();
-
-    const aiLink = document.createElement('a');
-    aiLink.href = articlesHref;
-    aiLink.className = 'nav-link';
-    aiLink.textContent = 'AI Resources';
-    if (isAiResourcesSection) {
-      aiLink.classList.add('active');
-    }
-
-    const aiSubNav = document.createElement('div');
-    aiSubNav.className = 'nav-mobile-sub';
-    aiSubNav.append(
-      createDropdownLink({
-        href: articlesHref,
-        label: 'Articles',
-        description: 'Blog page',
-        active: isArticlesPath
-      }),
-      createDropdownLink({
-        href: workshopsHref,
-        label: 'Workshops',
-        description: 'Live sessions',
-        active: isWorkshopsPath
-      })
-    );
-
-    const insertBeforeNode = Array.from(navMobile.children).find((child) =>
-      child.matches?.('a.btn, a[href*="about"], a[href="/about"], a[href="about.html"]')
-    );
-    navMobile.insertBefore(aiLink, insertBeforeNode || null);
-    navMobile.insertBefore(aiSubNav, insertBeforeNode || null);
-  }
+  navToggle = nav.querySelector('#navToggle');
+  navMobile = nav.querySelector('#navMobile');
 };
 
-updateAiResourcesNav();
+const renderSharedFooter = () => {
+  const footer = document.querySelector('footer.footer');
+  if (!footer) return;
 
-const removePlansLinks = () => {
-  document.querySelectorAll('#nav a[href="plans.html"], #nav a[href="/plans"], .footer a[href="plans.html"], .footer a[href="/plans"]').forEach((link) => {
-    const listItem = link.closest('li');
-    if (listItem) {
-      listItem.remove();
-      return;
-    }
-
-    link.remove();
-  });
+  footer.innerHTML = `
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
+      <p>Your customers are already searching.<br>The question is - are they finding you?</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
+        <a href="https://www.facebook.com/sharkbrandingsolutions" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://www.instagram.com/sharkbrandingsolutions/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/@SharkBrandingSolutions" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="currentColor" stroke-width="2"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Case Studies</h4><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>`;
 };
 
-removePlansLinks();
+renderSharedNav();
+renderSharedFooter();
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) nav.classList.add('scrolled');
