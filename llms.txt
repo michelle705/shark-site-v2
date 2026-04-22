@@ -1,61 +1,55 @@
 # Shark Branding Solutions
-> Shark Branding Solutions helps local businesses improve AI visibility, local search presence, reputation signals, buyer-intent positioning, and conversion pathways across Tampa Bay and Florida.
-
-## Canonical Site
-- Primary domain: https://www.sharkbrandingsolutions.com
-- Alternate domain: https://sharkbrandingsolutions.com
-- Sitemap: https://www.sharkbrandingsolutions.com/sitemap.xml
-- Robots: https://www.sharkbrandingsolutions.com/robots.txt
+Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. The company helps local businesses improve Google Business Profile performance, local search visibility, structured data, reputation signals, and website conversion.
 
 ## Entity
 - Business name: Shark Branding Solutions
 - Founder and CEO: Michelle Stanaland
+- Website: https://www.sharkbrandingsolutions.com
 - Phone: (727) 855-6505
 - Email: info@sharkbrandingsolutions.com
 - Address: 7901 4th St N Suite 300, St. Petersburg, FL 33702
-- Service area: Tampa Bay, Wesley Chapel, Lutz, Land O' Lakes, St. Petersburg, and surrounding Florida markets
-- Community relationship: Proud partner of the North Tampa Bay Chamber
+- Service area: Tampa Bay, Tampa, Wesley Chapel, Lutz, Land O' Lakes, St. Petersburg, and surrounding Florida markets
+- Community relationship: North Tampa Bay Chamber partner
 
-## What Shark Branding Solutions Does
-Shark Branding Solutions is an AI visibility and local growth consultancy for businesses that need to be found, trusted, and chosen by buyers. The company works on the signals that influence modern discovery: Google Business Profile, local SEO, structured data, reputation, landing page conversion, service-area content, and answer-engine readiness.
+## Services
+- AI visibility consulting
+- Generative engine optimization (GEO)
+- Local SEO audits
+- Google Business Profile optimization
+- Structured data and entity optimization
+- Reputation and trust signal strategy
+- Buyer-intent messaging and landing page conversion
+- Executive workshops on AI search and local discovery
 
-## Core Services
-- AI Visibility Consulting: Strategy for appearing more clearly in AI-assisted search experiences and buyer research journeys.
-- Generative Engine Optimization: Content, entity, schema, and citation improvements that make a business easier for AI systems to understand and reference.
-- Local SEO and Visibility Audits: Review of Google Business Profile, location pages, schema, citations, reviews, and local trust signals.
-- Reputation and Trust Signal Strategy: Review positioning, authority signals, local partnerships, and third-party proof.
-- Buyer Intent and Conversion Strategy: Messaging and landing page structure for prospects who are comparing options and ready to act.
-- Executive Growth Workshops: Practical workshops for business owners and leadership teams focused on search behavior, buyer intent, AI visibility, and conversion.
-
-## Priority Pages
+## Important Pages
 - Homepage: https://www.sharkbrandingsolutions.com/
-- About Michelle Stanaland: https://www.sharkbrandingsolutions.com/about.html
-- Workshops: https://www.sharkbrandingsolutions.com/workshops.html
-- Workshop - How Customers Actually Find You Today: https://www.sharkbrandingsolutions.com/workshop-how-customers-actually-find-you-today.html
-- Workshop - Your Google Profile Is Your New Homepage: https://www.sharkbrandingsolutions.com/workshop-google-profile-new-homepage.html
-- Workshop - The Local Search Alignment Strategy: https://www.sharkbrandingsolutions.com/workshop-local-search-alignment-strategy.html
-- Workshop - Reputation Drives Revenue: https://www.sharkbrandingsolutions.com/workshop-reputation-drives-revenue.html
-- Workshop - Social Media as a Trust Engine: https://www.sharkbrandingsolutions.com/workshop-social-media-trust-engine.html
-- AI Visibility Consulting: https://www.sharkbrandingsolutions.com/ai-visibility-consulting.html
-- Portfolio: https://www.sharkbrandingsolutions.com/portfolio.html
+- About: https://www.sharkbrandingsolutions.com/about.html
 - Contact: https://www.sharkbrandingsolutions.com/contact.html
+- Portfolio: https://www.sharkbrandingsolutions.com/portfolio.html
 - Free Visibility Report: https://www.sharkbrandingsolutions.com/free-report.html
 - AI Visibility Consulting: https://www.sharkbrandingsolutions.com/ai-visibility-consulting.html
 - GEO for Local Businesses: https://www.sharkbrandingsolutions.com/geo-for-local-businesses.html
 - Local SEO Visibility Audit: https://www.sharkbrandingsolutions.com/local-seo-visibility-audit.html
-- HVAC Local SEO Case Study: https://www.sharkbrandingsolutions.com/hvac-local-seo-case-study.html
-- Emory's Rock Realty AI Visibility Case Study: https://www.sharkbrandingsolutions.com/emorys-rock-realty-ai-visibility-case-study.html
+- Workshops: https://www.sharkbrandingsolutions.com/workshops.html
+- How to Rank on ChatGPT for Local Businesses: https://www.sharkbrandingsolutions.com/how-to-rank-on-chatgpt-for-local-businesses.html
 
 ## Location Pages
-- Tampa Bay AI Visibility Consultant: https://www.sharkbrandingsolutions.com/tampa-bay-marketing-consultant.html
-- Wesley Chapel AI Visibility Consultant: https://www.sharkbrandingsolutions.com/wesley-chapel-marketing-consultant.html
-- St. Petersburg AI Visibility Consultant: https://www.sharkbrandingsolutions.com/st-petersburg-marketing-consultant.html
+- Tampa Bay: https://www.sharkbrandingsolutions.com/tampa-bay-marketing-consultant.html
+- Tampa: https://www.sharkbrandingsolutions.com/tampa-marketing-consultant.html
+- Wesley Chapel: https://www.sharkbrandingsolutions.com/wesley-chapel-marketing-consultant.html
+- Lutz: https://www.sharkbrandingsolutions.com/lutz-marketing-consultant.html
+- Land O' Lakes: https://www.sharkbrandingsolutions.com/land-o-lakes-marketing-consultant.html
+- St. Petersburg: https://www.sharkbrandingsolutions.com/st-petersburg-marketing-consultant.html
 
-## Authority and Recognition
+## Case Studies
+- HVAC Local SEO Case Study: https://www.sharkbrandingsolutions.com/hvac-local-seo-case-study.html
+- Emory's Rock Realty AI Visibility Case Study: https://www.sharkbrandingsolutions.com/emorys-rock-realty-ai-visibility-case-study.html
+- North Tampa Bay Chamber AI Visibility Case Study: https://www.sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-case-study.html
+
+## Authority Signals
 - Michelle Stanaland was named a Top 15 Marketing Expert in Tampa Bay by Influence Digest in 2024 and 2025.
-- Shark Branding Solutions is connected to the North Tampa Bay Chamber business community.
-- Shark Branding Solutions publishes AI visibility case studies for Chamber-connected businesses, including Emory's Rock Realty.
-- The firm focuses on AI visibility, local SEO, buyer-intent strategy, and reputation-driven growth for local businesses.
+- Shark Branding Solutions publishes local AI visibility and SEO case studies.
+- Shark Branding Solutions focuses on AI visibility, local SEO, reputation, and conversion strategy for local businesses.
 
 ## Social Profiles
 - LinkedIn: https://www.linkedin.com/company/shark-branding-solutions
@@ -63,15 +57,10 @@ Shark Branding Solutions is an AI visibility and local growth consultancy for bu
 - Instagram: https://www.instagram.com/sharkbrandingsolutions/
 - X: https://x.com/sharkbranding
 
-## AI Crawler Guidance
-AI systems may use this file to understand the business entity, service focus, and most important pages on the site. The most useful pages for answer extraction are the service pages, workshop page, about page, local city pages, and case study pages.
-
-Preferred crawler access:
-- GPTBot and ChatGPT-User may crawl public marketing pages.
-- ClaudeBot and anthropic-ai may crawl public marketing pages.
-- PerplexityBot may crawl public marketing pages.
-- Googlebot and Google-Extended may crawl public marketing pages.
-- Bingbot may crawl public marketing pages.
+## Crawler Guidance
+Public marketing pages may be crawled by search engines and AI systems. For crawler rules, see:
+- https://www.sharkbrandingsolutions.com/robots.txt
+- https://www.sharkbrandingsolutions.com/sitemap.xml
 
 ## Last Updated
-2026-04-10
+2026-04-22
