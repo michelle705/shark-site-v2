@@ -169,12 +169,13 @@ img {
 
 .btn-ghost {
   background: transparent;
-  color: var(--white);
-  border-color: rgba(255,255,255,0.35);
+  color: var(--text-dark);
+  border-color: rgba(6,28,44,0.18);
 }
 .btn-ghost:hover {
-  border-color: var(--white);
-  background: rgba(255,255,255,0.08);
+  color: var(--text-dark);
+  border-color: rgba(6,28,44,0.34);
+  background: rgba(6,28,44,0.04);
   transform: translateY(-1px);
 }
 
