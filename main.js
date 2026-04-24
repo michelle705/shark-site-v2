@@ -4,33 +4,27 @@ const AREA_STORAGE_KEY = 'sbs_preferred_area';
 const AREA_OPTIONS = {
   tampa: {
     label: 'Tampa',
-    path: 'tampa-marketing-consultant.html',
-    coordinates: { lat: 27.9506, lon: -82.4572 }
+    path: 'tampa-marketing-consultant.html'
   },
   'tampa-bay': {
     label: 'Tampa Bay',
-    path: 'tampa-bay-marketing-consultant.html',
-    coordinates: { lat: 27.9506, lon: -82.4572 }
+    path: 'tampa-bay-marketing-consultant.html'
   },
   lutz: {
     label: 'Lutz',
-    path: 'lutz-marketing-consultant.html',
-    coordinates: { lat: 28.1392, lon: -82.4615 }
+    path: 'lutz-marketing-consultant.html'
   },
   'land-o-lakes': {
     label: "Land O' Lakes",
-    path: 'land-o-lakes-marketing-consultant.html',
-    coordinates: { lat: 28.2189, lon: -82.4576 }
+    path: 'land-o-lakes-marketing-consultant.html'
   },
   'wesley-chapel': {
     label: 'Wesley Chapel',
-    path: 'wesley-chapel-marketing-consultant.html',
-    coordinates: { lat: 28.2397, lon: -82.3279 }
+    path: 'wesley-chapel-marketing-consultant.html'
   },
   'st-petersburg': {
     label: 'St. Petersburg',
-    path: 'st-petersburg-marketing-consultant.html',
-    coordinates: { lat: 27.7676, lon: -82.6403 }
+    path: 'st-petersburg-marketing-consultant.html'
   }
 };
 const DEFAULT_AREA = 'tampa-bay';
@@ -59,7 +53,6 @@ const setStoredArea = (areaKey) => {
 
 let activeArea = areaFromPath || areaQuery || getStoredArea() || DEFAULT_AREA;
 if (!AREA_OPTIONS[activeArea]) activeArea = DEFAULT_AREA;
-const hasExplicitAreaPreference = Boolean(areaFromPath || areaQuery || getStoredArea());
 
 const formatAreaList = (areaLabel) => `${areaLabel}, Tampa Bay, Wesley Chapel, St. Petersburg, Lutz, and Land O' Lakes`;
 
@@ -91,57 +84,6 @@ const applyAreaPersonalization = (areaKey) => {
   document.querySelectorAll('[data-area-select]').forEach((select) => {
     select.value = activeArea;
   });
-};
-
-const toRadians = (degrees) => (degrees * Math.PI) / 180;
-
-const getDistanceKm = (from, to) => {
-  const earthRadiusKm = 6371;
-  const deltaLat = toRadians(to.lat - from.lat);
-  const deltaLon = toRadians(to.lon - from.lon);
-  const startLat = toRadians(from.lat);
-  const endLat = toRadians(to.lat);
-
-  const a = Math.sin(deltaLat / 2) ** 2
-    + Math.cos(startLat) * Math.cos(endLat) * Math.sin(deltaLon / 2) ** 2;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return earthRadiusKm * c;
-};
-
-const getNearestArea = (coordinates) => Object.entries(AREA_OPTIONS).reduce((closest, [key, area]) => {
-  const distance = getDistanceKm(coordinates, area.coordinates);
-  if (!closest || distance < closest.distance) {
-    return { key, distance };
-  }
-  return closest;
-}, null);
-
-const detectNearestArea = ({ statusNode, silent = false } = {}) => {
-  if (!navigator.geolocation) {
-    if (!silent && statusNode) statusNode.textContent = 'Location lookup is not available in this browser.';
-    return;
-  }
-
-  if (!silent && statusNode) statusNode.textContent = 'Checking your location...';
-
-  navigator.geolocation.getCurrentPosition((position) => {
-    const nearest = getNearestArea({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude
-    });
-
-    if (!nearest) return;
-
-    applyAreaPersonalization(nearest.key);
-    if (!silent && statusNode) {
-      statusNode.textContent = `Showing the closest local guidance for ${AREA_OPTIONS[nearest.key].label}.`;
-    }
-  }, () => {
-    if (!silent && statusNode) {
-      statusNode.textContent = 'We could not detect your location.';
-    }
-  }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
 };
 
 // Navigation scroll effect
@@ -208,7 +150,7 @@ const renderSharedNav = () => {
 
   nav.innerHTML = `
   <div class="nav-inner">
-    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" width="90" height="58" style="display:block"></a>
     <ul class="nav-links">
       <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
       <li class="nav-has-dropdown">
@@ -261,7 +203,7 @@ const renderSharedFooter = () => {
   footer.innerHTML = `
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
+      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" width="77" height="50" loading="lazy" decoding="async" style="display:block"></a>
       <p>Your customers are already searching.<br>The question is - are they finding you?</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
@@ -271,10 +213,10 @@ const renderSharedFooter = () => {
       </div>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
-      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
-      <div class="footer-col"><h4>Case Studies</h4><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
-      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
+      <div class="footer-col"><p class="footer-heading">Navigation</p><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
+      <div class="footer-col"><p class="footer-heading">Services</p><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><p class="footer-heading">Case Studies</p><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><p class="footer-heading">Contact</p><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><p class="footer-heading" style="margin-top:16px">Service Areas</p><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
     </div>
   </div>
   <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>`;
@@ -385,15 +327,41 @@ document.querySelectorAll('[data-area-select]').forEach((select) => {
   });
 });
 
-document.querySelectorAll('[data-area-detect]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const statusNode = document.querySelector('[data-area-status]');
-    detectNearestArea({ statusNode });
-  });
-});
-
 const chatWidgetId = document.documentElement.dataset.chatWidgetId;
+const facebookPixelId = document.documentElement.dataset.facebookPixelId;
 let chatWidgetLoaded = false;
+let facebookPixelLoaded = false;
+
+const loadFacebookPixel = () => {
+  if (!facebookPixelId || facebookPixelLoaded) return;
+  facebookPixelLoaded = true;
+
+  /* global fbq */
+  if (!window.fbq) {
+    const fbq = function() {
+      if (fbq.callMethod) {
+        fbq.callMethod.apply(fbq, arguments);
+      } else {
+        fbq.queue.push(arguments);
+      }
+    };
+
+    fbq.queue = [];
+    fbq.loaded = true;
+    fbq.version = '2.0';
+    window.fbq = fbq;
+    window._fbq = fbq;
+  }
+
+  window.fbq('init', facebookPixelId);
+  window.fbq('track', 'PageView');
+
+  const script = document.createElement('script');
+  script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  document.head.appendChild(script);
+};
 
 const loadChatWidget = () => {
   if (!chatWidgetId || chatWidgetLoaded) return;
@@ -423,8 +391,20 @@ if (chatWidgetId) {
   });
 }
 
-if (!hasExplicitAreaPreference) {
-  detectNearestArea({ silent: true });
+if (facebookPixelId) {
+  const loadPixelOnIdle = () => {
+    window.setTimeout(loadFacebookPixel, 4000);
+  };
+
+  if (document.readyState === 'complete') {
+    loadPixelOnIdle();
+  } else {
+    window.addEventListener('load', loadPixelOnIdle, { once: true });
+  }
+
+  ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
+    window.addEventListener(eventName, loadFacebookPixel, { once: true, passive: true });
+  });
 }
 
 const WORKSHOP_EXPIRATION_MS = 24 * 60 * 60 * 1000;
