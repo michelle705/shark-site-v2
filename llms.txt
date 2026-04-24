@@ -1,4 +1,6 @@
 # Shark Branding Solutions
+> AI visibility and GEO consulting firm in Tampa Bay, FL. Founded by Michelle Stanaland. Helps local businesses rank in AI-powered search (ChatGPT, Google AI Overviews, Perplexity) through structured data, entity clarity, trust signals, and answer-ready page structure.
+
 Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. The company helps local businesses improve Google Business Profile performance, local search visibility, structured data, reputation signals, and website conversion.
 
 ## Entity
@@ -48,8 +50,28 @@ Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. T
 
 ## Authority Signals
 - Michelle Stanaland was named a Top 15 Marketing Expert in Tampa Bay by Influence Digest in 2024 and 2025.
-- Shark Branding Solutions publishes local AI visibility and SEO case studies.
+- Nominated for 2025 Executive of the Year Awards.
+- Featured growth strategist and partner with the North Tampa Bay Chamber of Commerce.
+- Press coverage via PRWeb; additional coverage available on request.
+- Shark Branding Solutions publishes local AI visibility and SEO case studies including HVAC, real estate, and chamber case studies.
 - Shark Branding Solutions focuses on AI visibility, local SEO, reputation, and conversion strategy for local businesses.
+
+## Schema Markup Present
+The following Schema.org types are implemented site-wide:
+- ProfessionalService — organization details, address, phone
+- Person — Michelle Stanaland, Founder/CEO with jobTitle
+- WebSite — with SearchAction
+- WebPage — per-page implementation
+- Article — on blog/guide pages with datePublished
+- FAQPage — on service and content pages
+- BreadcrumbList — navigation structure
+- Review — client testimonial (Jonathan Tuttle)
+- Service — with areaServed fields
+- PodcastEpisode — Chamber podcast appearance
+
+## AI Crawler Access
+All major AI search crawlers are explicitly allowed in robots.txt:
+GPTBot, ChatGPT-User, OAI-SearchBot (OpenAI), ClaudeBot, anthropic-ai (Anthropic), PerplexityBot, Google-Extended, Bingbot, Applebot, meta-externalagent.
 
 ## Social Profiles
 - LinkedIn: https://www.linkedin.com/company/shark-branding-solutions
@@ -63,4 +85,4 @@ Public marketing pages may be crawled by search engines and AI systems. For craw
 - https://www.sharkbrandingsolutions.com/sitemap.xml
 
 ## Last Updated
-2026-04-22
+2026-04-24
