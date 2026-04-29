@@ -4,32 +4,32 @@ const AREA_STORAGE_KEY = 'sbs_preferred_area';
 const AREA_OPTIONS = {
   tampa: {
     label: 'Tampa',
-    path: 'tampa-marketing-consultant.html',
+    path: '/tampa-marketing-consultant',
     coordinates: { lat: 27.9506, lon: -82.4572 }
   },
   'tampa-bay': {
     label: 'Tampa Bay',
-    path: 'tampa-bay-marketing-consultant.html',
+    path: '/tampa-bay-marketing-consultant',
     coordinates: { lat: 27.9506, lon: -82.4572 }
   },
   lutz: {
     label: 'Lutz',
-    path: 'lutz-marketing-consultant.html',
+    path: '/lutz-marketing-consultant',
     coordinates: { lat: 28.1392, lon: -82.4615 }
   },
   'land-o-lakes': {
     label: "Land O' Lakes",
-    path: 'land-o-lakes-marketing-consultant.html',
+    path: '/land-o-lakes-marketing-consultant',
     coordinates: { lat: 28.2189, lon: -82.4576 }
   },
   'wesley-chapel': {
     label: 'Wesley Chapel',
-    path: 'wesley-chapel-marketing-consultant.html',
+    path: '/wesley-chapel-marketing-consultant',
     coordinates: { lat: 28.2397, lon: -82.3279 }
   },
   'st-petersburg': {
     label: 'St. Petersburg',
-    path: 'st-petersburg-marketing-consultant.html',
+    path: '/st-petersburg-marketing-consultant',
     coordinates: { lat: 27.7676, lon: -82.6403 }
   }
 };
@@ -93,57 +93,6 @@ const applyAreaPersonalization = (areaKey) => {
   });
 };
 
-const toRadians = (degrees) => (degrees * Math.PI) / 180;
-
-const getDistanceKm = (from, to) => {
-  const earthRadiusKm = 6371;
-  const deltaLat = toRadians(to.lat - from.lat);
-  const deltaLon = toRadians(to.lon - from.lon);
-  const startLat = toRadians(from.lat);
-  const endLat = toRadians(to.lat);
-
-  const a = Math.sin(deltaLat / 2) ** 2
-    + Math.cos(startLat) * Math.cos(endLat) * Math.sin(deltaLon / 2) ** 2;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return earthRadiusKm * c;
-};
-
-const getNearestArea = (coordinates) => Object.entries(AREA_OPTIONS).reduce((closest, [key, area]) => {
-  const distance = getDistanceKm(coordinates, area.coordinates);
-  if (!closest || distance < closest.distance) {
-    return { key, distance };
-  }
-  return closest;
-}, null);
-
-const detectNearestArea = ({ statusNode, silent = false } = {}) => {
-  if (!navigator.geolocation) {
-    if (!silent && statusNode) statusNode.textContent = 'Location lookup is not available in this browser.';
-    return;
-  }
-
-  if (!silent && statusNode) statusNode.textContent = 'Checking your location...';
-
-  navigator.geolocation.getCurrentPosition((position) => {
-    const nearest = getNearestArea({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude
-    });
-
-    if (!nearest) return;
-
-    applyAreaPersonalization(nearest.key);
-    if (!silent && statusNode) {
-      statusNode.textContent = `Showing the closest local guidance for ${AREA_OPTIONS[nearest.key].label}.`;
-    }
-  }, () => {
-    if (!silent && statusNode) {
-      statusNode.textContent = 'We could not detect your location.';
-    }
-  }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
-};
-
 // Navigation scroll effect
 let nav = document.getElementById('nav');
 let navToggle = null;
@@ -173,28 +122,30 @@ const isWorkshopsPath = /(?:^|\/)(workshops|ai & marketing workshops in tampa ba
 const isArticlesPath = currentPath.endsWith('/ai-resources')
   || currentPath.endsWith('/ai-resources.html')
   || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
+const isSharkAiPath = /(?:^|\/)shark-ai-solutions(?:\.html)?$/.test(currentPath);
 const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
 const ROUTES = {
-  home: 'index.html',
-  workshops: 'workshops.html',
-  articles: 'ai-resources.html',
-  portfolio: 'portfolio.html',
-  hvac: 'hvac-local-seo-case-study.html',
-  emory: 'emorys-rock-realty-ai-visibility-case-study.html',
-  chamberCaseStudy: 'north-tampa-bay-chamber-ai-visibility-case-study.html',
-  about: 'about.html',
-  contact: 'contact.html',
-  freeReport: 'free-report.html',
-  consulting: 'ai-visibility-consulting.html',
-  audit: 'local-seo-visibility-audit.html',
-  geo: 'geo-for-local-businesses.html',
-  toolkit: 'north-tampa-bay-chamber-ai-visibility-toolkit.html',
-  tampa: 'tampa-marketing-consultant.html',
-  tampaBay: 'tampa-bay-marketing-consultant.html',
-  lutz: 'lutz-marketing-consultant.html',
-  landOLakes: 'land-o-lakes-marketing-consultant.html',
-  wesleyChapel: 'wesley-chapel-marketing-consultant.html',
-  stPetersburg: 'st-petersburg-marketing-consultant.html'
+  home: '/',
+  workshops: '/workshops',
+  articles: '/ai-resources',
+  portfolio: '/portfolio',
+  hvac: '/hvac-local-seo-case-study',
+  emory: '/emorys-rock-realty-ai-visibility-case-study',
+  chamberCaseStudy: '/north-tampa-bay-chamber-ai-visibility-case-study',
+  about: '/about',
+  contact: '/contact',
+  freeReport: '/free-report',
+  sharkAi: '/shark-ai-solutions',
+  consulting: '/ai-visibility-consulting',
+  audit: '/local-seo-visibility-audit',
+  geo: '/geo-for-local-businesses',
+  toolkit: '/north-tampa-bay-chamber-ai-visibility-toolkit',
+  tampa: '/tampa-marketing-consultant',
+  tampaBay: '/tampa-bay-marketing-consultant',
+  lutz: '/lutz-marketing-consultant',
+  landOLakes: '/land-o-lakes-marketing-consultant',
+  wesleyChapel: '/wesley-chapel-marketing-consultant',
+  stPetersburg: '/st-petersburg-marketing-consultant'
 };
 
 const createNavLinkMarkup = ({ href, label, active = false }) =>
@@ -205,6 +156,35 @@ const createDropdownItemMarkup = ({ href, label, description, active = false }) 
 
 const renderSharedNav = () => {
   if (!nav) return;
+
+  if (document.body.classList.contains('site-keating')) {
+    nav.innerHTML = `
+    <div class="nav-inner">
+      <a href="${ROUTES.home}" class="nav-logo nav-logo--wordmark" aria-label="Keatings Communications home">
+        <span class="keating-wordmark">KEATINGS</span>
+        <span class="keating-submark">COMMUNICATIONS</span>
+      </a>
+      <ul class="nav-links">
+        <li>${createNavLinkMarkup({ href: '#top', label: 'Home', active: isHomePath })}</li>
+        <li>${createNavLinkMarkup({ href: '#services', label: 'Services' })}</li>
+        <li>${createNavLinkMarkup({ href: '#faq', label: 'FAQ' })}</li>
+        <li>${createNavLinkMarkup({ href: '#contact', label: 'Contact' })}</li>
+      </ul>
+      <a href="tel:+19048897072" class="btn btn-primary nav-cta">Call (904) 889-7072</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile" id="navMobile" hidden>
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="tel:+19048897072" class="btn btn-primary">Call (904) 889-7072</a>
+    </div>`;
+
+    navToggle = nav.querySelector('#navToggle');
+    navMobile = nav.querySelector('#navMobile');
+    return;
+  }
 
   nav.innerHTML = `
   <div class="nav-inner">
@@ -220,8 +200,9 @@ const renderSharedNav = () => {
         </div>
       </li>
       <li class="nav-has-dropdown">
-        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>AI Resources</a>
+        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection || isSharkAiPath ? ' active' : ''}"${isAiResourcesSection || isSharkAiPath ? ' aria-current="page"' : ''}>AI Resources</a>
         <div class="nav-dropdown">
+          ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
           ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
           ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
         </div>
@@ -240,8 +221,9 @@ const renderSharedNav = () => {
       <a href="${ROUTES.emory}">Emory's Rock Realty</a>
       <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
     </div>
-    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}
+    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection || isSharkAiPath })}
     <div class="nav-mobile-sub">
+      ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
       ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
       ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
     </div>
@@ -258,6 +240,26 @@ const renderSharedFooter = () => {
   const footer = document.querySelector('footer.footer');
   if (!footer) return;
 
+  if (document.body.classList.contains('site-keating')) {
+    footer.innerHTML = `
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="${ROUTES.home}" class="nav-logo nav-logo--wordmark" aria-label="Keatings Communications home">
+          <span class="keating-wordmark">KEATINGS</span>
+          <span class="keating-submark">COMMUNICATIONS</span>
+        </a>
+        <p>Reliable business phone systems, network infrastructure, managed IT, and cybersecurity support for the Greater Jacksonville Area.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Sections</h4><a href="#top">Home</a><a href="#services">Services</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+        <div class="footer-col"><h4>Core Services</h4><span>Business Phone Systems</span><span>Network Infrastructure</span><span>Managed IT</span><span>Cybersecurity</span></div>
+        <div class="footer-col"><h4>Contact</h4><a href="tel:+19048897072">(904) 889-7072</a><span>117 Sand Castle Way</span><span>Neptune Beach, FL 32266</span><span>Serving the Greater Jacksonville Area</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>&copy; 2026 Keatings Communications. All rights reserved.</span><span>keatingscommunications.com</span></div></div>`;
+    return;
+  }
+
   footer.innerHTML = `
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -272,7 +274,7 @@ const renderSharedFooter = () => {
     </div>
     <div class="footer-links">
       <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
-      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.sharkAi}">Shark AI Solutions</a><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
       <div class="footer-col"><h4>Case Studies</h4><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
     </div>
@@ -329,7 +331,11 @@ if (navToggle && navMobile) {
 // Intersection Observer for animations
 const animatedEls = document.querySelectorAll('[data-animate]');
 if (animatedEls.length) {
-  if ('IntersectionObserver' in window) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    animatedEls.forEach((el) => el.classList.add('visible'));
+  } else if ('IntersectionObserver' in window) {
     animatedEls.forEach(el => el.classList.add('will-animate'));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
@@ -385,13 +391,6 @@ document.querySelectorAll('[data-area-select]').forEach((select) => {
   });
 });
 
-document.querySelectorAll('[data-area-detect]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const statusNode = document.querySelector('[data-area-status]');
-    detectNearestArea({ statusNode });
-  });
-});
-
 const chatWidgetId = document.documentElement.dataset.chatWidgetId;
 let chatWidgetLoaded = false;
 
@@ -421,10 +420,6 @@ if (chatWidgetId) {
   ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
     window.addEventListener(eventName, loadChatWidget, { once: true, passive: true });
   });
-}
-
-if (!hasExplicitAreaPreference) {
-  detectNearestArea({ silent: true });
 }
 
 const WORKSHOP_EXPIRATION_MS = 24 * 60 * 60 * 1000;
