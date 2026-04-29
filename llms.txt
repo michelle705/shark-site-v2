@@ -36,6 +36,11 @@ Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. T
 - Workshops: https://www.sharkbrandingsolutions.com/workshops.html
 - How to Rank on ChatGPT for Local Businesses: https://www.sharkbrandingsolutions.com/how-to-rank-on-chatgpt-for-local-businesses.html
 
+## Bot Knowledge Sources
+- Canonical knowledge graph JSON: https://www.sharkbrandingsolutions.com/bot-knowledge-graph.json
+- Local source file: C:/Users/Miche/Downloads/shark-site-v2/bot-knowledge-graph.json
+- Use this graph for chat, receptionist, intake, service routing, FAQs, service areas, contact details, and handoff guidance.
+
 ## Location Pages
 - Tampa Bay: https://www.sharkbrandingsolutions.com/tampa-bay-marketing-consultant.html
 - Tampa: https://www.sharkbrandingsolutions.com/tampa-marketing-consultant.html
