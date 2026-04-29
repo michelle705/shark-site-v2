@@ -1951,7 +1951,6 @@ img {
   max-width: 760px;
 }
 .page-hero-inner .section-label { justify-content: center; }
-.page-hero-inner .section-label::before { display: none; }
 .page-hero-inner .section-title { color: var(--white); font-size: clamp(32px, 5vw, 56px); }
 .page-hero-inner .section-intro {
   color: var(--text-light);
