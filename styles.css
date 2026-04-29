@@ -1959,6 +1959,23 @@ img {
   max-width: 520px;
 }
 
+/* ── Nav / hero separator glow line ── */
+.page-hero::before,
+.hero::before,
+.blog-hero::before,
+.workshop-landing-hero::before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(24,181,216,0.1) 10%, rgba(56,200,230,1) 50%, rgba(24,181,216,0.1) 90%, transparent 100%);
+  box-shadow: 0 0 4px rgba(56,200,230,0.9), 0 0 1px rgba(255,255,255,0.4);
+  z-index: 10;
+  pointer-events: none;
+}
+
 .chamber-case-hero-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
