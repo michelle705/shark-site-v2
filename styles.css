@@ -2776,14 +2776,14 @@ img {
   width: 36px;
   height: 3px;
   border-radius: 3px;
-  background: var(--yellow);
+  background: var(--blue);
 }
 .about-mini-tagline {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--yellow);
+  color: var(--blue);
 }
 .about-credential-row {
   display: flex;
