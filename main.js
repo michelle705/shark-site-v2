@@ -4,33 +4,35 @@ const AREA_STORAGE_KEY = 'sbs_preferred_area';
 const AREA_OPTIONS = {
   tampa: {
     label: 'Tampa',
-    path: 'tampa-marketing-consultant.html'
+    path: 'tampa-marketing-consultant'
   },
   'tampa-bay': {
     label: 'Tampa Bay',
-    path: 'tampa-bay-marketing-consultant.html'
+    path: 'tampa-bay-marketing-consultant'
   },
   lutz: {
     label: 'Lutz',
-    path: 'lutz-marketing-consultant.html'
+    path: 'lutz-marketing-consultant'
   },
   'land-o-lakes': {
     label: "Land O' Lakes",
-    path: 'land-o-lakes-marketing-consultant.html'
+    path: 'land-o-lakes-marketing-consultant'
   },
   'wesley-chapel': {
     label: 'Wesley Chapel',
-    path: 'wesley-chapel-marketing-consultant.html'
+    path: 'wesley-chapel-marketing-consultant'
   },
   'st-petersburg': {
     label: 'St. Petersburg',
-    path: 'st-petersburg-marketing-consultant.html'
+    path: 'st-petersburg-marketing-consultant'
   }
 };
 const DEFAULT_AREA = 'tampa-bay';
 
 const areaFromPath = Object.entries(AREA_OPTIONS).find(([, area]) =>
-  window.location.pathname.endsWith(`/${area.path}`) || window.location.pathname.endsWith(area.path)
+  window.location.pathname.endsWith(`/${area.path}`) ||
+  window.location.pathname.endsWith(`${area.path}.html`) ||
+  window.location.pathname.endsWith(area.path)
 )?.[0];
 
 const areaQuery = new URLSearchParams(window.location.search).get('area');
@@ -118,27 +120,27 @@ const isArticlesPath = currentPath.endsWith('/ai-resources')
 const isSharkAiPath = /(?:^|\/)shark-ai-solutions(?:\.html)?$/.test(currentPath);
 const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
 const ROUTES = {
-  home: 'index.html',
-  workshops: 'workshops.html',
-  articles: 'ai-resources.html',
-  portfolio: 'portfolio.html',
-  hvac: 'hvac-local-seo-case-study.html',
-  emory: 'emorys-rock-realty-ai-visibility-case-study.html',
-  chamberCaseStudy: 'north-tampa-bay-chamber-ai-visibility-case-study.html',
-  about: 'about.html',
-  contact: 'contact.html',
-  freeReport: 'free-report.html',
-  sharkAi: 'shark-ai-solutions.html',
-  consulting: 'ai-visibility-consulting.html',
-  audit: 'local-seo-visibility-audit.html',
-  geo: 'geo-for-local-businesses.html',
-  toolkit: 'north-tampa-bay-chamber-ai-visibility-toolkit.html',
-  tampa: 'tampa-marketing-consultant.html',
-  tampaBay: 'tampa-bay-marketing-consultant.html',
-  lutz: 'lutz-marketing-consultant.html',
-  landOLakes: 'land-o-lakes-marketing-consultant.html',
-  wesleyChapel: 'wesley-chapel-marketing-consultant.html',
-  stPetersburg: 'st-petersburg-marketing-consultant.html'
+  home: '/',
+  workshops: 'workshops',
+  articles: 'ai-resources',
+  portfolio: 'portfolio',
+  hvac: 'hvac-local-seo-case-study',
+  emory: 'emorys-rock-realty-ai-visibility-case-study',
+  chamberCaseStudy: 'north-tampa-bay-chamber-ai-visibility-case-study',
+  about: 'about',
+  contact: 'contact',
+  freeReport: 'free-report',
+  sharkAi: 'shark-ai-solutions',
+  consulting: 'ai-visibility-consulting',
+  audit: 'local-seo-visibility-audit',
+  geo: 'geo-for-local-businesses',
+  toolkit: 'north-tampa-bay-chamber-ai-visibility-toolkit',
+  tampa: 'tampa-marketing-consultant',
+  tampaBay: 'tampa-bay-marketing-consultant',
+  lutz: 'lutz-marketing-consultant',
+  landOLakes: 'land-o-lakes-marketing-consultant',
+  wesleyChapel: 'wesley-chapel-marketing-consultant',
+  stPetersburg: 'st-petersburg-marketing-consultant'
 };
 
 const createNavLinkMarkup = ({ href, label, active = false }) =>
