@@ -4,27 +4,33 @@ const AREA_STORAGE_KEY = 'sbs_preferred_area';
 const AREA_OPTIONS = {
   tampa: {
     label: 'Tampa',
-    path: 'tampa-marketing-consultant.html'
+    path: '/tampa-marketing-consultant',
+    coordinates: { lat: 27.9506, lon: -82.4572 }
   },
   'tampa-bay': {
     label: 'Tampa Bay',
-    path: 'tampa-bay-marketing-consultant.html'
+    path: '/tampa-bay-marketing-consultant',
+    coordinates: { lat: 27.9506, lon: -82.4572 }
   },
   lutz: {
     label: 'Lutz',
-    path: 'lutz-marketing-consultant.html'
+    path: '/lutz-marketing-consultant',
+    coordinates: { lat: 28.1392, lon: -82.4615 }
   },
   'land-o-lakes': {
     label: "Land O' Lakes",
-    path: 'land-o-lakes-marketing-consultant.html'
+    path: '/land-o-lakes-marketing-consultant',
+    coordinates: { lat: 28.2189, lon: -82.4576 }
   },
   'wesley-chapel': {
     label: 'Wesley Chapel',
-    path: 'wesley-chapel-marketing-consultant.html'
+    path: '/wesley-chapel-marketing-consultant',
+    coordinates: { lat: 28.2397, lon: -82.3279 }
   },
   'st-petersburg': {
     label: 'St. Petersburg',
-    path: 'st-petersburg-marketing-consultant.html'
+    path: '/st-petersburg-marketing-consultant',
+    coordinates: { lat: 27.7676, lon: -82.6403 }
   }
 };
 const DEFAULT_AREA = 'tampa-bay';
@@ -53,6 +59,7 @@ const setStoredArea = (areaKey) => {
 
 let activeArea = areaFromPath || areaQuery || getStoredArea() || DEFAULT_AREA;
 if (!AREA_OPTIONS[activeArea]) activeArea = DEFAULT_AREA;
+const hasExplicitAreaPreference = Boolean(areaFromPath || areaQuery || getStoredArea());
 
 const formatAreaList = (areaLabel) => `${areaLabel}, Tampa Bay, Wesley Chapel, St. Petersburg, Lutz, and Land O' Lakes`;
 
@@ -116,29 +123,29 @@ const isArticlesPath = currentPath.endsWith('/ai-resources')
   || currentPath.endsWith('/ai-resources.html')
   || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
 const isSharkAiPath = /(?:^|\/)shark-ai-solutions(?:\.html)?$/.test(currentPath);
-const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
+const isAiResourcesSection = isArticlesPath || isSharkAiPath;
 const ROUTES = {
-  home: 'index.html',
-  workshops: 'workshops.html',
-  articles: 'ai-resources.html',
-  portfolio: 'portfolio.html',
-  hvac: 'hvac-local-seo-case-study.html',
-  emory: 'emorys-rock-realty-ai-visibility-case-study.html',
-  chamberCaseStudy: 'north-tampa-bay-chamber-ai-visibility-case-study.html',
-  about: 'about.html',
-  contact: 'contact.html',
-  freeReport: 'free-report.html',
-  sharkAi: 'shark-ai-solutions.html',
-  consulting: 'ai-visibility-consulting.html',
-  audit: 'local-seo-visibility-audit.html',
-  geo: 'geo-for-local-businesses.html',
-  toolkit: 'north-tampa-bay-chamber-ai-visibility-toolkit.html',
-  tampa: 'tampa-marketing-consultant.html',
-  tampaBay: 'tampa-bay-marketing-consultant.html',
-  lutz: 'lutz-marketing-consultant.html',
-  landOLakes: 'land-o-lakes-marketing-consultant.html',
-  wesleyChapel: 'wesley-chapel-marketing-consultant.html',
-  stPetersburg: 'st-petersburg-marketing-consultant.html'
+  home: '/',
+  workshops: '/workshops',
+  articles: '/ai-resources',
+  portfolio: '/portfolio',
+  hvac: '/hvac-local-seo-case-study',
+  emory: '/emorys-rock-realty-ai-visibility-case-study',
+  chamberCaseStudy: '/north-tampa-bay-chamber-ai-visibility-case-study',
+  about: '/about',
+  contact: '/contact',
+  freeReport: '/free-report',
+  sharkAi: '/shark-ai-solutions',
+  consulting: '/ai-visibility-consulting',
+  audit: '/local-seo-visibility-audit',
+  geo: '/geo-for-local-businesses',
+  toolkit: '/north-tampa-bay-chamber-ai-visibility-toolkit',
+  tampa: '/tampa-marketing-consultant',
+  tampaBay: '/tampa-bay-marketing-consultant',
+  lutz: '/lutz-marketing-consultant',
+  landOLakes: '/land-o-lakes-marketing-consultant',
+  wesleyChapel: '/wesley-chapel-marketing-consultant',
+  stPetersburg: '/st-petersburg-marketing-consultant'
 };
 
 const createNavLinkMarkup = ({ href, label, active = false }) =>
@@ -150,11 +157,41 @@ const createDropdownItemMarkup = ({ href, label, description, active = false }) 
 const renderSharedNav = () => {
   if (!nav) return;
 
+  if (document.body.classList.contains('site-keating')) {
+    nav.innerHTML = `
+    <div class="nav-inner">
+      <a href="${ROUTES.home}" class="nav-logo nav-logo--wordmark" aria-label="Keatings Communications home">
+        <span class="keating-wordmark">KEATINGS</span>
+        <span class="keating-submark">COMMUNICATIONS</span>
+      </a>
+      <ul class="nav-links">
+        <li>${createNavLinkMarkup({ href: '#top', label: 'Home', active: isHomePath })}</li>
+        <li>${createNavLinkMarkup({ href: '#services', label: 'Services' })}</li>
+        <li>${createNavLinkMarkup({ href: '#faq', label: 'FAQ' })}</li>
+        <li>${createNavLinkMarkup({ href: '#contact', label: 'Contact' })}</li>
+      </ul>
+      <a href="tel:+19048897072" class="btn btn-primary nav-cta">Call (904) 889-7072</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile" id="navMobile" hidden>
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="tel:+19048897072" class="btn btn-primary">Call (904) 889-7072</a>
+    </div>`;
+
+    navToggle = nav.querySelector('#navToggle');
+    navMobile = nav.querySelector('#navMobile');
+    return;
+  }
+
   nav.innerHTML = `
   <div class="nav-inner">
-    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" width="90" height="58" style="display:block"></a>
+    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
     <ul class="nav-links">
       <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
+      <li>${createNavLinkMarkup({ href: ROUTES.workshops, label: 'Workshops', active: isWorkshopsPath })}</li>
       <li class="nav-has-dropdown">
         <a href="${ROUTES.portfolio}" class="nav-link nav-link--dropdown${isPortfolioPath ? ' active' : ''}"${isPortfolioPath ? ' aria-current="page"' : ''}>Case Studies</a>
         <div class="nav-dropdown">
@@ -164,11 +201,10 @@ const renderSharedNav = () => {
         </div>
       </li>
       <li class="nav-has-dropdown">
-        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection || isSharkAiPath ? ' active' : ''}"${isAiResourcesSection || isSharkAiPath ? ' aria-current="page"' : ''}>AI Resources</a>
+        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>AI Resources</a>
         <div class="nav-dropdown">
           ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
           ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-          ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
         </div>
       </li>
       <li>${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}</li>
@@ -179,17 +215,17 @@ const renderSharedNav = () => {
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
     ${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}
+    ${createNavLinkMarkup({ href: ROUTES.workshops, label: 'Workshops', active: isWorkshopsPath })}
     ${createNavLinkMarkup({ href: ROUTES.portfolio, label: 'Case Studies', active: isPortfolioPath })}
     <div class="nav-mobile-sub">
       <a href="${ROUTES.hvac}">HVAC Local SEO</a>
       <a href="${ROUTES.emory}">Emory's Rock Realty</a>
       <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
     </div>
-    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection || isSharkAiPath })}
+    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}
     <div class="nav-mobile-sub">
       ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
       ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-      ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
     </div>
     ${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}
     ${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}
@@ -204,10 +240,30 @@ const renderSharedFooter = () => {
   const footer = document.querySelector('footer.footer');
   if (!footer) return;
 
+  if (document.body.classList.contains('site-keating')) {
+    footer.innerHTML = `
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="${ROUTES.home}" class="nav-logo nav-logo--wordmark" aria-label="Keatings Communications home">
+          <span class="keating-wordmark">KEATINGS</span>
+          <span class="keating-submark">COMMUNICATIONS</span>
+        </a>
+        <p>Reliable business phone systems, network infrastructure, managed IT, and cybersecurity support for the Greater Jacksonville Area.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Sections</h4><a href="#top">Home</a><a href="#services">Services</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+        <div class="footer-col"><h4>Core Services</h4><span>Business Phone Systems</span><span>Network Infrastructure</span><span>Managed IT</span><span>Cybersecurity</span></div>
+        <div class="footer-col"><h4>Contact</h4><a href="tel:+19048897072">(904) 889-7072</a><span>117 Sand Castle Way</span><span>Neptune Beach, FL 32266</span><span>Serving the Greater Jacksonville Area</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>&copy; 2026 Keatings Communications. All rights reserved.</span><span>keatingscommunications.com</span></div></div>`;
+    return;
+  }
+
   footer.innerHTML = `
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" width="77" height="50" loading="lazy" decoding="async" style="display:block"></a>
+      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
       <p>Your customers are already searching.<br>The question is - are they finding you?</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
@@ -217,10 +273,10 @@ const renderSharedFooter = () => {
       </div>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><p class="footer-heading">Navigation</p><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
-      <div class="footer-col"><p class="footer-heading">Services</p><a href="${ROUTES.sharkAi}">Shark AI Solutions</a><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
-      <div class="footer-col"><p class="footer-heading">Case Studies</p><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
-      <div class="footer-col"><p class="footer-heading">Contact</p><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><p class="footer-heading" style="margin-top:16px">Service Areas</p><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
+      <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.sharkAi}">Shark AI Solutions</a><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Case Studies</h4><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
     </div>
   </div>
   <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>`;
@@ -336,40 +392,7 @@ document.querySelectorAll('[data-area-select]').forEach((select) => {
 });
 
 const chatWidgetId = document.documentElement.dataset.chatWidgetId;
-const facebookPixelId = document.documentElement.dataset.facebookPixelId;
 let chatWidgetLoaded = false;
-let facebookPixelLoaded = false;
-
-const loadFacebookPixel = () => {
-  if (!facebookPixelId || facebookPixelLoaded) return;
-  facebookPixelLoaded = true;
-
-  /* global fbq */
-  if (!window.fbq) {
-    const fbq = function() {
-      if (fbq.callMethod) {
-        fbq.callMethod.apply(fbq, arguments);
-      } else {
-        fbq.queue.push(arguments);
-      }
-    };
-
-    fbq.queue = [];
-    fbq.loaded = true;
-    fbq.version = '2.0';
-    window.fbq = fbq;
-    window._fbq = fbq;
-  }
-
-  window.fbq('init', facebookPixelId);
-  window.fbq('track', 'PageView');
-
-  const script = document.createElement('script');
-  script.src = 'https://connect.facebook.net/en_US/fbevents.js';
-  script.async = true;
-  script.crossOrigin = 'anonymous';
-  document.head.appendChild(script);
-};
 
 const loadChatWidget = () => {
   if (!chatWidgetId || chatWidgetLoaded) return;
@@ -396,22 +419,6 @@ if (chatWidgetId) {
 
   ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
     window.addEventListener(eventName, loadChatWidget, { once: true, passive: true });
-  });
-}
-
-if (facebookPixelId) {
-  const loadPixelOnIdle = () => {
-    window.setTimeout(loadFacebookPixel, 4000);
-  };
-
-  if (document.readyState === 'complete') {
-    loadPixelOnIdle();
-  } else {
-    window.addEventListener('load', loadPixelOnIdle, { once: true });
-  }
-
-  ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
-    window.addEventListener(eventName, loadFacebookPixel, { once: true, passive: true });
   });
 }
 

@@ -1,23 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Resources | Shark Branding Solutions</title>
+<title>AI Visibility, SEO, GEO, and AEO Resources | Shark Branding Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<meta name="description" content="Practical AI visibility guides, tips, and insights for local businesses from Shark Branding Solutions. Learn how to get found and chosen by ChatGPT, Gemini, and Google AI.">
-<link rel="canonical" href="https://sharkbrandingsolutions.com/resources">
-<meta property="og:title" content="AI Resources | Shark Branding Solutions">
-<meta property="og:description" content="Practical AI visibility guides, tips, and insights for local businesses. Learn how to get found and chosen by ChatGPT, Gemini, and Google AI.">
-<meta property="og:url" content="https://sharkbrandingsolutions.com/resources">
+<meta name="description" content="Practical AI visibility, SEO, GEO, and AEO guides for local businesses from Shark Branding Solutions. Learn how to get found, cited, and chosen by ChatGPT, Gemini, Google AI, and traditional search.">
+<link rel="canonical" href="https://sharkbrandingsolutions.com/ai-resources">
+<meta property="og:title" content="AI Visibility, SEO, GEO, and AEO Resources | Shark Branding Solutions">
+<meta property="og:description" content="Practical AI visibility, SEO, GEO, and AEO guides for local businesses. Learn how to get found, cited, and chosen by ChatGPT, Gemini, Google AI, and traditional search.">
+<meta property="og:url" content="https://sharkbrandingsolutions.com/ai-resources">
 <meta property="og:site_name" content="Shark Branding Solutions">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cdn.marblism.com/Pa2DPW_JehC.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@SharkBranding">
+<meta name="twitter:site" content="@SharkBrandingSolutions">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4MNCSGV');</script>
+<!-- End Google Tag Manager -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,14 +33,14 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sharkbrandingsolutions.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://sharkbrandingsolutions.com/resources"}
+        {"@type": "ListItem", "position": 2, "name": "AI Resources", "item": "https://sharkbrandingsolutions.com/ai-resources"}
       ]
     },
     {
       "@type": "CollectionPage",
-      "name": "AI Resources",
-      "description": "Practical AI visibility guides, tips, and insights for local businesses from Shark Branding Solutions.",
-      "url": "https://sharkbrandingsolutions.com/resources",
+      "name": "AI Visibility, SEO, GEO, and AEO Resources",
+      "description": "Practical AI visibility, SEO, GEO, and AEO guides, tips, and insights for local businesses from Shark Branding Solutions.",
+      "url": "https://sharkbrandingsolutions.com/ai-resources",
       "publisher": {"@type": "Organization", "name": "Shark Branding Solutions", "logo": {"@type": "ImageObject", "url": "https://sharkbrandingsolutions.com/logo.png"}}
     }
   ]
@@ -160,6 +167,46 @@
    MAIN LAYOUT
    ════════════════════════════════════════════ */
 .res-body { padding: 72px 0 96px; background: #F7F9FB; }
+.res-start-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.res-start-card {
+  background: #fff;
+  border: 1px solid var(--gray-mid);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 2px 18px rgba(6,28,44,.06);
+}
+.res-start-card h2,
+.res-start-card h3 {
+  margin: 0 0 12px;
+  color: var(--text-dark);
+}
+.res-start-card h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.res-start-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.res-start-card p {
+  margin: 0 0 16px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-size: 15px;
+}
+.res-start-link {
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+}
+.res-start-link:hover { color: var(--blue); }
 
 /* ── FEATURED POST ── */
 .res-featured {
@@ -414,6 +461,7 @@
    MOBILE
    ════════════════════════════════════════════ */
 @media (max-width:1024px) {
+  .res-start-grid { grid-template-columns:1fr 1fr; }
   .res-grid { grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width:860px) {
@@ -423,6 +471,7 @@
   .res-hero-stat { display:none; }
 }
 @media (max-width:640px) {
+  .res-start-grid { grid-template-columns:1fr; }
   .res-grid { grid-template-columns:1fr; }
   .res-featured-copy { padding:36px 28px; }
   .res-cta-banner { flex-direction:column; padding:40px 28px; }
@@ -430,33 +479,37 @@
   .res-cta-banner-actions .btn { width:100%; }
 }
 </style>
-<script src="https://analytics.ahrefs.com/analytics.js" data-key="XB/QyB9GBkipXFWRnpSdVQ" async></script>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4MNCSGV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ============================================================
      NAVIGATION
      ============================================================ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
     <ul class="nav-links">
-      <li><a href="index" class="nav-link">Home</a></li>
-      <li><a href="workshops" class="nav-link">Workshops</a></li>
-      
-      <li class="nav-has-dropdown"><a href="portfolio" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="hvac-local-seo-case-study">HVAC Local SEO Case Study</a><a href="emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div></li>
-      <li><a href="resources" class="nav-link active">Resources</a></li>
-      <li><a href="about" class="nav-link">About</a></li>
-      <li><a href="contact" class="nav-link">Contact</a></li>
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/workshops" class="nav-link">Workshops</a></li>
+      <li><a href="/ai-visibility-consulting" class="nav-link">Consulting</a></li>
+      <li class="nav-has-dropdown"><a href="/portfolio" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="/hvac-local-seo-case-study">HVAC Local SEO Case Study</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div></li>
+      <li><a href="/ai-resources" class="nav-link active">AI Resources</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
     </ul>
-    <a href="free-report" class="btn btn-primary nav-cta">Free Visibility Audit</a>
+    <a href="/free-report" class="btn btn-primary nav-cta">Free Visibility Audit</a>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
-    <a href="index" class="nav-link">Home</a><a href="workshops" class="nav-link">Workshops</a>
-    <div class="nav-mobile-sub"><a href="hvac-local-seo-case-study" class="nav-link">HVAC Local SEO</a><a href="emorys-rock-realty-ai-visibility-case-study" class="nav-link">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study" class="nav-link">North Tampa Bay Chamber</a></div>
-    <a href="resources" class="nav-link active">Resources</a><a href="about" class="nav-link">About</a><a href="contact" class="nav-link">Contact</a>
-    <a href="free-report" class="btn btn-primary">Free Visibility Audit</a>
+    <a href="/" class="nav-link">Home</a><a href="/workshops" class="nav-link">Workshops</a><a href="/ai-visibility-consulting" class="nav-link">Consulting</a>
+    <div class="nav-mobile-sub"><a href="/hvac-local-seo-case-study" class="nav-link">HVAC Local SEO</a><a href="/emorys-rock-realty-ai-visibility-case-study" class="nav-link">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study" class="nav-link">North Tampa Bay Chamber</a></div>
+    <a href="/ai-resources" class="nav-link active">AI Resources</a><a href="/about" class="nav-link">About</a><a href="/contact" class="nav-link">Contact</a>
+    <a href="/free-report" class="btn btn-primary">Free Visibility Audit</a>
   </div>
 </nav>
 
@@ -469,9 +522,9 @@
   <div class="res-hero-glow"></div>
   <div class="container res-hero-inner">
     <div class="fade-up">
-      <div class="res-hero-kicker">Resources</div>
-      <h1>Practical guides for getting your business <em>chosen</em> by AI</h1>
-      <p class="res-hero-sub">Tips, frameworks, and real-world insights to help local businesses improve their visibility in AI search—written for business owners, not developers.</p>
+      <div class="res-hero-kicker">AI Visibility Resources</div>
+      <h1>Practical guides for AI visibility, <em>SEO</em>, GEO, and AEO</h1>
+      <p class="res-hero-sub">Tips, frameworks, and real-world insights to help local businesses improve their visibility in traditional search and AI search without separating SEO, GEO, and AEO into different silos.</p>
     </div>
     <div class="res-hero-stat fade-up fade-up-d2">
       <div class="res-hero-stat-num">10+</div>
@@ -496,6 +549,7 @@
       <button class="filter-pill" data-category="ai-visibility">AI Visibility</button>
       <button class="filter-pill" data-category="local-seo">Local SEO</button>
       <button class="filter-pill" data-category="geo">GEO</button>
+      <button class="filter-pill" data-category="aeo">AEO</button>
       <button class="filter-pill" data-category="strategy">Strategy</button>
       <button class="filter-pill" data-category="partnership">Partnership</button>
     </div>
@@ -509,6 +563,30 @@
 <div class="res-body">
   <div class="container">
 
+    <div class="res-start-grid fade-up">
+      <div class="res-start-card">
+        <div class="section-label" style="margin-bottom:12px">Start Here</div>
+        <h2>Choose the guide that matches the question you need answered first.</h2>
+        <p>If you are new to AI visibility, start with the practical framework pages below. If you already know the problem, jump straight into the deeper guides and case studies.</p>
+        <a href="/free-report" class="btn btn-primary">Get the Free Report First</a>
+      </div>
+      <div class="res-start-card">
+        <h3>Need the big-picture difference?</h3>
+        <p>Start with the SEO, GEO, and AEO comparison if you need a plain-English breakdown of what changed and what still matters.</p>
+        <a class="res-start-link" href="/seo-vs-geo-vs-aeo-for-local-businesses">Read the comparison</a>
+      </div>
+      <div class="res-start-card">
+        <h3>Need to show up in ChatGPT?</h3>
+        <p>Start with the ChatGPT visibility guide if the main question is how to become easier for AI assistants to cite and recommend.</p>
+        <a class="res-start-link" href="/how-to-rank-on-chatgpt-for-local-businesses">Read the ChatGPT guide</a>
+      </div>
+      <div class="res-start-card">
+        <h3>Need a fast reality check?</h3>
+        <p>Start with the free visibility report if you want to see how your business looks right now before choosing a bigger project.</p>
+        <a class="res-start-link" href="/free-report">Claim the free report</a>
+      </div>
+    </div>
+
 
     <!-- ════════════════════════════════════════════════════════
          FEATURED POST
@@ -516,7 +594,7 @@
          To update: edit the title, excerpt, date, icon, and href.
          Keep class "res-featured" and data-category matching a pill.
          ════════════════════════════════════════════════════════ -->
-    <a class="res-featured fade-up" href="blog-ntbc-ai-ready-partnership" data-category="partnership">
+    <a class="res-featured fade-up" href="/blog-ntbc-ai-ready-partnership" data-category="partnership">
       <div class="res-featured-copy">
         <div class="res-featured-tag">Partnership</div>
         <h2 class="res-featured-title">AI-Ready: Shark Branding Solutions Partners with North Tampa Bay Chamber to Future-Proof Local Business</h2>
@@ -551,7 +629,7 @@
 
 
       <!-- ── POST 1 ── -->
-      <a class="post-card fade-up fade-up-d1" href="blog-ai-map-consistent-business-listings" data-category="ai-visibility">
+      <a class="post-card fade-up fade-up-d1" href="/blog-ai-map-consistent-business-listings" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/7iy6leaSINV.webp" alt="AI map showing consistent business listings" loading="lazy">
           <div class="post-card-num">01</div>
@@ -570,7 +648,7 @@
 
 
       <!-- ── POST 2 ── -->
-      <a class="post-card fade-up fade-up-d2" href="blog-trusted-ai-review-responses" data-category="strategy">
+      <a class="post-card fade-up fade-up-d2" href="/blog-trusted-ai-review-responses" data-category="strategy">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/9UR7nYzKUsH.webp" alt="AI-assisted review responses building local trust" loading="lazy">
           <div class="post-card-num">02</div>
@@ -589,7 +667,7 @@
 
 
       <!-- ── POST 3 ── -->
-      <a class="post-card fade-up fade-up-d3" href="blog-ai-funnel-chatgpt-new-front-door" data-category="ai-visibility">
+      <a class="post-card fade-up fade-up-d3" href="/blog-ai-funnel-chatgpt-new-front-door" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/WCQ37axSRBo.webp" alt="ChatGPT as the new front door for local business customers" loading="lazy">
           <div class="post-card-num">03</div>
@@ -620,8 +698,8 @@
             <p>Get a free visibility report and see exactly where you stand across AI search, local search, and digital authority—no commitment required.</p>
           </div>
           <div class="res-cta-banner-actions">
-            <a href="free-report" class="btn btn-primary btn-lg">Get the Free Report</a>
-            <a href="contact" class="btn btn-ghost btn-lg">Speak with the Team</a>
+            <a href="/free-report" class="btn btn-primary btn-lg">Get the Free Report</a>
+            <a href="/contact" class="btn btn-ghost btn-lg">Speak with the Team</a>
           </div>
         </div>
       </div>
@@ -629,7 +707,7 @@
 
 
       <!-- ── POST 4 ── -->
-      <a class="post-card" href="how-to-rank-on-chatgpt-for-local-businesses" data-category="ai-visibility">
+      <a class="post-card" href="/how-to-rank-on-chatgpt-for-local-businesses" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="ai-visibility-hero.webp" alt="How to rank on ChatGPT for local businesses" loading="lazy">
           <div class="post-card-num">04</div>
@@ -648,7 +726,7 @@
 
 
       <!-- ── POST 5 ── -->
-      <a class="post-card" href="blog-end-of-phone-tag-google-ai-check-prices" data-category="ai-visibility">
+      <a class="post-card" href="/blog-end-of-phone-tag-google-ai-check-prices" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/pAHnAFvGQW-.webp" alt="End of phone tag with Google AI price check" loading="lazy">
           <div class="post-card-num">05</div>
@@ -667,7 +745,7 @@
 
 
       <!-- ── POST 6 ── -->
-      <a class="post-card" href="blog-hvac-invisible-to-number-2-local-search" data-category="local-seo">
+      <a class="post-card" href="/blog-hvac-invisible-to-number-2-local-search" data-category="local-seo">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/mUE0AsHh_PI.webp" alt="HVAC business going from invisible to number 2 in local search" loading="lazy">
           <div class="post-card-num">06</div>
@@ -686,7 +764,7 @@
 
 
       <!-- ── POST 7 ── -->
-      <a class="post-card" href="blog-google-reviews-ai-recommendations" data-category="strategy">
+      <a class="post-card" href="/blog-google-reviews-ai-recommendations" data-category="strategy">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/y52lgWLfO0y.webp" alt="Turning Google reviews into AI recommendations" loading="lazy">
           <div class="post-card-num">07</div>
@@ -705,7 +783,7 @@
 
 
       <!-- ── POST 8 ── -->
-      <a class="post-card" href="blog-ai-funnel-chatgpt-gemini-path-to-purchase" data-category="ai-visibility">
+      <a class="post-card" href="/blog-ai-funnel-chatgpt-gemini-path-to-purchase" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/8f2m0RQROII.webp" alt="ChatGPT and Gemini reshaping the path to purchase" loading="lazy">
           <div class="post-card-num">08</div>
@@ -724,7 +802,7 @@
 
 
       <!-- ── POST 9 ── -->
-      <a class="post-card" href="blog-google-ai-price-check-ready-to-be-chosen" data-category="ai-visibility">
+      <a class="post-card" href="/blog-google-ai-price-check-ready-to-be-chosen" data-category="ai-visibility">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/JgoUj9sIFN7.webp" alt="Google AI price check calling local businesses" loading="lazy">
           <div class="post-card-num">09</div>
@@ -743,7 +821,7 @@
 
 
       <!-- ── POST 10 ── -->
-      <a class="post-card" href="blog-24-hour-rule-local-trust-ai" data-category="strategy">
+      <a class="post-card" href="/blog-24-hour-rule-local-trust-ai" data-category="strategy">
         <div class="post-card-thumb">
           <img src="https://cdn.marblism.com/Pa2DPW_JehC.webp" alt="The 24-Hour Rule: AI-Assisted Review Responses for Local Trust" loading="lazy">
           <div class="post-card-num">10</div>
@@ -759,6 +837,84 @@
         </div>
       </a>
       <!-- ── END POST 10 ── -->
+
+      <!-- ?????? POST 11 ?????? -->
+      <a class="post-card" href="/blog-seo-old-school-geo-ai-shift" data-category="geo">
+        <div class="post-card-thumb">
+          <img src="https://cdn.marblism.com/2VbuJ2Gidnh.webp" alt="SEO is old school and GEO is the next shift for local businesses" loading="lazy">
+          <div class="post-card-num">11</div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">GEO</span>
+            <span class="post-card-date">Mar 22, 2026</span>
+          </div>
+          <h3 class="post-card-title">SEO Is Old School: Why Your Business Needs GEO to Survive the AI Shift</h3>
+          <p class="post-card-excerpt">Traditional SEO puts you on a list. GEO makes you the recommendation. Learn the three pillars of generative engine optimization and why local businesses need the shift now.</p>
+          <span class="post-card-read">Read the guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <!-- ?????? END POST 11 ?????? -->
+
+      <!-- POST 12 -->
+      <a class="post-card" href="/aeo-for-local-businesses" data-category="aeo">
+        <div class="post-card-thumb thumb--teal">
+          <div class="post-card-thumb-bg"></div>
+          <div class="post-card-thumb-pattern"></div>
+          <div class="post-card-thumb-icon">AEO</div>
+          <div class="post-card-num">12</div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">AEO</span>
+            <span class="post-card-date">Apr 24, 2026</span>
+          </div>
+          <h3 class="post-card-title">AEO for Local Businesses</h3>
+          <p class="post-card-excerpt">A practical breakdown of answer engine optimization for local businesses, including how direct-answer systems use service clarity, structured data, FAQs, and trust signals when deciding what to surface.</p>
+          <span class="post-card-read">Read the guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <!-- END POST 12 -->
+
+      <!-- POST 13 -->
+      <a class="post-card" href="/seo-vs-geo-vs-aeo-for-local-businesses" data-category="strategy">
+        <div class="post-card-thumb thumb--navy">
+          <div class="post-card-thumb-bg"></div>
+          <div class="post-card-thumb-pattern"></div>
+          <div class="post-card-thumb-icon">SEO</div>
+          <div class="post-card-num">13</div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Strategy</span>
+            <span class="post-card-date">Apr 24, 2026</span>
+          </div>
+          <h3 class="post-card-title">SEO vs GEO vs AEO for Local Businesses</h3>
+          <p class="post-card-excerpt">A practical comparison showing where SEO, GEO, and AEO differ, where they overlap, and what local businesses should actually prioritize first.</p>
+          <span class="post-card-read">Read the guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <!-- END POST 13 -->
+
+      <!-- POST 14 -->
+      <a class="post-card" href="/ai-visibility-seo-for-local-businesses" data-category="ai-visibility">
+        <div class="post-card-thumb thumb--deep">
+          <div class="post-card-thumb-bg"></div>
+          <div class="post-card-thumb-pattern"></div>
+          <div class="post-card-thumb-icon">AI</div>
+          <div class="post-card-num">14</div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">AI Visibility</span>
+            <span class="post-card-date">Apr 24, 2026</span>
+          </div>
+          <h3 class="post-card-title">AI Visibility SEO for Local Businesses</h3>
+          <p class="post-card-excerpt">A practical guide to the overlap between local SEO, GEO, and AEO, with the core signals that help local businesses rank, get cited, and get recommended.</p>
+          <span class="post-card-read">Read the guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <!-- END POST 14 -->
 
 
       <!-- ════════════════════════════════════════════════════
@@ -796,8 +952,8 @@
     <h2 class="cta-headline">See how your business looks to AI before your competitors figure this out</h2>
     <p class="cta-sub">The free visibility report shows you exactly where you stand across AI search, local search, and digital trust signals—in plain language.</p>
     <div class="cta-actions">
-      <a href="free-report" class="btn btn-primary btn-xl">Get the Free Report</a>
-      <a href="contact" class="btn btn-ghost btn-xl">Speak with the Team</a>
+      <a href="/free-report" class="btn btn-primary btn-xl">Get the Free Report</a>
+      <a href="/contact" class="btn btn-ghost btn-xl">Speak with the Team</a>
     </div>
   </div>
 </section>
@@ -809,7 +965,7 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="index" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" style="display:block"></a>
+      <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" style="display:block"></a>
       <p>Your customers are already searching.<br>The question is - are they finding you?</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
@@ -819,10 +975,10 @@
       </div>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><h4>Navigation</h4><a href="index">Home</a><a href="about">About</a><a href="portfolio">Portfolio</a><a href="workshops">Workshops</a><a href="contact">Contact</a><a href="free-report">Free Visibility Report</a><a href="resources">Resources</a></div>
-      <div class="footer-col"><h4>Services</h4><a href="ai-visibility-consulting">AI Visibility Consulting</a><a href="local-seo-visibility-audit">Local SEO Visibility Audit</a><a href="geo-for-local-businesses">GEO for Local Businesses</a><a href="north-tampa-bay-chamber-ai-visibility-toolkit">AI Visibility Toolkit</a></div>
-      <div class="footer-col"><h4>Case Studies</h4><a href="hvac-local-seo-case-study">HVAC Local SEO</a><a href="emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div>
-      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="tampa-marketing-consultant">Tampa</a><a href="tampa-bay-marketing-consultant">Tampa Bay</a><a href="lutz-marketing-consultant">Lutz</a><a href="land-o-lakes-marketing-consultant">Land O&#39; Lakes</a><a href="wesley-chapel-marketing-consultant">Wesley Chapel</a><a href="st-petersburg-marketing-consultant">St. Petersburg</a></div>
+      <div class="footer-col"><h4>Navigation</h4><a href="/">Home</a><a href="/about">About</a><a href="/ai-visibility-consulting">Consulting</a><a href="/portfolio">Portfolio</a><a href="/workshops">Workshops</a><a href="/contact">Contact</a><a href="/free-report">Free Visibility Report</a><a href="/ai-resources">AI Resources</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/ai-visibility-consulting">AI Visibility Consulting</a><a href="/local-seo-visibility-audit">Local SEO Visibility Audit</a><a href="/geo-for-local-businesses">GEO for Local Businesses</a><a href="/aeo-for-local-businesses">AEO for Local Businesses</a><a href="/ai-visibility-seo-for-local-businesses">AI Visibility SEO</a><a href="/north-tampa-bay-chamber-ai-visibility-toolkit">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Case Studies</h4><a href="/hvac-local-seo-case-study">HVAC Local SEO</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="/tampa-marketing-consultant">Tampa</a><a href="/tampa-bay-marketing-consultant">Tampa Bay</a><a href="/lutz-marketing-consultant">Lutz</a><a href="/land-o-lakes-marketing-consultant">Land O&#39; Lakes</a><a href="/wesley-chapel-marketing-consultant">Wesley Chapel</a><a href="/st-petersburg-marketing-consultant">St. Petersburg</a></div>
     </div>
   </div>
   <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>
