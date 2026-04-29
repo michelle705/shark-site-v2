@@ -1311,7 +1311,7 @@ img {
   align-items: center;
   padding: 78px 24px;
 }
-.workshop-landing-copy .section-label::before { background: var(--yellow); }
+.workshop-landing-copy .section-label::before { background: var(--blue); }
 .workshop-landing-copy h1 {
   font-family: var(--font-display);
   font-size: clamp(36px, 5vw, 66px);
