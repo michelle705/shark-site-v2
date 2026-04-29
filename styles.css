@@ -111,6 +111,29 @@ img {
 }
 .section-label--light { color: var(--blue); }
 
+.updated-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  border: 1px solid rgba(24,181,216,0.18);
+  background: rgba(24,181,216,0.06);
+  color: var(--text-mid);
+}
+
+.updated-note time { color: inherit; }
+
+.updated-note--dark {
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.84);
+}
+
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 46px);
