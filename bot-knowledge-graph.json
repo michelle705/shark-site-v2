@@ -1,0 +1,430 @@
+{
+  "version": "2026-04-29",
+  "generated_from": [
+    "https://sharkbrandingsolutions.com/",
+    "https://sharkbrandingsolutions.com/about.html",
+    "https://sharkbrandingsolutions.com/contact.html",
+    "https://sharkbrandingsolutions.com/ai-visibility-consulting.html",
+    "https://sharkbrandingsolutions.com/local-seo-visibility-audit.html",
+    "https://sharkbrandingsolutions.com/geo-for-local-businesses.html",
+    "https://sharkbrandingsolutions.com/free-report.html",
+    "C:/Users/Miche/Downloads/shark-site-v2/llms.txt"
+  ],
+  "organization": {
+    "id": "org.shark_branding_solutions",
+    "name": "Shark Branding Solutions",
+    "website": "https://sharkbrandingsolutions.com",
+    "email": "info@sharkbrandingsolutions.com",
+    "phone": "+1-727-855-6505",
+    "address": {
+      "street": "7901 4th St N Suite 300",
+      "city": "St. Petersburg",
+      "region": "FL",
+      "postal_code": "33702",
+      "country": "US"
+    },
+    "business_hours": {
+      "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00",
+      "timezone": "America/New_York"
+    },
+    "service_areas": [
+      "Tampa Bay",
+      "Tampa",
+      "Wesley Chapel",
+      "Lutz",
+      "Land O' Lakes",
+      "St. Petersburg"
+    ],
+    "social_profiles": {
+      "linkedin": "https://www.linkedin.com/company/shark-branding-solutions",
+      "facebook": "https://www.facebook.com/sharkbrandingsolutions",
+      "instagram": "https://www.instagram.com/sharkbrandingsolutions/",
+      "youtube": "https://www.youtube.com/@SharkBrandingSolutions",
+      "x": "https://x.com/sharkbranding"
+    },
+    "positioning": {
+      "short": "AI visibility and local search consultancy for local businesses.",
+      "core_outcome": "Help businesses get found, trusted, and chosen in search and AI.",
+      "framework": ["Visibility", "Trust", "Conversion"],
+      "best_fit": [
+        "Local service businesses",
+        "Medical and wellness practices",
+        "Professional firms and consultancies",
+        "Founders who know the business should be performing better online"
+      ]
+    }
+  },
+  "people": [
+    {
+      "id": "person.michelle_stanaland",
+      "name": "Michelle Stanaland",
+      "job_title": "Founder and CEO",
+      "roles": ["Strategist", "Speaker", "Growth Partner"],
+      "expertise": [
+        "AI visibility",
+        "Local SEO",
+        "GEO",
+        "AEO",
+        "Reputation strategy",
+        "Conversion strategy",
+        "Brand strategy"
+      ],
+      "bio_short": "Tampa Bay AI visibility and local search strategist who helps businesses get found, build trust, and convert more buyers.",
+      "awards": [
+        "Top 15 Marketing Expert in Tampa Bay - Influence Digest 2025"
+      ],
+      "community_affiliations": [
+        "North Tampa Bay Chamber partner",
+        "North Tampa Bay Chamber member"
+      ],
+      "linkedin": "https://www.linkedin.com/in/michelle-stanaland-0830b98/"
+    },
+    {
+      "id": "person.josh_stanaland",
+      "name": "Josh Stanaland",
+      "job_title": "Chief Technology Officer"
+    },
+    {
+      "id": "person.tiffany_fancher",
+      "name": "Tiffany Fancher",
+      "job_title": "Chief Operating Officer"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer.free_visibility_report",
+      "name": "Free Business Visibility Report",
+      "type": "free_offer",
+      "url": "https://sharkbrandingsolutions.com/free-report.html",
+      "price": 0,
+      "currency": "USD",
+      "summary": "Free snapshot report covering search visibility, reviews, listings, and AI visibility signals.",
+      "good_fit_when": [
+        "Prospect wants clarity before a call",
+        "Prospect is not ready for a full engagement",
+        "Prospect wants a lower-risk first step"
+      ],
+      "what_it_covers": [
+        "Search visibility",
+        "Reviews and reputation",
+        "Listings and consistency",
+        "AI visibility signals"
+      ],
+      "cta_labels": [
+        "Get My Free Report",
+        "Free Visibility Audit",
+        "Get the Free Report"
+      ]
+    },
+    {
+      "id": "offer.ai_visibility_consulting",
+      "name": "AI Visibility Consulting",
+      "type": "service",
+      "url": "https://sharkbrandingsolutions.com/ai-visibility-consulting.html",
+      "summary": "Ongoing consulting to improve how a business appears in AI-assisted search, Google, maps, reviews, and buyer decision moments.",
+      "problems_solved": [
+        "Low visibility in AI tools and local search",
+        "Weak trust signals",
+        "Unclear service pages",
+        "Inconsistent entity data",
+        "Poor recommendation readiness"
+      ],
+      "work_includes": [
+        "Visibility audit",
+        "Entity and listing cleanup",
+        "Structured data implementation",
+        "Service page optimization",
+        "Review and trust signal strategy",
+        "Ongoing monitoring and adjustment"
+      ],
+      "timelines": {
+        "initial_signal_change": "7-14 days",
+        "ranking_movement": "Around 30 days in many cases",
+        "compounding_effect": "60-90 days"
+      }
+    },
+    {
+      "id": "offer.local_visibility_audit",
+      "name": "Local SEO, GEO, and AEO Visibility Audit",
+      "type": "service",
+      "url": "https://sharkbrandingsolutions.com/local-seo-visibility-audit.html",
+      "summary": "Visibility audit reviewing search presence, AI visibility, listings, reviews, trust signals, and on-site conversion friction.",
+      "audit_areas": [
+        "Search presence",
+        "Google Business Profile health",
+        "Business listing consistency",
+        "Review strength and velocity",
+        "AI visibility, GEO, and AEO signals",
+        "On-site trust and conversion signals"
+      ],
+      "good_fit_when": [
+        "Phone is not ringing like it used to",
+        "Newer competitors outrank the business",
+        "Business has not reviewed visibility across platforms",
+        "Business wants a baseline before investing more"
+      ]
+    },
+    {
+      "id": "offer.geo_aeo_support",
+      "name": "GEO for Local Businesses",
+      "type": "service",
+      "url": "https://sharkbrandingsolutions.com/geo-for-local-businesses.html",
+      "summary": "Support for Generative Engine Optimization, Answer Engine Optimization, and AI visibility SEO for local businesses.",
+      "focus_areas": [
+        "Structured data",
+        "Entity recognition",
+        "Content extractability",
+        "Trust signal density",
+        "Local relevance signals",
+        "Answer-ready content"
+      ]
+    },
+    {
+      "id": "offer.workshops",
+      "name": "Workshops",
+      "type": "service",
+      "url": "https://sharkbrandingsolutions.com/workshops.html",
+      "summary": "Live education for teams, chambers, and leadership groups on how buyers find and choose businesses today.",
+      "good_fit_when": [
+        "A chamber or member organization wants a speaker",
+        "A team wants group education instead of 1:1 consulting",
+        "Prospect needs strategic understanding before execution"
+      ]
+    }
+  ],
+  "capabilities": [
+    "AI visibility consulting",
+    "Local SEO audits",
+    "Google Business Profile optimization",
+    "Business listing cleanup and consistency",
+    "Structured data and entity optimization",
+    "Review and reputation strategy",
+    "Buyer-intent messaging and landing page conversion",
+    "GEO for local businesses",
+    "AEO for local businesses",
+    "AI visibility SEO",
+    "Workshops and speaking"
+  ],
+  "proof_points": [
+    {
+      "id": "proof.hvac_case_study",
+      "name": "HVAC Local SEO Case Study",
+      "url": "https://sharkbrandingsolutions.com/hvac-local-seo-case-study.html",
+      "claim": "Moved from page 3 / positions in the 20s and 30s to top 3 and multiple #2 rankings in under 30 days without paid ads."
+    },
+    {
+      "id": "proof.emory_case_study",
+      "name": "Emory's Rock Realty AI Visibility Case Study",
+      "url": "https://sharkbrandingsolutions.com/emorys-rock-realty-ai-visibility-case-study.html"
+    },
+    {
+      "id": "proof.ntbc_case_study",
+      "name": "North Tampa Bay Chamber AI Visibility Case Study",
+      "url": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-case-study.html"
+    },
+    {
+      "id": "proof.testimonial_jonathan_tuttle",
+      "name": "Jonathan Tuttle testimonial",
+      "claim": "Shark Branding Solutions transformed the company's digital presence and improved AI search visibility, leading to more inbound inquiries.",
+      "source_page": "https://sharkbrandingsolutions.com/about.html"
+    }
+  ],
+  "faq": [
+    {
+      "question": "What does Shark Branding Solutions do?",
+      "answer": "Shark Branding Solutions helps local businesses get found, trusted, and chosen across Google, maps, reviews, listings, and AI-assisted search through consulting, audits, reputation and entity work, structured data, and conversion-focused page improvements."
+    },
+    {
+      "question": "What is the best first step?",
+      "answer": "For most prospects, the best first step is the Free Business Visibility Report because it creates clarity before a bigger commitment."
+    },
+    {
+      "question": "What is AI visibility consulting?",
+      "answer": "AI visibility consulting improves how a business appears across AI-powered discovery tools, Google AI results, maps, reviews, and local search by strengthening entity data, structured data, trust signals, and page clarity."
+    },
+    {
+      "question": "How is this different from traditional SEO?",
+      "answer": "Traditional SEO focuses on ranking in search results. Shark Branding Solutions also works on GEO and AEO so businesses can be cited, summarized, and recommended in AI-generated answers before a buyer clicks."
+    },
+    {
+      "question": "Who is a good fit?",
+      "answer": "Local service businesses, medical and wellness practices, professional firms, and other founder-led businesses that should be performing better online."
+    },
+    {
+      "question": "Do you offer workshops or speaking?",
+      "answer": "Yes. Shark Branding Solutions provides live workshops for teams, chambers, and leadership groups focused on modern buyer behavior, AI search, and local visibility."
+    },
+    {
+      "question": "Where do you work?",
+      "answer": "Primary service areas include Tampa Bay, Tampa, Wesley Chapel, Lutz, Land O' Lakes, and St. Petersburg."
+    },
+    {
+      "question": "How do I contact the team?",
+      "answer": "Email info@sharkbrandingsolutions.com, call (727) 855-6505, or use the contact form at https://sharkbrandingsolutions.com/contact.html."
+    }
+  ],
+  "receptionist_playbook": {
+    "goal": "Help the visitor choose the right next step and route leads without pressure.",
+    "tone": [
+      "Clear",
+      "Direct",
+      "Helpful",
+      "Low-pressure",
+      "Confidence-building"
+    ],
+    "always_capture": [
+      "name",
+      "business_name",
+      "email",
+      "phone_if_offered",
+      "service_area",
+      "what_feels_off",
+      "primary_goal",
+      "preferred_next_step"
+    ],
+    "preferred_next_step_options": [
+      "Free visibility report",
+      "Talk with team",
+      "Workshop or speaking inquiry",
+      "Case study or proof request"
+    ],
+    "routing_rules": [
+      {
+        "if": "Prospect is unsure where to start or wants low-pressure clarity",
+        "route_to": "offer.free_visibility_report"
+      },
+      {
+        "if": "Prospect says leads slowed down, rankings dropped, or competitors are outranking them",
+        "route_to": "offer.local_visibility_audit"
+      },
+      {
+        "if": "Prospect wants ongoing help improving visibility, trust, and conversion",
+        "route_to": "offer.ai_visibility_consulting"
+      },
+      {
+        "if": "Prospect is a chamber, team, or organization asking for a speaker or group training",
+        "route_to": "offer.workshops"
+      },
+      {
+        "if": "Prospect specifically asks about ChatGPT, Google AI Overviews, GEO, or AEO",
+        "route_to": "offer.geo_aeo_support"
+      }
+    ],
+    "do_not_do": [
+      "Do not promise rankings or guaranteed placement in AI tools.",
+      "Do not invent pricing not stated on the site.",
+      "Do not claim service outside known offerings.",
+      "Do not use high-pressure sales language."
+    ],
+    "handoff_prompts": [
+      "If you want, I can point you to the free report first so you have a clearer view before a call.",
+      "If this feels more urgent, the team can talk through what changed and recommend the right next step.",
+      "If this is for a chamber or team, I can route you toward a workshop or speaking conversation."
+    ]
+  },
+  "intents": [
+    {
+      "name": "ask_services",
+      "example_queries": [
+        "What do you do?",
+        "What services do you offer?",
+        "How can Shark help my business?"
+      ],
+      "answer_points": [
+        "AI visibility consulting",
+        "Local SEO, GEO, and AEO audits",
+        "Structured data and listing cleanup",
+        "Review and trust strategy",
+        "Workshops"
+      ]
+    },
+    {
+      "name": "ask_best_first_step",
+      "example_queries": [
+        "Where should I start?",
+        "What do you recommend first?",
+        "I don't know what I need yet."
+      ],
+      "default_route": "offer.free_visibility_report"
+    },
+    {
+      "name": "ask_contact",
+      "example_queries": [
+        "How do I reach you?",
+        "Can I call someone?",
+        "Where are you located?"
+      ],
+      "answer_points": [
+        "Phone: (727) 855-6505",
+        "Email: info@sharkbrandingsolutions.com",
+        "Office: 7901 4th St N Suite 300, St. Petersburg, FL 33702"
+      ]
+    },
+    {
+      "name": "ask_service_area",
+      "example_queries": [
+        "Do you work in Tampa?",
+        "Do you serve Wesley Chapel?",
+        "What areas do you cover?"
+      ],
+      "answer_points": [
+        "Tampa Bay",
+        "Tampa",
+        "Wesley Chapel",
+        "Lutz",
+        "Land O' Lakes",
+        "St. Petersburg"
+      ]
+    },
+    {
+      "name": "ask_proof",
+      "example_queries": [
+        "Do you have case studies?",
+        "What results have you gotten?",
+        "Can you show examples?"
+      ],
+      "answer_points": [
+        "HVAC case study with top ranking gains in under 30 days",
+        "Emory's Rock Realty case study",
+        "North Tampa Bay Chamber case study",
+        "Jonathan Tuttle testimonial"
+      ]
+    },
+    {
+      "name": "ask_ai_visibility",
+      "example_queries": [
+        "Can you help us show up in ChatGPT?",
+        "What is GEO?",
+        "How do we get found in AI search?"
+      ],
+      "default_route": "offer.geo_aeo_support"
+    },
+    {
+      "name": "ask_workshop",
+      "example_queries": [
+        "Do you speak at events?",
+        "Can you do a chamber workshop?",
+        "Do you train teams?"
+      ],
+      "default_route": "offer.workshops"
+    }
+  ],
+  "site_pages": [
+    {"name": "Home", "url": "https://sharkbrandingsolutions.com/"},
+    {"name": "About", "url": "https://sharkbrandingsolutions.com/about.html"},
+    {"name": "Contact", "url": "https://sharkbrandingsolutions.com/contact.html"},
+    {"name": "Free Report", "url": "https://sharkbrandingsolutions.com/free-report.html"},
+    {"name": "AI Visibility Consulting", "url": "https://sharkbrandingsolutions.com/ai-visibility-consulting.html"},
+    {"name": "Local SEO Visibility Audit", "url": "https://sharkbrandingsolutions.com/local-seo-visibility-audit.html"},
+    {"name": "GEO for Local Businesses", "url": "https://sharkbrandingsolutions.com/geo-for-local-businesses.html"},
+    {"name": "AI Resources", "url": "https://sharkbrandingsolutions.com/resources.html"},
+    {"name": "Portfolio", "url": "https://sharkbrandingsolutions.com/portfolio.html"}
+  ],
+  "ingestion_notes": {
+    "recommended_primary_source": "Use this JSON file as the bot's canonical structured source.",
+    "recommended_secondary_source": "Use llms.txt for human-readable summary and page discovery.",
+    "last_verified_date": "2026-04-29"
+  }
+}
