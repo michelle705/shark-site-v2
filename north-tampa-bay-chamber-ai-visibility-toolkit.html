@@ -3,17 +3,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>North Tampa Bay Chamber AI Visibility Toolkit | Request Member Pricing</title>
+<title>North Tampa Bay Chamber AI Visibility Toolkit | Member Pricing & Visibility Brief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<meta name="description" content="North Tampa Bay Chamber members can request exclusive AI Visibility Toolkit pricing directly from Shark Branding Solutions.">
+<meta name="description" content="A premium member-only path for North Tampa Bay Chamber businesses that want AI visibility guidance, a cleaner visibility picture, and Chamber pricing for the AI Visibility Toolkit.">
 <link rel="canonical" href="https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit">
-<meta property="og:title" content="North Tampa Bay Chamber AI Visibility Toolkit | Request Member Pricing">
-<meta property="og:description" content="Request Chamber-exclusive AI Visibility Toolkit pricing for North Tampa Bay Chamber members.">
+<meta property="og:title" content="North Tampa Bay Chamber AI Visibility Toolkit | Member Pricing & Visibility Brief">
+<meta property="og:description" content="A Chamber-only AI Visibility Toolkit path for North Tampa Bay Chamber members who want stronger search, trust, and AI-era visibility signals.">
 <meta property="og:url" content="https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://sharkbrandingsolutions.com/north-tampa-bay-chamber-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SharkBrandingSolutions">
+<style>
+  .chamber-premium-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(24,181,216,0.2), transparent 34%),
+      linear-gradient(135deg, #071c2b 0%, #0c2d3d 54%, #12465a 100%);
+  }
+
+  .chamber-premium-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -120px;
+    height: 240px;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 66%);
+    pointer-events: none;
+  }
+
+  .chamber-premium-shell {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .chamber-premium-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .chamber-breadcrumb {
+    position: relative;
+    z-index: 3;
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+    text-align: center;
+    padding: 0 24px 20px;
+  }
+
+  .chamber-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .chamber-hero-copy,
+  .chamber-hero-aside,
+  .chamber-glass-card,
+  .chamber-step-card,
+  .chamber-proof-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .chamber-hero-copy {
+    background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 28px;
+    padding: 34px;
+    box-shadow: 0 24px 70px rgba(4,18,28,0.34);
+  }
+
+  .chamber-kicker-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .chamber-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.86);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chamber-pill::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f4c430;
+    box-shadow: 0 0 0 6px rgba(244,196,48,0.12);
+  }
+
+  .chamber-hero-copy h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.02;
+    color: var(--white);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+
+  .chamber-hero-copy p {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 20px;
+    max-width: 670px;
+  }
+
+  .chamber-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 26px 0 18px;
+  }
+
+  .chamber-hero-notes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .chamber-note {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .chamber-note strong {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .chamber-note span {
+    display: block;
+    color: rgba(255,255,255,0.68);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .chamber-hero-aside {
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 24px 70px rgba(4,18,28,0.34);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .chamber-logo-panel {
+    background: rgba(255,255,255,0.98);
+    border-radius: 22px;
+    padding: 28px;
+    display: grid;
+    place-items: center;
+    min-height: 160px;
+  }
+
+  .chamber-logo-panel img {
+    max-width: 240px;
+    width: 100%;
+  }
+
+  .chamber-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+  }
+
+  .chamber-aside-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 1.08;
+    color: var(--white);
+  }
+
+  .chamber-aside-copy {
+    color: rgba(255,255,255,0.74);
+    font-size: 15px;
+    line-height: 1.72;
+  }
+
+  .chamber-membership-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .chamber-membership-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: rgba(255,255,255,0.76);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .chamber-membership-list li::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: rgba(24,181,216,0.14);
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12' stroke='%2318B5D8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .chamber-glass-card {
+    background: linear-gradient(180deg, rgba(12,45,61,0.96), rgba(9,30,42,0.96));
+    border: 1px solid rgba(24,181,216,0.14);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 24px 60px rgba(6,28,44,0.22);
+  }
+
+  .chamber-glass-card h3 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .chamber-glass-card p {
+    color: rgba(255,255,255,0.76);
+    font-size: 15px;
+    line-height: 1.74;
+  }
+
+  .chamber-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .chamber-proof-card {
+    background: var(--white);
+    border: 1px solid rgba(6,28,44,0.08);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(10,27,46,0.06);
+  }
+
+  .chamber-proof-card h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+  }
+
+  .chamber-proof-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .chamber-step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .chamber-step-card {
+    background: linear-gradient(180deg, #ffffff, #f7fbfd);
+    border: 1px solid rgba(6,28,44,0.08);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(10,27,46,0.06);
+  }
+
+  .chamber-step-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(24,181,216,0.1);
+    color: var(--blue);
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .chamber-step-card h3 {
+    font-size: 18px;
+    line-height: 1.32;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .chamber-step-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .chamber-fit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .chamber-fit-card {
+    background: var(--white);
+    border: 1px solid rgba(6,28,44,0.08);
+    border-radius: 20px;
+    padding: 22px;
+  }
+
+  .chamber-fit-card strong {
+    display: block;
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .chamber-fit-card span {
+    display: block;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .chamber-inline-link {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 960px) {
+    .chamber-premium-grid,
+    .chamber-proof-grid,
+    .chamber-step-grid,
+    .chamber-fit-grid,
+    .chamber-hero-notes {
+      grid-template-columns: 1fr;
+    }
+
+    .chamber-premium-shell {
+      padding-bottom: 72px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .chamber-premium-shell,
+    .chamber-breadcrumb {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .chamber-hero-copy,
+    .chamber-hero-aside,
+    .chamber-glass-card {
+      padding: 24px 20px;
+      border-radius: 22px;
+    }
+
+    .chamber-hero-copy h1 {
+      font-size: clamp(32px, 9vw, 44px);
+    }
+
+    .chamber-hero-actions .btn {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,24 +406,84 @@
       "@id": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit#breadcrumb",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sharkbrandingsolutions.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Chamber Toolkit", "item": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit"}
+        {"@type": "ListItem", "position": 2, "name": "North Tampa Bay Chamber AI Visibility Toolkit", "item": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit"}
       ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit#webpage",
+      "url": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit",
+      "name": "North Tampa Bay Chamber AI Visibility Toolkit | Member Pricing & Visibility Brief",
+      "description": "A Chamber-only AI Visibility Toolkit path for North Tampa Bay Chamber members who want stronger search, trust, and AI-era visibility signals.",
+      "about": {"@id": "https://sharkbrandingsolutions.com/#organization"},
+      "mainEntity": {"@id": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit#service"}
     },
     {
       "@type": "Service",
       "@id": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit#service",
       "name": "North Tampa Bay Chamber AI Visibility Toolkit",
-      "description": "An inquiry-only AI Visibility Toolkit pricing path for North Tampa Bay Chamber members.",
+      "description": "A member-only AI visibility toolkit path for North Tampa Bay Chamber businesses that want clearer digital visibility, trust signals, and a practical next step.",
       "provider": {
         "@type": "Organization",
+        "@id": "https://sharkbrandingsolutions.com/#organization",
         "name": "Shark Branding Solutions"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "North Tampa Bay Chamber members"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Tampa Bay"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-toolkit#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is this toolkit path for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This path is for North Tampa Bay Chamber members who want a more direct way to understand visibility gaps, trust issues, and whether the AI Visibility Toolkit is the right next step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is Chamber pricing not listed publicly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The member pricing is reserved for Chamber businesses and is shared directly after membership is confirmed, which keeps the Chamber-only offer from being indexed publicly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I request member pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After the request, Shark Branding Solutions confirms Chamber membership, shares the member path details, and clarifies whether the toolkit or another starting point makes the most sense."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4MNCSGV');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4MNCSGV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
@@ -48,7 +491,7 @@
     <ul class="nav-links">
       <li><a href="/" class="nav-link">Home</a></li>
       <li><a href="/workshops" class="nav-link">Workshops</a></li>
-      <li><a href="/plans" class="nav-link">Plans</a></li>
+      <li><a href="/ai-visibility-consulting" class="nav-link">Consulting</a></li>
       <li><a href="/about" class="nav-link">About</a></li>
       <li><a href="/contact" class="nav-link">Contact</a></li>
       <li><a href="/ai-resources" class="nav-link">AI Resources</a></li>
@@ -57,59 +500,200 @@
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
-    <a href="/" class="nav-link">Home</a><a href="/workshops" class="nav-link">Workshops</a><a href="/plans" class="nav-link">Plans</a><a href="/about" class="nav-link">About</a><a href="/contact" class="nav-link">Contact</a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/ai-visibility-consulting" class="nav-link">Consulting</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/contact" class="nav-link">Contact</a>
     <a href="/ai-resources" class="nav-link">AI Resources</a>
     <a href="/free-report" class="btn btn-primary">Free Visibility Audit</a>
   </div>
 </nav>
 
-
-
-<section class="page-hero">
-  
-<div class="container" style="position:relative; z-index:10; font-size:13px; color:rgba(255,255,255,0.7); padding-bottom:20px; text-align:center;">
-<a href="/" style="color:inherit;text-decoration:none">Home</a> / <span>Chamber Toolkit</span>
-</div>
-<div class="hero-grid"></div>
-  <div class="page-hero-inner">
-    <div class="section-label">North Tampa Bay Chamber Members</div>
-    <h1 class="section-title" style="color:#fff">Request Chamber-Only AI Visibility Toolkit Pricing</h1>
-    <p class="section-intro">This path is reserved for North Tampa Bay Chamber members. We do not publish the Chamber pricing publicly and share it directly with qualified members.</p>
+<section class="page-hero chamber-premium-hero">
+  <div class="chamber-breadcrumb">
+    <a href="/">Home</a> / <span>North Tampa Bay Chamber Member Offer</span>
   </div>
-</section>
-
-<section class="section section--light">
-  <div class="container">
-    <div class="workshop-partner-strip">
-      <div>
-        <div class="section-label">Member Offer</div>
-        <h2 class="section-title">Built for Chamber businesses that want a direct member path into the toolkit</h2>
-        <p style="font-size:16px;color:var(--text-mid);line-height:1.8;margin-bottom:20px">Shark Branding Solutions is a proud partner of the North Tampa Bay Chamber. If you are a Chamber member, reach out and we will share the member-only AI Visibility Toolkit pricing directly.</p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <a href="/contact" class="btn btn-primary btn-lg">Request Member Pricing</a>
-          <a href="https://northtampabaychamber.com/" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Visit the Chamber</a>
+  <div class="hero-grid"></div>
+  <div class="chamber-premium-shell">
+    <div class="chamber-premium-grid">
+      <div class="chamber-hero-copy">
+        <div class="chamber-kicker-row">
+          <span class="chamber-pill">North Tampa Bay Chamber Members</span>
+          <span class="chamber-pill">Member-Only Pricing Path</span>
+        </div>
+        <h1>A more premium visibility path for North Tampa Bay Chamber businesses.</h1>
+        <p>This page exists for businesses coming through the North Tampa Bay Chamber relationship. If you want a sharper picture of how your business is found, trusted, and compared across search, maps, reviews, and AI-assisted discovery, this is your Chamber-only entry point into the AI Visibility Toolkit.</p>
+        <p>Instead of publishing member pricing publicly, Shark Branding Solutions shares the Chamber path directly after membership is confirmed. That keeps the offer protected while giving Chamber members a cleaner, more direct next step.</p>
+        <div class="chamber-hero-actions">
+          <a href="/contact?path=ntbc-member-toolkit" class="btn btn-primary btn-xl">Request Chamber Member Pricing</a>
+          <a href="https://business.northtampabaychamber.com/members/member/shark-branding-solutions-10198" class="btn btn-ghost btn-xl" target="_blank" rel="noopener">View Chamber Member Listing</a>
+        </div>
+        <div class="chamber-hero-notes">
+          <div class="chamber-note">
+            <strong>Built for owners and leadership teams</strong>
+            <span>Designed for businesses that need clarity before committing to a larger visibility plan.</span>
+          </div>
+          <div class="chamber-note">
+            <strong>Member pricing is shared directly</strong>
+            <span>Reserved for Chamber businesses and not published in search results or public pricing pages.</span>
+          </div>
+          <div class="chamber-note">
+            <strong>Focused on visibility, trust, and conversion</strong>
+            <span>Not generic marketing advice. This path is about what buyers see and believe before they contact you.</span>
+          </div>
         </div>
       </div>
-      <img src="north-tampa-bay-chamber-logo.png" alt="North Tampa Bay Chamber logo">
+
+      <aside class="chamber-hero-aside">
+        <div class="chamber-logo-panel">
+          <img src="north-tampa-bay-chamber-logo.png" alt="North Tampa Bay Chamber logo">
+        </div>
+        <div class="chamber-eyebrow">Chamber Partner Path</div>
+        <div class="chamber-aside-title">Reserved for North Tampa Bay Chamber members.</div>
+        <p class="chamber-aside-copy">Shark Branding Solutions is an active Chamber member. This page gives Chamber businesses a dedicated path into the AI Visibility Toolkit without dropping them into a generic contact flow.</p>
+        <ul class="chamber-membership-list">
+          <li>Chamber-specific inquiry path tied to the member relationship</li>
+          <li>Direct visibility conversation instead of a broad discovery process</li>
+          <li>Clear guidance on whether the toolkit is the right fit now</li>
+        </ul>
+      </aside>
     </div>
   </div>
 </section>
 
 <section class="section section--light">
-  <div class="container" style="max-width:920px">
-    <div class="case-study-panel" data-animate>
-      <div class="section-label" style="margin-bottom:10px">How It Works</div>
-      <h2 style="font-family:var(--font-display);font-size:34px;line-height:1.15;color:var(--text-dark);margin-bottom:16px">We verify member status and share the Chamber pricing directly</h2>
-      <p style="font-size:15px;color:var(--text-mid);line-height:1.75;margin-bottom:22px">To keep the Chamber-only pricing from being indexed publicly, we are not listing the actual member rates on this page. Instead, Chamber members can contact the team and we will provide the member pricing directly.</p>
-      <ul class="plan-include-list" style="margin-bottom:22px">
-        <li>Member-only access path for North Tampa Bay Chamber businesses</li>
-        <li>Pricing shared directly after Chamber status is confirmed</li>
-        <li>Guidance on whether the toolkit is a fit for your business right now</li>
-        <li>A clean next step for Chamber members who want stronger visibility and AI readiness</li>
+  <div class="container">
+    <div class="partner-badge" style="max-width:none;background:#0b2434;border-color:rgba(255,255,255,0.08);box-shadow:0 18px 50px rgba(6,28,44,0.16)">
+      <div class="partner-badge-copy">
+        <span class="partner-badge-label">Chamber Relationship</span>
+        <p>North Tampa Bay Chamber members can use this page as their direct member path into the toolkit. If you came here from the Chamber site, you are in the right place. You can also review our <a href="https://business.northtampabaychamber.com/membertomember/info/shark-branding-solutions-business-growth-toolkit-for-visibility-leads-revenue-03-22-2026" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">member offer on the Chamber site</a>.</p>
+      </div>
+      <a href="https://www.northtampabaychamber.com/member-advantage/" class="partner-badge-logo" target="_blank" rel="noopener" aria-label="North Tampa Bay Chamber member advantage page">
+        <img src="north-tampa-bay-chamber-logo.png" alt="North Tampa Bay Chamber logo">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container" style="max-width:1080px">
+    <div class="chamber-glass-card">
+      <div class="section-label section-label--light">Member Offer</div>
+      <h3>What Chamber members are actually getting here</h3>
+      <p style="margin-bottom:18px">This is not just a hidden pricing page. It is a cleaner way for Chamber businesses to evaluate whether the AI Visibility Toolkit is the right first move. The toolkit is meant to help you understand where your visibility is leaking, where trust is weaker than it should be, and what to fix first so buyers are more likely to find and choose you.</p>
+      <ul class="plan-include-list" style="margin:0">
+        <li>A Chamber-only request path instead of a general inquiry route</li>
+        <li>Member pricing shared directly after Chamber membership is confirmed</li>
+        <li>Guidance on fit, so businesses do not buy the wrong level of help</li>
+        <li>A more direct line into visibility strategy built around search, reviews, maps, and AI discovery</li>
       </ul>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="/contact" class="btn btn-primary">Request Member Pricing</a>
-        <a href="mailto:info@sharkbrandingsolutions.com?subject=North%20Tampa%20Bay%20Chamber%20Pricing%20Request" class="btn btn-outline">Email the Team</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div style="text-align:center; max-width:760px; margin:0 auto 34px;">
+      <div class="section-label">Why Members Request It</div>
+      <h2 class="section-title">A better first step than guessing what is costing you trust.</h2>
+      <p class="section-intro" style="max-width:720px;margin:0 auto">The Chamber path works best for businesses that know visibility matters, but want a practical and lower-friction way to evaluate what to do next.</p>
+    </div>
+    <div class="chamber-proof-grid">
+      <article class="chamber-proof-card">
+        <h3>Your business may be showing up, but not showing up well.</h3>
+        <p>Many companies are technically visible online but still lose trust because of weak review signals, inconsistent business information, thin positioning, or poor AI-era visibility cues.</p>
+      </article>
+      <article class="chamber-proof-card">
+        <h3>You need a clearer picture before a bigger spend.</h3>
+        <p>The toolkit gives Chamber businesses a more disciplined starting point when the goal is to understand what is off before committing to a broader consulting engagement.</p>
+      </article>
+      <article class="chamber-proof-card">
+        <h3>You want a premium member path, not a generic form fill.</h3>
+        <p>This page is structured for Chamber traffic specifically, so the next step feels aligned with the relationship and the level of business conversation you expect.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container" style="max-width:1100px">
+    <div style="text-align:center; max-width:760px; margin:0 auto 34px;">
+      <div class="section-label">What The Toolkit Helps Surface</div>
+      <h2 class="section-title">The issues buyers notice before they ever call you.</h2>
+      <p class="section-intro" style="max-width:740px;margin:0 auto">Chamber businesses typically come in wanting more leads. The more precise problem is usually that buyers are getting mixed signals before they ever make contact.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <h3 class="service-title">Search visibility gaps</h3>
+        <p class="service-text">Where you are not appearing strongly enough in local search, branded search, maps, and category-level discovery.</p>
+      </article>
+      <article class="service-card">
+        <h3 class="service-title">Trust erosion points</h3>
+        <p class="service-text">Signals that make buyers hesitate, including reviews, business info consistency, weak proof, or a stale digital presence.</p>
+      </article>
+      <article class="service-card">
+        <h3 class="service-title">AI-era discoverability issues</h3>
+        <p class="service-text">How your business reads to AI-assisted search and recommendation systems when customers compare local options faster than ever.</p>
+      </article>
+      <article class="service-card">
+        <h3 class="service-title">Conversion friction</h3>
+        <p class="service-text">What causes visitors and prospects to pause, delay, or choose someone else even after they find you.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container" style="max-width:1100px">
+    <div style="text-align:center; max-width:760px; margin:0 auto 34px;">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">A simple Chamber member path.</h2>
+      <p class="section-intro" style="max-width:740px;margin:0 auto">The page stays public so Chamber businesses can reach it from the Chamber site, but the member pricing stays protected and is shared directly.</p>
+    </div>
+    <div class="chamber-step-grid">
+      <article class="chamber-step-card">
+        <div class="chamber-step-number">01</div>
+        <h3>Request the member path.</h3>
+        <p>Use the contact route on this page and mention that you came through the North Tampa Bay Chamber relationship.</p>
+      </article>
+      <article class="chamber-step-card">
+        <div class="chamber-step-number">02</div>
+        <h3>We confirm membership and fit.</h3>
+        <p>Once Chamber status is confirmed, the team shares the member pricing path and clarifies whether the toolkit is the right next move.</p>
+      </article>
+      <article class="chamber-step-card">
+        <div class="chamber-step-number">03</div>
+        <h3>You move forward with clarity.</h3>
+        <p>If the toolkit fits, you can proceed. If it does not, Shark Branding Solutions can point you toward a more appropriate first step.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container" style="max-width:1100px">
+    <div style="text-align:center; max-width:760px; margin:0 auto 34px;">
+      <div class="section-label">Best Fit</div>
+      <h2 class="section-title">Best for Chamber businesses in one of these situations.</h2>
+      <p class="section-intro" style="max-width:740px;margin:0 auto">This page should feel like a serious, but easy, next step for businesses that know visibility problems exist and want a cleaner way into the conversation.</p>
+    </div>
+    <div class="chamber-fit-grid">
+      <div class="chamber-fit-card">
+        <strong>You want clarity before a larger investment.</strong>
+        <span>The toolkit is a better starting point when you know something is off in visibility or trust, but you want a grounded picture before you expand the budget.</span>
+      </div>
+      <div class="chamber-fit-card">
+        <strong>You want a local-business conversation, not a generic agency pitch.</strong>
+        <span>This page is intentionally tied to the Chamber relationship and built around how Tampa Bay businesses are discovered, compared, and chosen now.</span>
+      </div>
+      <div class="chamber-fit-card">
+        <strong>You are seeing inconsistent lead quality.</strong>
+        <span>Businesses often have enough activity to stay busy, but not enough confidence in where good leads are coming from or what is weakening conversion.</span>
+      </div>
+      <div class="chamber-fit-card">
+        <strong>You want a practical next step in the AI era.</strong>
+        <span>If customers are using Google, maps, reviews, and AI tools to evaluate vendors faster, your business needs a cleaner visibility and trust picture to stay competitive.</span>
       </div>
     </div>
   </div>
@@ -118,20 +702,21 @@
 <section class="section cta-section">
   <div class="cta-bg"><div class="cta-grid"></div></div>
   <div class="container cta-inner">
-    <div class="section-label section-label--light">Member Next Step</div>
-    <h2 class="cta-headline">Ready to Request the Chamber Member Pricing?</h2>
-    <p class="cta-sub">Reach out to the team and mention that you are a North Tampa Bay Chamber member so we can verify membership and share the pricing directly.</p>
+    <div class="section-label section-label--light">North Tampa Bay Chamber Member Path</div>
+    <h2 class="cta-headline">Request the Chamber-only pricing path.</h2>
+    <p class="cta-sub">If you came here through the Chamber site, use this page as your direct next step. Mention your Chamber membership and the team will share the protected member path directly.</p>
     <div class="cta-actions">
-      <a href="/contact" class="btn btn-primary btn-xl">Talk to the Team</a>
-      <a href="/ai-visibility-consulting" class="btn btn-ghost btn-xl">See Consulting</a>
+      <a href="/contact?path=ntbc-member-toolkit" class="btn btn-primary btn-xl">Request Chamber Member Pricing</a>
+      <a href="mailto:info@sharkbrandingsolutions.com?subject=North%20Tampa%20Bay%20Chamber%20AI%20Visibility%20Toolkit" class="btn btn-ghost btn-xl">Email the Team Directly</a>
     </div>
+    <p style="margin-top:16px;color:rgba(255,255,255,0.62);font-size:13px">Prefer context first? Review the <a href="/north-tampa-bay-chamber-ai-visibility-case-study" style="color:#fff;text-decoration:underline">North Tampa Bay Chamber case study</a> or the <a href="https://business.northtampabaychamber.com/members/member/shark-branding-solutions-10198" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">Chamber member listing</a>.</p>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" style="display:block"></a>
+      <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" style="display:block"></a>
       <p>Your customers are already searching.<br>The question is - are they finding you?</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
@@ -141,10 +726,10 @@
       </div>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="plans.html">Plans</a><a href="portfolio.html">Portfolio</a><a href="workshops.html">Workshops</a><a href="contact.html">Contact</a><a href="free-report.html">Free Visibility Report</a><a href="ai-resources.html">AI Resources</a></div>
-      <div class="footer-col"><h4>Services</h4><a href="ai-visibility-consulting.html">AI Visibility Consulting</a><a href="local-seo-visibility-audit.html">Local SEO Visibility Audit</a><a href="geo-for-local-businesses.html">GEO for Local Businesses</a><a href="north-tampa-bay-chamber-ai-visibility-toolkit.html">AI Visibility Toolkit</a></div>
-      <div class="footer-col"><h4>Case Studies</h4><a href="hvac-local-seo-case-study.html">HVAC Local SEO</a><a href="emorys-rock-realty-ai-visibility-case-study.html">Emory's Rock Realty</a><a href="north-tampa-bay-chamber-ai-visibility-case-study.html">North Tampa Bay Chamber</a></div>
-      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="tampa-marketing-consultant.html">Tampa</a><a href="tampa-bay-marketing-consultant.html">Tampa Bay</a><a href="lutz-marketing-consultant.html">Lutz</a><a href="land-o-lakes-marketing-consultant.html">Land O&#39; Lakes</a><a href="wesley-chapel-marketing-consultant.html">Wesley Chapel</a><a href="st-petersburg-marketing-consultant.html">St. Petersburg</a></div>
+      <div class="footer-col"><h4>Navigation</h4><a href="/">Home</a><a href="/about">About</a><a href="/ai-visibility-consulting">Consulting</a><a href="/portfolio">Portfolio</a><a href="/workshops">Workshops</a><a href="/contact">Contact</a><a href="/free-report">Free Visibility Report</a><a href="/ai-resources">AI Resources</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/ai-visibility-consulting">AI Visibility Consulting</a><a href="/local-seo-visibility-audit">Local SEO Visibility Audit</a><a href="/geo-for-local-businesses">GEO for Local Businesses</a><a href="/north-tampa-bay-chamber-ai-visibility-toolkit">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Case Studies</h4><a href="/hvac-local-seo-case-study">HVAC Local SEO</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>27251 Suite b14 #805, Wesley Chapel, FL 33544</span><h4 style="margin-top:16px">Service Areas</h4><a href="/tampa-marketing-consultant">Tampa</a><a href="/tampa-bay-marketing-consultant">Tampa Bay</a><a href="/lutz-marketing-consultant">Lutz</a><a href="/land-o-lakes-marketing-consultant">Land O&#39; Lakes</a><a href="/wesley-chapel-marketing-consultant">Wesley Chapel</a><a href="/st-petersburg-marketing-consultant">St. Petersburg</a></div>
     </div>
   </div>
   <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>
@@ -152,5 +737,3 @@
 <script src="main.js"></script>
 </body>
 </html>
-
-
