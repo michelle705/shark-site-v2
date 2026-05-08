@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "find:email": "node scripts/prospecting/email-finder.js"
+  },
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}

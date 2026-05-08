@@ -1,0 +1,28 @@
+{
+  "name": "living-seo-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local MVP for Living SEO rank-shift detection and response planning",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "collect:demo:previous": "node src/cli.js collect-demo previous",
+    "collect:demo:current": "node src/cli.js collect-demo current",
+    "analyze:demo": "node src/cli.js analyze-demo",
+    "collect:live:demo": "node src/cli.js collect-live-demo",
+    "collect:live:shark": "node src/cli.js collect-live-project shark-branding-solutions",
+    "analyze:shark": "node src/cli.js analyze-project shark-branding-solutions",
+    "monitor:shark": "node src/cli.js monitor-project shark-branding-solutions",
+    "top1:shark": "node src/cli.js top1-domain sharkbrandingsolutions.com shark-branding-solutions",
+    "telegram:poll": "node src/cli.js telegram-poll",
+    "telegram:snapshot": "node src/cli.js telegram-snapshot",
+    "collect:live:wesley": "node src/cli.js collect-live-project shark-branding-solutions-wesley-chapel",
+    "analyze:wesley": "node src/cli.js analyze-project shark-branding-solutions-wesley-chapel",
+    "monitor:wesley": "node src/cli.js monitor-project shark-branding-solutions-wesley-chapel"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

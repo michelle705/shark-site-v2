@@ -1,0 +1,1707 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal AI Audit Checklist</title>
+  <style>
+    :root {
+      --bg: #09131f;
+      --bg-soft: #101f30;
+      --panel: rgba(12, 25, 39, 0.88);
+      --panel-2: rgba(18, 33, 50, 0.92);
+      --line: rgba(132, 177, 214, 0.18);
+      --line-strong: rgba(132, 177, 214, 0.34);
+      --text: #eef6ff;
+      --muted: #9fb4c9;
+      --blue: #42c3f7;
+      --teal: #4fe0c2;
+      --yellow: #ffd66b;
+      --orange: #ff9a5f;
+      --red: #ff6b6b;
+      --green: #4fd08b;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --font-body: "Segoe UI", Inter, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(66, 195, 247, 0.18), transparent 36%),
+        radial-gradient(circle at top right, rgba(79, 224, 194, 0.15), transparent 28%),
+        linear-gradient(180deg, #08111c 0%, #0a1623 46%, #0a1220 100%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(8, 18, 28, 0.94), rgba(12, 28, 46, 0.92)),
+        linear-gradient(120deg, rgba(66, 195, 247, 0.06), transparent 42%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -80px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79, 224, 194, 0.18), transparent 72%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(79, 224, 194, 0.24);
+      border-radius: 999px;
+      background: rgba(79, 224, 194, 0.08);
+      color: #bff6ea;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(79, 224, 194, 0.14);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: end;
+      margin-top: 22px;
+    }
+
+    h1 {
+      margin: 14px 0 18px;
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(38px, 7vw, 66px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 10ch;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.78;
+    }
+
+    .hero-note {
+      padding: 20px;
+      border: 1px solid rgba(255, 214, 107, 0.18);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255, 214, 107, 0.08), rgba(255, 214, 107, 0.02));
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #ffe7a8;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-note p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #f4f1df;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-inner {
+      padding: 24px;
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin: 0 0 12px;
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .panel h2 {
+      font-size: 28px;
+    }
+
+    .panel-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cfe1f3;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      padding: 14px 15px;
+      background: rgba(6, 15, 24, 0.74);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(66, 195, 247, 0.68);
+      box-shadow: 0 0 0 4px rgba(66, 195, 247, 0.12);
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #4b8cff);
+      color: white;
+      box-shadow: 0 16px 30px rgba(48, 120, 255, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+    }
+
+    .helper {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .helper strong {
+      color: #dcecff;
+    }
+
+    .micro-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .micro-card {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .micro-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: #f5fbff;
+    }
+
+    .micro-card span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .results {
+      display: grid;
+      gap: 24px;
+    }
+
+    .results[hidden] {
+      display: none;
+    }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 12px;
+      color: #d5e7f7;
+    }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .score-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+
+    .score-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .score-card span {
+      display: block;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .score-card em {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 13px;
+      color: #dcecff;
+    }
+
+    .top-priority-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .priority-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(135deg, rgba(15, 31, 48, 0.94), rgba(12, 24, 38, 0.94)),
+        linear-gradient(90deg, rgba(66, 195, 247, 0.08), transparent 55%);
+      padding: 22px 22px 20px;
+    }
+
+    .priority-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .priority-top h3 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .priority-top p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+
+    .impact-badge {
+      flex-shrink: 0;
+      min-width: 108px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .impact-badge strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .impact-badge span {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .priority-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .meta-tag.good { color: #c4ffe2; background: rgba(79, 208, 139, 0.1); }
+    .meta-tag.bad { color: #ffe3e3; background: rgba(255, 107, 107, 0.1); }
+    .meta-tag.unknown { color: #ffeec0; background: rgba(255, 214, 107, 0.1); }
+    .meta-tag.group { color: #d5e7f7; background: rgba(66, 195, 247, 0.1); }
+
+    .task-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .task-item input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .task-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #f5fbff;
+    }
+
+    .task-item span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .factor-table {
+      display: grid;
+      gap: 12px;
+    }
+
+    .factor-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) 80px minmax(0, 2fr) 130px;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .factor-row strong {
+      font-size: 14px;
+      color: #edf6ff;
+    }
+
+    .factor-row small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 12px;
+    }
+
+    .weight-cell {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-align: right;
+    }
+
+    .bar {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+
+    .status-cell {
+      justify-self: end;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .status-good {
+      color: #c4ffe2;
+      background: rgba(79, 208, 139, 0.14);
+    }
+
+    .status-bad {
+      color: #ffe3e3;
+      background: rgba(255, 107, 107, 0.14);
+    }
+
+    .status-unknown {
+      color: #ffeec0;
+      background: rgba(255, 214, 107, 0.14);
+    }
+
+    .research-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .research-item {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .research-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #f5fbff;
+    }
+
+    .research-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .muted-link {
+      color: #c8def4;
+      text-underline-offset: 3px;
+    }
+
+    .empty-state {
+      padding: 36px 28px;
+      border-radius: var(--radius);
+      border: 1px dashed rgba(159, 180, 201, 0.3);
+      background: rgba(255, 255, 255, 0.02);
+      text-align: center;
+    }
+
+    .empty-state h2 {
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      margin: 0 auto;
+      max-width: 56ch;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    @media (max-width: 1080px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid,
+      .scoreboard {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 20px, 1180px);
+        padding-top: 20px;
+      }
+
+      .hero,
+      .panel-inner {
+        padding: 20px;
+      }
+
+      .form-grid,
+      .factor-row {
+        grid-template-columns: 1fr;
+      }
+
+      .priority-top {
+        flex-direction: column;
+      }
+
+      .impact-badge,
+      .status-cell,
+      .weight-cell {
+        justify-self: start;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Internal Tool</div>
+      <div class="hero-grid">
+        <div>
+          <h1>AI Audit Checklist Generator</h1>
+          <p>
+            Enter any website and generate a research-weighted checklist for AI visibility, extractability,
+            crawl access, entity trust, and on-page readiness. This tool prioritizes what to fix first
+            based on the relative impact of the factors in your reference image, with supporting logic from
+            public GEO research and crawler documentation.
+          </p>
+        </div>
+        <div class="hero-note">
+          <strong>How to use it</strong>
+          <p>
+            This is designed for internal audits. It does a best-effort browser scan when a site allows access.
+            If a site blocks cross-origin inspection, the tool falls back to a guided checklist and clearly
+            marks which items still need manual verification.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="panel">
+        <div class="panel-inner">
+          <h2>Audit Input</h2>
+          <div class="panel-copy">
+            Use the URL alone for a fast first pass, then add business context if you want the checklist to lean
+            more local, ecommerce, SaaS, or publisher.
+          </div>
+
+          <form id="auditForm">
+            <div class="field">
+              <label for="siteUrl">Website URL</label>
+              <input id="siteUrl" name="siteUrl" type="text" placeholder="example.com or https://example.com" required>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="siteType">Website Type</label>
+                <select id="siteType" name="siteType">
+                  <option value="general">General business</option>
+                  <option value="local">Local service business</option>
+                  <option value="saas">B2B SaaS</option>
+                  <option value="ecommerce">Ecommerce</option>
+                  <option value="publisher">Publisher or content site</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="primaryGoal">Primary Goal</label>
+                <select id="primaryGoal" name="primaryGoal">
+                  <option value="citations">Earn more AI citations</option>
+                  <option value="local">Win local discovery</option>
+                  <option value="trust">Increase trust and recommendations</option>
+                  <option value="conversion">Improve answer-to-conversion flow</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="priorityNotes">Optional Context</label>
+              <textarea id="priorityNotes" name="priorityNotes" placeholder="Example: Competes in Tampa HVAC, wants to show up in ChatGPT and Google AI Overviews for emergency AC repair."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="manualSource">Optional Page Source or Pasted Copy</label>
+              <textarea id="manualSource" name="manualSource" placeholder="Paste homepage HTML, page text, or exported source here if the site blocks browser inspection."></textarea>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary" type="submit" id="generateBtn">Generate Checklist</button>
+              <button class="btn btn-secondary" type="button" id="printBtn">Print or Save PDF</button>
+            </div>
+
+            <div class="helper">
+              <strong>Note:</strong> browser-based scans can usually check URL structure, robots access,
+              visible page structure, schema, and file presence. True ranking, citations, and authority still
+              require manual review or a live search workflow.
+            </div>
+          </form>
+
+          <div class="micro-list">
+            <div class="micro-card">
+              <strong>Best for first-pass prioritization</strong>
+              <span>Use this before deep work to decide what has the highest leverage and what is just noise.</span>
+            </div>
+            <div class="micro-card">
+              <strong>Uses weighted impact, not flat checkboxes</strong>
+              <span>The tool sorts the output by likely impact so the top of the list becomes the action plan.</span>
+            </div>
+            <div class="micro-card">
+              <strong>Safe internal framing</strong>
+              <span>No dependency on your current site shell, nav, tracking, CRM, or shared code.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="results" id="results">
+        <div class="empty-state panel">
+          <div class="panel-inner">
+            <h2>Run an audit to generate the checklist</h2>
+            <p>
+              The output will rank the biggest opportunities first, show what the browser could verify,
+              and separate confirmed issues from items that still need manual validation.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const FACTORS = [
+      {
+        id: 'url_accessibility',
+        label: 'URL Accessibility',
+        weight: 9.5,
+        group: 'Access',
+        why: 'If the page cannot be fetched cleanly, nothing else matters.',
+        tasks: [
+          ['Use a clean canonical URL structure', 'Avoid redirect chains, mixed hostnames, and dead-end pages.'],
+          ['Verify crawl access for key landing pages', 'Make sure the important pages return 200 status and are reachable from internal links.']
+        ],
+        evaluate: (ctx) => {
+          if (ctx.fetch.homepage.ok) return status('good', 'Homepage fetched in browser scan.');
+          if (ctx.fetch.homepage.error) return status('bad', 'Homepage could not be fetched in browser scan.');
+          return status('unknown', 'Could not confirm homepage accessibility from this browser.');
+        }
+      },
+      {
+        id: 'search_rank',
+        label: 'Search Rank',
+        weight: 9.4,
+        group: 'Visibility',
+        why: 'AI systems still pull heavily from content that already ranks or is otherwise surfaced.',
+        tasks: [
+          ['Check current non-brand rankings', 'Validate where the site ranks for high-intent queries that should produce citations.'],
+          ['Identify competitor pages already winning the query', 'Map which URLs are being surfaced before changing content format.']
+        ],
+        evaluate: () => status('unknown', 'Manual review required. Browser scan cannot measure live rankings.')
+      },
+      {
+        id: 'fan_out_rank',
+        label: 'Fan-out Rank',
+        weight: 9.3,
+        group: 'Structure',
+        why: 'Internal linking helps search engines and AI systems discover which pages deserve attention.',
+        tasks: [
+          ['Increase internal links to money pages', 'Link priority pages from homepage, nav, supporting pages, and relevant articles.'],
+          ['Build supporting pages around the core offer', 'Topic support pages make key pages easier to discover and trust.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect internal links on the homepage.');
+          if (ctx.metrics.internalLinks >= 20) return status('good', `${ctx.metrics.internalLinks} internal links found on the homepage.`);
+          if (ctx.metrics.internalLinks >= 8) return status('unknown', `${ctx.metrics.internalLinks} internal links found. Could be stronger.`);
+          return status('bad', `Only ${ctx.metrics.internalLinks} internal links found on the homepage.`);
+        }
+      },
+      {
+        id: 'preview_control',
+        label: 'Preview Control',
+        weight: 9.2,
+        group: 'Access',
+        why: 'Overly restrictive snippet controls can limit what AI and search systems can quote or summarize.',
+        tasks: [
+          ['Check robots meta and X-Robots settings', 'Remove accidental noindex, nosnippet, or overly aggressive max-snippet rules on pages you want cited.'],
+          ['Use preview controls intentionally', 'Reserve restrictive controls for pages you explicitly do not want summarized.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect robots meta tags.');
+          if (ctx.flags.restrictivePreview) return status('bad', 'Found restrictive snippet or indexing controls.');
+          if (ctx.flags.hasMetaRobots) return status('good', 'Meta robots tag found without restrictive snippet controls.');
+          return status('good', 'No restrictive preview controls detected in visible markup.');
+        }
+      },
+      {
+        id: 'query_answer_match',
+        label: 'Query-Answer Match',
+        weight: 9.2,
+        group: 'Extractability',
+        why: 'Pages that answer the likely query directly are easier for AI systems to cite.',
+        tasks: [
+          ['Make the top section answer the likely query', 'Open with a direct answer instead of brand-first throat clearing.'],
+          ['Use headings that mirror real search language', 'Include what-is, best-for, pricing, comparison, and how-to phrasing where relevant.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not evaluate visible answer formatting.');
+          if (ctx.metrics.questionHeadings >= 2 || ctx.flags.hasFaqSchema) return status('good', 'Question-oriented structure detected.');
+          if (ctx.metrics.firstParagraphWords > 0 && ctx.metrics.firstParagraphWords <= 85) return status('unknown', 'Top paragraph is concise, but query framing is not obvious.');
+          return status('bad', 'The top section does not clearly signal a direct answer format.');
+        }
+      },
+      {
+        id: 'intent_format_match',
+        label: 'Intent-Format Match',
+        weight: 9.0,
+        group: 'Extractability',
+        why: 'The content format should match the job: comparisons, steps, FAQs, definitions, or proof.',
+        tasks: [
+          ['Match page format to query intent', 'Use tables for comparisons, numbered steps for how-to queries, and concise answers for definition queries.'],
+          ['Break long walls of text into extraction-friendly blocks', 'Use sections, lists, and scannable content units.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not evaluate format patterns.');
+          if (ctx.flags.hasTable || ctx.metrics.listCount >= 2 || ctx.flags.hasFaqSchema) return status('good', 'Structured content blocks detected.');
+          if (ctx.metrics.headingCount >= 4) return status('unknown', 'Section structure exists, but strong intent blocks were not obvious.');
+          return status('bad', 'Weak evidence of intent-specific formatting.');
+        }
+      },
+      {
+        id: 'topic_cluster_ranking',
+        label: 'Topic Cluster Ranking',
+        weight: 8.9,
+        group: 'Structure',
+        why: 'AI visibility tends to improve when a site covers a topic cluster instead of one isolated page.',
+        tasks: [
+          ['Create supporting pages around the main topic', 'Cover adjacent questions, comparisons, use cases, and objections.'],
+          ['Link support content back to the core page', 'Clusters work when authority flows to the main conversion page.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect cluster signals.');
+          if (ctx.metrics.internalLinks >= 20 && ctx.metrics.headingCount >= 6) return status('good', 'Homepage suggests some cluster depth and discoverability.');
+          if (ctx.metrics.internalLinks >= 10) return status('unknown', 'Some cluster signals exist, but depth is unclear.');
+          return status('bad', 'Cluster support looks thin from the homepage scan.');
+        }
+      },
+      {
+        id: 'answer_near_top',
+        label: 'Answer Near the Top',
+        weight: 8.8,
+        group: 'Extractability',
+        why: 'The faster the page answers the question, the easier it is to quote.',
+        tasks: [
+          ['Move the answer above the fold', 'Put the direct explanation in the intro instead of making users scroll for it.'],
+          ['Shorten the first explanation block', 'Aim for a clean answer passage before brand proof and detail.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect top-of-page answer placement.');
+          if (ctx.metrics.firstParagraphWords > 0 && ctx.metrics.firstParagraphWords <= 70) return status('good', `First paragraph is concise at ${ctx.metrics.firstParagraphWords} words.`);
+          if (ctx.metrics.firstParagraphWords > 70 && ctx.metrics.firstParagraphWords <= 130) return status('unknown', 'Answer may be present, but the opening copy is longer than ideal.');
+          return status('bad', 'The first visible paragraph is long or unclear, which reduces snippet strength.');
+        }
+      },
+      {
+        id: 'ai_ready_structure',
+        label: 'AI-ready Structure',
+        weight: 8.6,
+        group: 'Extractability',
+        why: 'Predictable structure improves extraction, chunking, and attribution.',
+        tasks: [
+          ['Use a disciplined heading hierarchy', 'Make sure the page has one H1 and logical H2/H3 sections.'],
+          ['Create standalone answer blocks', 'Each important section should make sense when quoted on its own.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect page structure.');
+          if (ctx.metrics.headingCount >= 5 && ctx.metrics.paragraphCount >= 5) return status('good', 'Strong section structure detected.');
+          if (ctx.metrics.headingCount >= 3) return status('unknown', 'Basic structure exists, but it may not be strong enough for extraction.');
+          return status('bad', 'Weak heading structure detected.');
+        }
+      },
+      {
+        id: 'factually_specific',
+        label: 'Factually Specific',
+        weight: 8.3,
+        group: 'Authority',
+        why: 'Specific claims, dates, and numbers are more citeable than generic marketing language.',
+        tasks: [
+          ['Add named facts, numbers, and dates', 'Replace vague claims with specifics AI systems can reuse.'],
+          ['Tie claims to proof', 'Use examples, benchmarks, stats, or source-backed evidence.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.text) return status('unknown', 'Could not inspect visible text for specificity.');
+          if (ctx.metrics.numberMatches >= 8) return status('good', `${ctx.metrics.numberMatches} number or percentage references detected.`);
+          if (ctx.metrics.numberMatches >= 3) return status('unknown', 'Some specificity exists, but it could be stronger.');
+          return status('bad', 'Very little factual specificity detected in the scanned content.');
+        }
+      },
+      {
+        id: 'explicit_phrasing',
+        label: 'Explicit Phrasing',
+        weight: 8.1,
+        group: 'Extractability',
+        why: 'Clear, direct phrasing tends to outperform vague, brand-heavy abstractions.',
+        tasks: [
+          ['State things plainly', 'Use direct definitions and clear claim language instead of layered positioning copy.'],
+          ['Use phrases that mirror how buyers ask', 'Match the wording of actual queries where appropriate.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.text) return status('unknown', 'Could not inspect on-page phrasing.');
+          if (ctx.metrics.explicitPhraseMatches >= 4) return status('good', 'Several direct query-style phrases detected.');
+          if (ctx.metrics.explicitPhraseMatches >= 1) return status('unknown', 'Some explicit phrasing exists, but not consistently.');
+          return status('bad', 'Low evidence of explicit answer-oriented phrasing.');
+        }
+      },
+      {
+        id: 'cites_sources',
+        label: 'Cites Sources',
+        weight: 8.0,
+        group: 'Authority',
+        why: 'Source-backed claims are stronger citation candidates than unsupported statements.',
+        tasks: [
+          ['Cite primary sources on key pages', 'Link to original studies, documentation, or first-party data.'],
+          ['Anchor important claims with evidence', 'Do not leave major statistics or frameworks uncited.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect outbound citations.');
+          if (ctx.metrics.externalLinks >= 5 || ctx.flags.hasCitationPhrases) return status('good', 'Evidence of source citations or outbound references detected.');
+          if (ctx.metrics.externalLinks >= 1) return status('unknown', 'Some external references exist, but citation density appears light.');
+          return status('bad', 'No clear evidence of source citations in the scanned page.');
+        }
+      },
+      {
+        id: 'self_contained_passages',
+        label: 'Self-contained Passages',
+        weight: 8.0,
+        group: 'Extractability',
+        why: 'Quoted passages need to stand on their own without extra page context.',
+        tasks: [
+          ['Write sections that survive copy-paste', 'Each priority paragraph should make sense on its own.'],
+          ['Keep key answer blocks tight', 'Aim for short, complete answer passages rather than winding intros.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect paragraph shape.');
+          if (ctx.metrics.shortParagraphs >= 4) return status('good', 'Several concise passages detected.');
+          if (ctx.metrics.shortParagraphs >= 2) return status('unknown', 'Some extraction-friendly passages exist.');
+          return status('bad', 'Few concise self-contained passages detected.');
+        }
+      },
+      {
+        id: 'content_visibility',
+        label: 'Content Visibility',
+        weight: 7.6,
+        group: 'Access',
+        why: 'Core metadata and visible page signals help systems understand what the page is about.',
+        tasks: [
+          ['Confirm title, description, canonical, and H1', 'Make sure the page exposes clear summary signals.'],
+          ['Put important content in crawlable text', 'Do not hide key meaning inside images or scripts.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect metadata visibility.');
+          const score = [ctx.flags.hasTitle, ctx.flags.hasDescription, ctx.flags.hasCanonical, ctx.flags.hasH1].filter(Boolean).length;
+          if (score === 4) return status('good', 'Title, description, canonical, and H1 were all found.');
+          if (score >= 2) return status('unknown', `Found ${score} of 4 core visibility signals.`);
+          return status('bad', 'Core visibility signals appear incomplete.');
+        }
+      },
+      {
+        id: 'freshness',
+        label: 'Freshness',
+        weight: 7.0,
+        group: 'Authority',
+        why: 'Recent dates and updated signals increase trust for fast-moving topics.',
+        tasks: [
+          ['Add or update visible date signals', 'Use clear updated dates where freshness matters.'],
+          ['Refresh key facts and examples', 'Replace stale references and outdated screenshots or claims.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.text && !ctx.fetch.sitemap.ok) return status('unknown', 'Could not inspect freshness signals.');
+          if (ctx.metrics.currentYearMentions >= 1 || ctx.flags.hasTimeElement || ctx.flags.sitemapHasRecentYear) {
+            return status('good', 'Found recent-year or update-related signals.');
+          }
+          if (ctx.metrics.previousYearMentions >= 1) return status('unknown', 'Some date signals exist, but they may not feel recent.');
+          return status('bad', 'Freshness signals were not obvious in the scan.');
+        }
+      },
+      {
+        id: 'brand_entity_trust',
+        label: 'Brand / Entity Trust',
+        weight: 6.8,
+        group: 'Entity',
+        why: 'AI systems prefer clearly identified entities with visible trust scaffolding.',
+        tasks: [
+          ['Strengthen About, Contact, and proof signals', 'Make authorship, ownership, contact details, and social proof easy to verify.'],
+          ['Add consistent entity markers', 'Use the same business name, category, and identity everywhere.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect entity trust signals.');
+          const score = [ctx.flags.hasOrganizationSchema, ctx.flags.hasContactLink, ctx.flags.hasAboutLink, ctx.flags.hasPhoneOrEmail].filter(Boolean).length;
+          if (score >= 3) return status('good', 'Strong entity trust signals found on the page.');
+          if (score >= 2) return status('unknown', 'Some trust signals are present, but the footprint could be stronger.');
+          return status('bad', 'Thin visible entity trust signals.');
+        }
+      },
+      {
+        id: 'length',
+        label: 'Length',
+        weight: 6.7,
+        group: 'Extractability',
+        why: 'Thin pages often lack the depth needed to satisfy a range of AI queries.',
+        tasks: [
+          ['Ensure the page is deep enough for the job', 'Add enough useful substance to answer the main query and adjacent questions.'],
+          ['Do not confuse length with bloat', 'Depth matters when it adds clarity, examples, and proof.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.text) return status('unknown', 'Could not estimate text depth.');
+          if (ctx.metrics.wordCount >= 900) return status('good', `${ctx.metrics.wordCount} visible words detected.`);
+          if (ctx.metrics.wordCount >= 450) return status('unknown', `${ctx.metrics.wordCount} visible words detected. Depth may be enough for some pages.`);
+          return status('bad', `Only about ${ctx.metrics.wordCount} visible words detected in the scan.`);
+        }
+      },
+      {
+        id: 'language',
+        label: 'Language Clarity',
+        weight: 6.3,
+        group: 'Extractability',
+        why: 'Clear language improves extraction and reduces ambiguity.',
+        tasks: [
+          ['Tighten clarity before adding more content', 'Rewrite vague or ornamental copy so the meaning is direct.'],
+          ['Reduce jargon that does not help the query', 'Use technical language when it improves precision, not when it hides meaning.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect document language settings.');
+          if (ctx.flags.hasHtmlLang && ctx.metrics.avgParagraphWords <= 85) return status('good', 'Language markers and concise paragraph structure detected.');
+          if (ctx.flags.hasHtmlLang) return status('unknown', 'Language marker exists, but paragraph structure may still be dense.');
+          return status('bad', 'No clear language attribute found on the root document.');
+        }
+      },
+      {
+        id: 'entity_consistency',
+        label: 'Entity Consistency',
+        weight: 5.8,
+        group: 'Entity',
+        why: 'Consistent identity makes it easier for machines to map the brand across the web.',
+        tasks: [
+          ['Standardize brand naming', 'Use the same company name, URL, and key descriptors across important properties.'],
+          ['Connect the entity with sameAs or profile references', 'Support identity matching with structured references where relevant.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect entity consistency signals.');
+          if (ctx.flags.hasOrganizationSchema && ctx.flags.hasSameAs) return status('good', 'Structured entity consistency signals found.');
+          if (ctx.flags.hasOrganizationSchema) return status('unknown', 'Organization schema exists, but sameAs or profile linkage is weak.');
+          return status('bad', 'No clear structured entity consistency signal detected.');
+        }
+      },
+      {
+        id: 'structured_data',
+        label: 'Structured Data',
+        weight: 5.6,
+        group: 'Entity',
+        why: 'Structured data helps machines classify the page and the entity, even if it is not a silver bullet.',
+        tasks: [
+          ['Add relevant schema markup', 'Use the schema types that fit the page, not generic markup for its own sake.'],
+          ['Keep structured data aligned with visible content', 'Do not mark up content that users cannot actually see.']
+        ],
+        evaluate: (ctx) => {
+          if (!ctx.doc) return status('unknown', 'Could not inspect structured data.');
+          if (ctx.flags.hasJsonLd) return status('good', 'JSON-LD structured data detected.');
+          return status('bad', 'No JSON-LD structured data detected on the scanned page.');
+        }
+      },
+      {
+        id: 'known_source',
+        label: 'Known Source',
+        weight: 5.4,
+        group: 'Authority',
+        why: 'Well-known publishers and trusted third-party mentions still help citation odds.',
+        tasks: [
+          ['Map third-party visibility', 'Review whether the brand appears on trusted sites already cited in the category.'],
+          ['Earn references outside your own domain', 'Industry sites, review platforms, associations, and press still matter.']
+        ],
+        evaluate: () => status('unknown', 'Manual review required. Browser scan cannot determine off-site recognition.')
+      },
+      {
+        id: 'domain_authority',
+        label: 'Domain Authority',
+        weight: 5.0,
+        group: 'Authority',
+        why: 'Lower impact than content structure, but still relevant when several pages compete for the same query.',
+        tasks: [
+          ['Compare domain strength against top cited competitors', 'Use authority only as context, not as the first fix.'],
+          ['Support important pages with links and references', 'Increase authority where it helps the pages that matter most.']
+        ],
+        evaluate: () => status('unknown', 'Manual review required. Browser scan cannot measure domain authority.')
+      },
+      {
+        id: 'llms_txt',
+        label: 'LLMs.txt',
+        weight: 2.0,
+        group: 'Access',
+        why: 'Useful as a hygiene layer, but much lower impact than crawlability, answers, trust, and structure.',
+        tasks: [
+          ['Treat llms.txt as optional support, not a headline fix', 'Do not prioritize this ahead of core content and crawl issues.'],
+          ['If used, keep it accurate and lightweight', 'Point to the pages or summaries you most want AI systems to understand.']
+        ],
+        evaluate: (ctx) => {
+          if (ctx.fetch.llms.ok) return status('good', 'llms.txt file was found.');
+          if (ctx.fetch.llms.error) return status('bad', 'llms.txt file was not found.');
+          return status('unknown', 'Could not verify llms.txt from this browser.');
+        }
+      }
+    ];
+
+    const GROUPS = [
+      ['Access', 'Crawl, fetch, and preview controls'],
+      ['Extractability', 'How easy the content is to quote and summarize'],
+      ['Authority', 'Proof, evidence, freshness, and external trust'],
+      ['Entity', 'Brand clarity and machine-readable identity'],
+      ['Structure', 'Internal linking and topic coverage depth'],
+      ['Visibility', 'SERP and discovery conditions requiring manual review']
+    ];
+
+    const EXPLICIT_PHRASES = ['what is', 'how to', 'best ', 'vs ', 'pricing', 'cost', 'compare', 'why ', 'when ', 'who '];
+
+    const resultsEl = document.getElementById('results');
+    const auditForm = document.getElementById('auditForm');
+    const generateBtn = document.getElementById('generateBtn');
+    const printBtn = document.getElementById('printBtn');
+
+    const status = (kind, detail) => ({ kind, detail });
+
+    const normalizeUrl = (value) => {
+      const trimmed = String(value || '').trim();
+      if (!trimmed) return '';
+      if (/^https?:\/\//i.test(trimmed)) return trimmed;
+      return `https://${trimmed}`;
+    };
+
+    const parseJsonLd = (doc) => {
+      if (!doc) return [];
+      const blocks = [...doc.querySelectorAll('script[type="application/ld+json"]')];
+      const values = [];
+      for (const block of blocks) {
+        const text = block.textContent.trim();
+        if (!text) continue;
+        values.push(text);
+      }
+      return values;
+    };
+
+    const countMatches = (text, regex) => {
+      const matches = text.match(regex);
+      return matches ? matches.length : 0;
+    };
+
+    const getOrigin = (url) => {
+      try {
+        return new URL(url).origin;
+      } catch {
+        return '';
+      }
+    };
+
+    const fetchText = async (url, timeout = 9000) => {
+      const controller = new AbortController();
+      const timer = window.setTimeout(() => controller.abort(), timeout);
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'cors',
+          redirect: 'follow',
+          signal: controller.signal
+        });
+        const text = await response.text();
+        return {
+          ok: response.ok,
+          status: response.status,
+          text,
+          finalUrl: response.url
+        };
+      } catch (error) {
+        return {
+          ok: false,
+          error: error && error.message ? error.message : 'Fetch failed'
+        };
+      } finally {
+        window.clearTimeout(timer);
+      }
+    };
+
+    const scanSite = async (rawUrl, manualSource = '') => {
+      const normalizedUrl = normalizeUrl(rawUrl);
+      const url = new URL(normalizedUrl);
+      const origin = url.origin;
+
+      const [homepage, robots, sitemap, llms] = await Promise.all([
+        fetchText(normalizedUrl),
+        fetchText(`${origin}/robots.txt`, 7000),
+        fetchText(`${origin}/sitemap.xml`, 7000),
+        fetchText(`${origin}/llms.txt`, 7000)
+      ]);
+
+      let doc = null;
+      let text = '';
+      if (homepage.ok && homepage.text) {
+        doc = new DOMParser().parseFromString(homepage.text, 'text/html');
+        text = (doc.body ? doc.body.innerText : '').replace(/\s+/g, ' ').trim();
+      } else if (manualSource.trim()) {
+        const source = manualSource.trim();
+        if (/<[a-z][\s\S]*>/i.test(source)) {
+          doc = new DOMParser().parseFromString(source, 'text/html');
+          text = (doc.body ? doc.body.innerText : '').replace(/\s+/g, ' ').trim();
+        } else {
+          doc = new DOMParser().parseFromString(`<html lang="en"><body><main>${escapeHtml(source)}</main></body></html>`, 'text/html');
+          text = source.replace(/\s+/g, ' ').trim();
+        }
+      }
+
+      const jsonLdBlocks = parseJsonLd(doc);
+      const jsonLdText = jsonLdBlocks.join('\n');
+      const internalLinks = doc ? [...doc.querySelectorAll('a[href]')].filter((link) => {
+        const href = link.getAttribute('href') || '';
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
+        if (href.startsWith('/')) return true;
+        try {
+          return new URL(href, origin).origin === origin;
+        } catch {
+          return false;
+        }
+      }).length : 0;
+
+      const externalLinks = doc ? [...doc.querySelectorAll('a[href]')].filter((link) => {
+        const href = link.getAttribute('href') || '';
+        try {
+          return /^https?:\/\//i.test(href) && new URL(href).origin !== origin;
+        } catch {
+          return false;
+        }
+      }).length : 0;
+
+      const paragraphs = doc ? [...doc.querySelectorAll('p')].map((p) => p.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean) : [];
+      const headings = doc ? [...doc.querySelectorAll('h1, h2, h3')].map((el) => el.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean) : [];
+      const firstParagraphWords = paragraphs[0] ? paragraphs[0].split(/\s+/).filter(Boolean).length : 0;
+      const wordCount = text ? text.split(/\s+/).filter(Boolean).length : 0;
+      const shortParagraphs = paragraphs.filter((paragraph) => {
+        const words = paragraph.split(/\s+/).filter(Boolean).length;
+        return words >= 25 && words <= 80;
+      }).length;
+      const avgParagraphWords = paragraphs.length
+        ? Math.round(paragraphs.reduce((sum, paragraph) => sum + paragraph.split(/\s+/).filter(Boolean).length, 0) / paragraphs.length)
+        : 0;
+
+      const explicitPhraseMatches = text
+        ? EXPLICIT_PHRASES.reduce((sum, phrase) => sum + (text.toLowerCase().includes(phrase) ? 1 : 0), 0)
+        : 0;
+
+      const currentYear = new Date().getFullYear();
+      const previousYear = currentYear - 1;
+
+      return {
+        rawUrl,
+        normalizedUrl,
+        origin,
+        fetch: { homepage, robots, sitemap, llms },
+        doc,
+        text,
+        notes: [],
+        metrics: {
+          internalLinks,
+          externalLinks,
+          questionHeadings: headings.filter((heading) => heading.includes('?')).length,
+          headingCount: headings.length,
+          listCount: doc ? doc.querySelectorAll('ul, ol').length : 0,
+          paragraphCount: paragraphs.length,
+          firstParagraphWords,
+          wordCount,
+          shortParagraphs,
+          avgParagraphWords,
+          numberMatches: countMatches(text, /\b\d+(?:\.\d+)?%?\b/g),
+          explicitPhraseMatches,
+          currentYearMentions: countMatches(text, new RegExp(`\\b${currentYear}\\b`, 'g')),
+          previousYearMentions: countMatches(text, new RegExp(`\\b${previousYear}\\b`, 'g'))
+        },
+        flags: {
+          hasTitle: Boolean(doc?.querySelector('title')?.textContent?.trim()),
+          hasDescription: Boolean(doc?.querySelector('meta[name="description"]')?.getAttribute('content')?.trim()),
+          hasCanonical: Boolean(doc?.querySelector('link[rel="canonical"]')?.getAttribute('href')?.trim()),
+          hasH1: Boolean(doc?.querySelector('h1')?.textContent?.trim()),
+          hasMetaRobots: Boolean(doc?.querySelector('meta[name="robots"]')),
+          restrictivePreview: /noindex|nosnippet|max-snippet\s*:\s*0|data-nosnippet/i.test(
+            [
+              doc?.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
+              homepage.text || ''
+            ].join(' ')
+          ),
+          hasJsonLd: jsonLdBlocks.length > 0,
+          hasOrganizationSchema: /"@type"\s*:\s*"(?:Organization|LocalBusiness|Corporation|Person)"/i.test(jsonLdText),
+          hasFaqSchema: /"@type"\s*:\s*"FAQPage"/i.test(jsonLdText),
+          hasSameAs: /"sameAs"\s*:/i.test(jsonLdText),
+          hasCitationPhrases: /(according to|source:|study|research|report)/i.test(text),
+          hasTable: Boolean(doc?.querySelector('table')),
+          hasTimeElement: Boolean(doc?.querySelector('time')),
+          hasHtmlLang: Boolean(doc?.documentElement?.getAttribute('lang')),
+          hasContactLink: [...(doc?.querySelectorAll('a[href]') || [])].some((a) => /contact/i.test(a.getAttribute('href') || '') || /contact/i.test(a.textContent || '')),
+          hasAboutLink: [...(doc?.querySelectorAll('a[href]') || [])].some((a) => /about/i.test(a.getAttribute('href') || '') || /about/i.test(a.textContent || '')),
+          hasPhoneOrEmail: /\b\d{3}[-.\s)]*\d{3}[-.\s]*\d{4}\b|@/.test(text),
+          sitemapHasRecentYear: new RegExp(`\\b${currentYear}\\b|\\b${previousYear}\\b`).test(sitemap.text || '')
+        }
+      };
+    };
+
+    const getPriorityScore = (factor, evaluation) => {
+      const multiplierByKind = {
+        bad: 1,
+        unknown: 0.68,
+        good: 0.12
+      };
+      return Math.round(factor.weight * (multiplierByKind[evaluation.kind] || 0.5) * 10) / 10;
+    };
+
+    const getCategoryScores = (evaluatedFactors) => {
+      const buckets = {
+        Access: [],
+        Extractability: [],
+        Authority: [],
+        Entity: [],
+        Structure: [],
+        Visibility: []
+      };
+
+      evaluatedFactors.forEach((item) => {
+        const scoreByKind = { good: 92, unknown: 58, bad: 24 };
+        buckets[item.group]?.push(scoreByKind[item.state] ?? 50);
+      });
+
+      const average = (values) => values.length ? Math.round(values.reduce((sum, value) => sum + value, 0) / values.length) : 0;
+
+      return {
+        access: average(buckets.Access),
+        extractability: average(buckets.Extractability),
+        authority: average(buckets.Authority),
+        entity: average(buckets.Entity),
+        structure: average([...buckets.Structure, ...buckets.Visibility])
+      };
+    };
+
+    const statusLabel = (kind) => {
+      if (kind === 'good') return 'Looks good';
+      if (kind === 'bad') return 'Needs work';
+      return 'Verify manually';
+    };
+
+    const statusClass = (kind) => {
+      if (kind === 'good') return 'good';
+      if (kind === 'bad') return 'bad';
+      return 'unknown';
+    };
+
+    const factorBarColor = (weight) => {
+      if (weight >= 9) return 'linear-gradient(90deg, #2458ff, #4ec9ff)';
+      if (weight >= 8) return 'linear-gradient(90deg, #3bb8ff, #6de4ff)';
+      if (weight >= 7) return 'linear-gradient(90deg, #ffd66b, #ffe9a5)';
+      if (weight >= 5) return 'linear-gradient(90deg, #ffc061, #ffd66b)';
+      return 'linear-gradient(90deg, #ff8a65, #ffb46c)';
+    };
+
+    const buildNarrative = (ctx, siteType, primaryGoal) => {
+      const fragments = [];
+      if (siteType === 'local') fragments.push('Local discovery and entity consistency deserve extra scrutiny for this business type.');
+      if (siteType === 'saas') fragments.push('Comparison, category explanation, and proof-heavy pages usually have the highest leverage for SaaS.');
+      if (siteType === 'ecommerce') fragments.push('Product, merchant, comparison, and return-policy clarity matter more for ecommerce visibility.');
+      if (siteType === 'publisher') fragments.push('Freshness, source citation, and passage structure matter more heavily for publisher workflows.');
+      if (primaryGoal === 'citations') fragments.push('The checklist is leaning toward extractable answer blocks, evidence, and quote-worthy specificity.');
+      if (primaryGoal === 'local') fragments.push('The checklist is leaning toward crawl access, entity trust, and local discoverability signals.');
+      if (primaryGoal === 'trust') fragments.push('The checklist is leaning toward entity clarity, cited proof, and visible confidence signals.');
+      if (primaryGoal === 'conversion') fragments.push('The checklist is leaning toward answer-near-top structure and clearer decision support.');
+      if (ctx.fetch.homepage.ok) fragments.push('The browser was able to inspect the homepage directly, so several checks are evidence-based.');
+      else fragments.push('The browser could not fully inspect the homepage, so the audit is leaning more heavily on weighted guidance and manual verification flags.');
+      return fragments.join(' ');
+    };
+
+    const renderResults = ({ url, siteType, primaryGoal, notes, context, evaluatedFactors }) => {
+      const categoryScores = getCategoryScores(evaluatedFactors);
+      const overall = Math.round(
+        (categoryScores.access + categoryScores.extractability + categoryScores.authority + categoryScores.entity + categoryScores.structure) / 5
+      );
+
+      const topPriorities = [...evaluatedFactors]
+        .filter((item) => item.state !== 'good')
+        .sort((a, b) => b.priorityScore - a.priorityScore)
+        .slice(0, 6);
+
+      const factorRows = evaluatedFactors
+        .sort((a, b) => b.weight - a.weight)
+        .map((item) => `
+          <div class="factor-row">
+            <div>
+              <strong>${item.label}</strong>
+              <small>${item.detail}</small>
+            </div>
+            <div class="weight-cell">${item.weight.toFixed(1)}</div>
+            <div class="bar">
+              <div class="bar-fill" style="width:${Math.min(item.weight * 10, 100)}%;background:${factorBarColor(item.weight)}"></div>
+            </div>
+            <div class="status-cell status-${statusClass(item.state)}">${statusLabel(item.state)}</div>
+          </div>
+        `)
+        .join('');
+
+      const priorityCards = topPriorities.map((item, index) => `
+        <article class="priority-card">
+          <div class="priority-top">
+            <div>
+              <div class="eyebrow" style="margin-bottom:14px">Priority ${index + 1}</div>
+              <h3>${item.label}</h3>
+              <p>${item.why}</p>
+            </div>
+            <div class="impact-badge">
+              <strong>Impact</strong>
+              <span>${item.priorityScore.toFixed(1)}</span>
+            </div>
+          </div>
+          <div class="priority-meta">
+            <span class="meta-tag ${statusClass(item.state)}">${statusLabel(item.state)}</span>
+            <span class="meta-tag group">${item.group}</span>
+            <span class="meta-tag group">Weight ${item.weight.toFixed(1)}</span>
+          </div>
+          <div class="panel-copy" style="margin-bottom:0">${item.detail}</div>
+          <div class="task-list">
+            ${item.tasks.map(([title, detail]) => `
+              <label class="task-item">
+                <input type="checkbox">
+                <span>
+                  <strong>${title}</strong>
+                  <span>${detail}</span>
+                </span>
+              </label>
+            `).join('')}
+          </div>
+        </article>
+      `).join('');
+
+      resultsEl.innerHTML = `
+        <section class="panel">
+          <div class="panel-inner">
+            <h2>Audit Summary</h2>
+            <div class="panel-copy">
+              Audit target: <strong>${escapeHtml(url)}</strong><br>
+              ${escapeHtml(buildNarrative(context, siteType, primaryGoal))}
+              ${notes ? `<br><br>Context note: ${escapeHtml(notes)}` : ''}
+            </div>
+
+            <div class="scoreboard">
+              <div class="score-card">
+                <strong>Overall</strong>
+                <span>${overall}</span>
+                <em>Weighted readiness score</em>
+              </div>
+              <div class="score-card">
+                <strong>Access</strong>
+                <span>${categoryScores.access}</span>
+                <em>Crawl and fetch health</em>
+              </div>
+              <div class="score-card">
+                <strong>Extractability</strong>
+                <span>${categoryScores.extractability}</span>
+                <em>Answer and structure quality</em>
+              </div>
+              <div class="score-card">
+                <strong>Authority</strong>
+                <span>${categoryScores.authority}</span>
+                <em>Evidence and freshness</em>
+              </div>
+              <div class="score-card">
+                <strong>Entity</strong>
+                <span>${categoryScores.entity}</span>
+                <em>Trust and machine clarity</em>
+              </div>
+            </div>
+
+            <div class="status-strip">
+              <span class="pill">Homepage fetch: ${context.fetch.homepage.ok ? 'Success' : 'Blocked or unavailable'}</span>
+              <span class="pill">robots.txt: ${context.fetch.robots.ok ? 'Found' : 'Not confirmed'}</span>
+              <span class="pill">sitemap.xml: ${context.fetch.sitemap.ok ? 'Found' : 'Not confirmed'}</span>
+              <span class="pill">llms.txt: ${context.fetch.llms.ok ? 'Found' : 'Not found or blocked'}</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-inner">
+            <h2>Top Priority Checklist</h2>
+            <div class="panel-copy">
+              These are ranked by a blend of the factor weight and what the scan could or could not verify.
+              The top of this list should become the action plan, not just the punch list.
+            </div>
+            <div class="top-priority-grid">
+              ${priorityCards || '<div class="empty-state"><h2>No urgent issues surfaced</h2><p>The current scan did not flag major missing items. Manual ranking and citation review may still reveal competitive gaps.</p></div>'}
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-inner">
+            <h2>Weighted Factor Review</h2>
+            <div class="panel-copy">
+              The bar order mirrors the factor weighting model. Higher-weight items should usually be fixed before lower-weight hygiene items.
+            </div>
+            <div class="factor-table">${factorRows}</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-inner">
+            <h2>Research Basis</h2>
+            <div class="panel-copy">
+              This checklist is guided by the factor ordering from your reference image, then anchored to public research and crawler documentation.
+            </div>
+            <div class="research-list">
+              <div class="research-item">
+                <strong>GEO: Generative Engine Optimization</strong>
+                <p>
+                  Princeton research showed visibility gains from making content more citeable, especially through clearer structure,
+                  specificity, and source-backed information. Link:
+                  <a class="muted-link" href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener">arXiv paper</a>.
+                </p>
+              </div>
+              <div class="research-item">
+                <strong>Google AI Features Guidance</strong>
+                <p>
+                  Google explicitly documents that AI features rely on normal Search crawling and that preview controls such as
+                  <code>nosnippet</code>, <code>data-nosnippet</code>, and <code>max-snippet</code> affect what can be shown.
+                  Link:
+                  <a class="muted-link" href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">Google documentation</a>.
+                </p>
+              </div>
+              <div class="research-item">
+                <strong>Google Crawler Overview</strong>
+                <p>
+                  Crawl accessibility and robots behavior remain foundational. Link:
+                  <a class="muted-link" href="https://developers.google.com/crawling/docs/crawlers-fetchers/overview-google-crawlers" target="_blank" rel="noopener">Google crawler overview</a>.
+                </p>
+              </div>
+              <div class="research-item">
+                <strong>OpenAI Bot Documentation</strong>
+                <p>
+                  OpenAI documents the roles of <code>OAI-SearchBot</code>, <code>GPTBot</code>, and <code>ChatGPT-User</code>,
+                  which matters when reviewing robots decisions and search visibility tradeoffs. Link:
+                  <a class="muted-link" href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI bot docs</a>.
+                </p>
+              </div>
+            </div>
+            <div class="footer-note">
+              Practical caveat: factors like live ranking, authority, and third-party source recognition cannot be measured reliably from a single browser-only pass.
+              This tool intentionally marks those as manual instead of pretending certainty.
+            </div>
+          </div>
+        </section>
+      `;
+    };
+
+    const escapeHtml = (value) =>
+      String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    auditForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(auditForm);
+      const rawUrl = String(formData.get('siteUrl') || '').trim();
+      const siteType = String(formData.get('siteType') || 'general');
+      const primaryGoal = String(formData.get('primaryGoal') || 'citations');
+      const notes = String(formData.get('priorityNotes') || '').trim();
+      const manualSource = String(formData.get('manualSource') || '').trim();
+
+      if (!rawUrl) return;
+
+      generateBtn.disabled = true;
+      generateBtn.textContent = 'Running Audit...';
+      resultsEl.innerHTML = `
+        <section class="panel">
+          <div class="panel-inner">
+            <h2>Running scan</h2>
+            <div class="panel-copy">
+              Fetching the homepage, robots.txt, sitemap.xml, and llms.txt where the browser is allowed to inspect them.
+            </div>
+          </div>
+        </section>
+      `;
+
+      try {
+        const context = await scanSite(rawUrl, manualSource);
+        const evaluatedFactors = FACTORS.map((factor) => {
+          const evaluation = factor.evaluate(context, { siteType, primaryGoal, notes });
+          return {
+            ...factor,
+            state: evaluation.kind,
+            detail: evaluation.detail,
+            priorityScore: getPriorityScore(factor, evaluation)
+          };
+        });
+
+        renderResults({
+          url: context.normalizedUrl,
+          siteType,
+          primaryGoal,
+          notes,
+          context,
+          evaluatedFactors
+        });
+      } catch (error) {
+        resultsEl.innerHTML = `
+          <section class="panel">
+            <div class="panel-inner">
+              <h2>Audit failed</h2>
+              <div class="panel-copy">
+                ${escapeHtml(error && error.message ? error.message : 'Unknown error')}
+              </div>
+            </div>
+          </section>
+        `;
+      } finally {
+        generateBtn.disabled = false;
+        generateBtn.textContent = 'Generate Checklist';
+      }
+    });
+
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  </script>
+</body>
+</html>
+

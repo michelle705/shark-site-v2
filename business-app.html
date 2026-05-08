@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/">
+<meta name="robots" content="noindex,follow">
+<title>The Business App | Shark Branding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta name="description" content="The Business App is your AI-powered system to run, manage, and grow your business in one place. See how it works, what it includes, and how it connects to the AI Visibility Toolkit.">
+<link rel="canonical" href="https://sharkbrandingsolutions.com/business-app.html">
+<style>
+  .app-page-hero {
+    padding-top: 132px;
+    padding-bottom: 54px;
+    background:
+      radial-gradient(circle at top right, rgba(24,181,216,0.18), transparent 24%),
+      linear-gradient(180deg, #08131f 0%, #0a1c2b 100%);
+  }
+
+  .app-page-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 46px;
+    align-items: center;
+  }
+
+  .app-page-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(24,181,216,0.12);
+    border: 1px solid rgba(24,181,216,0.18);
+    color: #98efff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .app-page-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 6px rgba(24,181,216,0.16);
+  }
+
+  .app-page-title {
+    margin-bottom: 18px;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    max-width: 10ch;
+  }
+
+  .app-page-sub {
+    max-width: 56ch;
+    margin-bottom: 26px;
+    color: rgba(255,255,255,0.74);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .app-page-device {
+    position: relative;
+    width: min(100%, 610px);
+    margin-left: auto;
+  }
+
+  .app-page-device-glow {
+    position: absolute;
+    inset: 10% -4% -8%;
+    background: radial-gradient(circle, rgba(24,181,216,0.24) 0%, transparent 68%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .app-page-macbook {
+    position: relative;
+    z-index: 1;
+  }
+
+  .app-page-macbook-lid {
+    padding: 14px 14px 10px;
+    border-radius: 22px 22px 10px 10px;
+    background: linear-gradient(180deg, #313946 0%, #171c23 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 26px 70px rgba(0,0,0,0.38);
+  }
+
+  .app-page-macbook-camera {
+    width: 10px;
+    height: 10px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background: #0a0e12;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.05);
+  }
+
+  .app-page-macbook-screen {
+    aspect-ratio: 16 / 10;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #ffffff;
+    isolation: isolate;
+  }
+
+  .app-page-macbook-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    z-index: 0;
+  }
+
+  .app-page-macbook-screen video {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.08);
+    transform-origin: center;
+    background: #ffffff;
+  }
+
+  .app-page-macbook-base {
+    width: 92%;
+    height: 20px;
+    margin: 0 auto;
+    border-radius: 0 0 16px 16px;
+    background: linear-gradient(180deg, #d2d8dd 0%, #98a0aa 100%);
+    position: relative;
+  }
+
+  .app-page-macbook-base::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28%;
+    height: 9px;
+    border-radius: 0 0 8px 8px;
+    background: rgba(82,90,97,0.72);
+  }
+
+  .capability-grid,
+  .ecosystem-grid,
+  .integration-grid,
+  .path-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ecosystem-grid,
+  .integration-grid,
+  .path-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .capability-card,
+  .ecosystem-card,
+  .integration-card,
+  .path-card {
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .capability-card,
+  .integration-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+  }
+
+  .ecosystem-card,
+  .path-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .capability-card h3,
+  .ecosystem-card h3,
+  .integration-card h3,
+  .path-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .capability-card p,
+  .integration-card p {
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .ecosystem-card h3 { color: var(--white); }
+  .path-card h3 { color: var(--text-dark); }
+
+  .ecosystem-card p,
+  .path-card p {
+    color: rgba(255,255,255,0.72);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .path-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+  }
+
+  .path-card p {
+    color: var(--text-mid);
+  }
+
+  .app-band {
+    padding: 36px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 58%, #0c4a5e 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .app-band h2 {
+    margin-bottom: 14px;
+    color: var(--white);
+    font-size: clamp(30px, 4.8vw, 50px);
+    line-height: 1.04;
+  }
+
+  .app-band p {
+    max-width: 48ch;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.74);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 1024px) {
+    .app-page-hero-inner,
+    .capability-grid,
+    .ecosystem-grid,
+    .integration-grid,
+    .path-grid { grid-template-columns: 1fr; }
+
+    .app-page-title { max-width: none; }
+  }
+</style>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" decoding="async" fetchpriority="high" style="display:block"></a>
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/business-app.html" class="nav-link active">The Business App</a></li>
+      <li class="nav-has-dropdown"><a href="/portfolio" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="/hvac-local-seo-case-study">HVAC Local SEO Case Study</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div></li>
+      <li><a href="/ai-resources" class="nav-link">AI Resources</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="/free-report" class="btn btn-primary nav-cta">Get Your Free AI Visibility Scan</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile" hidden>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/business-app.html" class="nav-link">The Business App</a>
+    <a href="/portfolio" class="nav-link">Case Studies</a>
+    <a href="/ai-resources" class="nav-link">AI Resources</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/free-report" class="btn btn-primary">Get Your Free AI Visibility Scan</a>
+  </div>
+</nav>
+
+<section class="app-page-hero">
+  <div class="container app-page-hero-inner">
+    <div>
+      <div class="app-page-kicker">Flagship Product</div>
+      <h1 class="app-page-title">The Business App</h1>
+      <p class="app-page-sub">One place to run and grow your business with AI. The Business App gives your team a central system for visibility, activity, messaging, listings, reputation, and performance "” without bouncing between disconnected tools.</p>
+      <div class="hero-actions">
+        <a href="/free-report" class="btn btn-primary btn-lg">Get Your Free AI Visibility Scan</a>
+        <a href="/contact" class="btn btn-ghost btn-lg">Request a Walkthrough</a>
+      </div>
+    </div>
+    <div class="app-page-device">
+      <div class="app-page-device-glow"></div>
+      <div class="app-page-macbook">
+        <div class="app-page-macbook-lid">
+          <div class="app-page-macbook-camera"></div>
+          <div class="app-page-macbook-screen">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/business-app/phones.png">
+              <source src="https://pub-aa6b4902c6114d3c8fcb077bd05cf50e.r2.dev/out.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="app-page-macbook-base"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="section-label">What It Replaces</div>
+    <h2 class="section-title">A clearer operating system for the business you are already running</h2>
+    <div class="capability-grid">
+      <div class="capability-card">
+        <h3>Visibility</h3>
+        <p>See how your business is showing up across AI, search, and local results without pulling reports from five different places.</p>
+      </div>
+      <div class="capability-card">
+        <h3>Communication</h3>
+        <p>Keep leads, messages, and team activity easier to manage so nothing important gets lost between tools.</p>
+      </div>
+      <div class="capability-card">
+        <h3>Consistency</h3>
+        <p>Track the details that make your business feel trustworthy everywhere customers and AI systems look.</p>
+      </div>
+      <div class="capability-card">
+        <h3>Decision-Making</h3>
+        <p>Move from guesswork to signal with clearer visibility into what is working, what is leaking trust, and what needs attention next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-label section-label--light">App Ecosystem</div>
+    <h2 class="section-title section-title--light">The Business App is the system. The AI Visibility Toolkit is what activates it.</h2>
+    <div class="ecosystem-grid">
+      <div class="ecosystem-card">
+        <h3>The Business App</h3>
+        <p>Your central operating layer. This is where your business activity, visibility, and management experience come together.</p>
+      </div>
+      <div class="ecosystem-card">
+        <h3>AI Visibility Toolkit</h3>
+        <p>Your flagship activation layer. It improves how your business is understood, trusted, and recommended when customers are ready to choose.</p>
+      </div>
+      <div class="ecosystem-card">
+        <h3>Future Apps</h3>
+        <p>The long-term model is expandable. As more capabilities are introduced, they should feel like part of one cohesive system instead of random add-ons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-label">Why It Matters</div>
+    <h2 class="section-title">Most businesses have tools. Very few have a system that actually gets them chosen.</h2>
+    <div class="app-band">
+      <h2>Run your business. Get found. Get chosen.</h2>
+      <p>The Business App gives you the visibility and control layer. The AI Visibility Toolkit strengthens the signals that influence whether your business gets recommended or overlooked.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="section-label">What Comes Next</div>
+    <h2 class="section-title">How people get into the system</h2>
+    <div class="path-grid">
+      <div class="path-card">
+        <h3>1. Start with the scan</h3>
+        <p>Use the AI Visibility Scan to understand where the business appears, where it is being missed, and where competitors are gaining ground.</p>
+      </div>
+      <div class="path-card">
+        <h3>2. Get access now</h3>
+        <p>While the scan is being prepared, access to The Business App is unlocked so the team can start using the system immediately.</p>
+      </div>
+      <div class="path-card">
+        <h3>3. Activate what matters</h3>
+        <p>When the report is ready, the AI Visibility Toolkit becomes the next step that connects visibility data to real improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-label">Integrations</div>
+    <h2 class="section-title">Built to sit in the middle of how your business already works</h2>
+    <div class="integration-grid">
+      <div class="integration-card">
+        <h3>Existing business activity</h3>
+        <p>The Business App should feel like a central layer for the tools, listings, and communication channels the business already relies on.</p>
+      </div>
+      <div class="integration-card">
+        <h3>Future app store vision</h3>
+        <p>The long-term roadmap can include a broader AI App Store concept, but that should stay secondary until the flagship product is fully understood.</p>
+      </div>
+      <div class="integration-card">
+        <h3>Flagship activation first</h3>
+        <p>Right now the site should make one thing obvious: the AI Visibility Toolkit is the first meaningful activation layer inside the system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="app-band">
+      <h2>Start with your AI Visibility Scan</h2>
+      <p>See where you stand, get access to The Business App, and take control of how your business gets chosen.</p>
+      <div class="hero-actions" style="justify-content:center;margin-top:28px">
+        <a href="/free-report" class="btn btn-primary btn-xl">Get Your Free AI Visibility Scan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
+      <p>The Business App is the system.<br>The AI Visibility Toolkit is what activates it.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>Explore</h4><a href="/">Home</a><a href="/business-app.html">The Business App</a><a href="/portfolio">Case Studies</a><a href="/ai-resources">AI Resources</a></div>
+      <div class="footer-col"><h4>Activation</h4><a href="/free-report">AI Visibility Scan</a><a href="/north-tampa-bay-chamber-ai-visibility-toolkit">AI Visibility Toolkit</a><a href="/contact">Contact</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>Branding was the beginning. AI is the future.</span></div></div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
+
+

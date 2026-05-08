@@ -123,7 +123,8 @@ const isArticlesPath = currentPath.endsWith('/ai-resources')
   || currentPath.endsWith('/ai-resources.html')
   || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
 const isSharkAiPath = /(?:^|\/)shark-ai-solutions(?:\.html)?$/.test(currentPath);
-const isAiResourcesSection = isWorkshopsPath || isArticlesPath;
+const isConsultingPath = /(?:^|\/)(ai-visibility-consulting|local-seo-visibility-audit|geo-for-local-businesses|generative-engine-optimization|north-tampa-bay-chamber-ai-visibility-toolkit|chambers-toolkit)(?:\.html)?$/.test(currentPath);
+const isAiResourcesSection = isArticlesPath || isWorkshopsPath;
 const ROUTES = {
   home: '/',
   workshops: '/workshops',
@@ -188,29 +189,30 @@ const renderSharedNav = () => {
 
   nav.innerHTML = `
   <div class="nav-inner">
-    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" height="58" style="display:block"></a>
     <ul class="nav-links">
       <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
       <li class="nav-has-dropdown">
         <a href="${ROUTES.portfolio}" class="nav-link nav-link--dropdown${isPortfolioPath ? ' active' : ''}"${isPortfolioPath ? ' aria-current="page"' : ''}>Case Studies</a>
         <div class="nav-dropdown">
-          <a href="${ROUTES.hvac}">HVAC Local SEO Case Study</a>
-          <a href="${ROUTES.emory}">Emory's Rock Realty</a>
-          <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
+          ${createDropdownItemMarkup({ href: ROUTES.hvac, label: 'HVAC Local SEO', description: 'Service business growth', active: currentPath.endsWith(ROUTES.hvac) })}
+          ${createDropdownItemMarkup({ href: ROUTES.emory, label: "Emory's Rock Realty", description: 'Real estate visibility', active: currentPath.endsWith(ROUTES.emory) })}
+          ${createDropdownItemMarkup({ href: ROUTES.chamberCaseStudy, label: 'North Tampa Bay Chamber', description: 'Community authority', active: currentPath.endsWith(ROUTES.chamberCaseStudy) })}
         </div>
       </li>
+      <li>${createNavLinkMarkup({ href: ROUTES.consulting, label: 'Services', active: isConsultingPath || isSharkAiPath })}</li>
       <li class="nav-has-dropdown">
-        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection || isSharkAiPath ? ' active' : ''}"${isAiResourcesSection || isSharkAiPath ? ' aria-current="page"' : ''}>AI Resources</a>
+        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>Resources</a>
         <div class="nav-dropdown">
-          ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
-          ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-          ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
+          ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'AI and local search insights', active: isArticlesPath })}
+          ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions and trainings', active: isWorkshopsPath })}
+          ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Managed AI Visibility', description: 'Premium support', active: isSharkAiPath })}
         </div>
       </li>
       <li>${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}</li>
       <li>${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}</li>
     </ul>
-    <a href="${ROUTES.freeReport}" class="btn btn-primary nav-cta">Free Visibility Audit</a>
+    <a href="${ROUTES.freeReport}" class="btn btn-primary nav-cta">Free Visibility Scan</a>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
@@ -221,15 +223,21 @@ const renderSharedNav = () => {
       <a href="${ROUTES.emory}">Emory's Rock Realty</a>
       <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
     </div>
-    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection || isSharkAiPath })}
+    ${createNavLinkMarkup({ href: ROUTES.consulting, label: 'Services', active: isConsultingPath || isSharkAiPath })}
     <div class="nav-mobile-sub">
-      ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
-      ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-      ${createDropdownItemMarkup({ href: ROUTES.workshops, label: 'Workshops', description: 'Live sessions', active: isWorkshopsPath })}
+      <a href="${ROUTES.consulting}">AI Visibility Consulting</a>
+      <a href="${ROUTES.audit}">Local SEO Visibility Audit</a>
+      <a href="${ROUTES.geo}">GEO for Local Businesses</a>
+    </div>
+    ${createNavLinkMarkup({ href: ROUTES.articles, label: 'Resources', active: isAiResourcesSection })}
+    <div class="nav-mobile-sub">
+      <a href="${ROUTES.articles}">Articles</a>
+      <a href="${ROUTES.workshops}">Workshops</a>
+      <a href="${ROUTES.sharkAi}">Managed AI Visibility</a>
     </div>
     ${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}
     ${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}
-    <a href="${ROUTES.freeReport}" class="btn btn-primary">Free Visibility Audit</a>
+    <a href="${ROUTES.freeReport}" class="btn btn-primary">Free Visibility Scan</a>
   </div>`;
 
   navToggle = nav.querySelector('#navToggle');
@@ -263,8 +271,8 @@ const renderSharedFooter = () => {
   footer.innerHTML = `
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
-      <p>Your customers are already searching.<br>The question is - are they finding you?</p>
+      <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" height="50" loading="lazy" decoding="async" style="display:block"></a>
+      <p>Get found. Get trusted. Get chosen. We help local businesses turn AI visibility into clearer demand.</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
         <a href="https://www.facebook.com/sharkbrandingsolutions" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -273,8 +281,8 @@ const renderSharedFooter = () => {
       </div>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.portfolio}">Portfolio</a><a href="${ROUTES.workshops}">Workshops</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Report</a><a href="${ROUTES.articles}">AI Resources</a></div>
-      <div class="footer-col"><h4>Services</h4><a href="${ROUTES.sharkAi}">Shark AI Solutions</a><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.audit}">Local SEO Visibility Audit</a><a href="${ROUTES.geo}">GEO for Local Businesses</a><a href="${ROUTES.toolkit}">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Navigation</h4><a href="${ROUTES.home}">Home</a><a href="${ROUTES.consulting}">Services</a><a href="${ROUTES.portfolio}">Case Studies</a><a href="${ROUTES.about}">About</a><a href="${ROUTES.contact}">Contact</a><a href="${ROUTES.freeReport}">Free Visibility Scan</a><a href="${ROUTES.articles}">Resources</a></div>
+      <div class="footer-col"><h4>Offers</h4><a href="${ROUTES.freeReport}">Free Visibility Scan</a><a href="${ROUTES.consulting}">AI Visibility Consulting</a><a href="${ROUTES.sharkAi}">Managed AI Visibility</a><a href="${ROUTES.workshops}">Workshops for Teams</a></div>
       <div class="footer-col"><h4>Case Studies</h4><a href="${ROUTES.hvac}">HVAC Local SEO</a><a href="${ROUTES.emory}">Emory's Rock Realty</a><a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>7901 4th St N Suite 300, St. Petersburg, FL 33702</span><h4 style="margin-top:16px">Service Areas</h4><a href="${ROUTES.tampa}">Tampa</a><a href="${ROUTES.tampaBay}">Tampa Bay</a><a href="${ROUTES.lutz}">Lutz</a><a href="${ROUTES.landOLakes}">Land O' Lakes</a><a href="${ROUTES.wesleyChapel}">Wesley Chapel</a><a href="${ROUTES.stPetersburg}">St. Petersburg</a></div>
     </div>

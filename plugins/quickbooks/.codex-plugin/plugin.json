@@ -1,0 +1,44 @@
+{
+  "name": "quickbooks",
+  "version": "0.1.0",
+  "description": "QuickBooks workflows for invoices, customers, expenses, and bookkeeping tasks.",
+  "author": {
+    "name": "[TODO: Your Name or Team]",
+    "email": "[TODO: your-email@example.com]",
+    "url": "[TODO: https://your-site.example]"
+  },
+  "homepage": "[TODO: Plugin docs URL]",
+  "repository": "[TODO: Source repository URL]",
+  "license": "[TODO: MIT]",
+  "keywords": [
+    "quickbooks",
+    "accounting",
+    "bookkeeping",
+    "invoices",
+    "finance"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "QuickBooks",
+    "shortDescription": "Run QuickBooks accounting workflows from Codex",
+    "longDescription": "Use QuickBooks from Codex to review customers, invoices, payments, and bookkeeping workflows once you connect an app or MCP server.",
+    "developerName": "[TODO: Your Name or Team]",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "[TODO: Plugin website URL]",
+    "privacyPolicyURL": "[TODO: Privacy policy URL]",
+    "termsOfServiceURL": "[TODO: Terms of service URL]",
+    "defaultPrompt": [
+      "List overdue invoices and summarize what needs follow-up",
+      "Create a draft invoice for an existing customer",
+      "Summarize this month's QuickBooks cash flow activity"
+    ],
+    "brandColor": "#2CA01C",
+    "screenshots": []
+  }
+}
