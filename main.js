@@ -152,7 +152,7 @@ const createNavLinkMarkup = ({ href, label, active = false }) =>
   `<a href="${href}" class="nav-link${active ? ' active' : ''}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
 
 const createDropdownItemMarkup = ({ href, label, description, active = false }) =>
-  `<a href="${href}"${active ? ' class="active" aria-current="page"' : ''}><span><span class="dd-label">${label}</span>${description}</span></a>`;
+  `<a href="${href}"${active ? ' class="active" aria-current="page"' : ''}><span><span class="dd-label">${label}</span><span class="dd-desc">${description}</span></span></a>`;
 
 const renderSharedNav = () => {
   if (!nav) return;
