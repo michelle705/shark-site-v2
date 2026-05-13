@@ -1642,6 +1642,11 @@ h1 em, h2 em, .t-display em, .t-h1 em, .t-h2 em {
   .ws-row { grid-template-columns: 1fr; gap: var(--sp-3); padding: var(--sp-4); }
   .ws-action { align-items: flex-start; flex-direction: row; flex-wrap: wrap; min-width: 0; }
   .footer-bottom .container { flex-direction: column; gap: var(--sp-2); text-align: center; }
+
+  /* Global card + section-head tightening on mobile */
+  .card-feature { padding: var(--sp-6); }
+  .section-head, .section-head--center { margin-bottom: var(--sp-8); }
+  .card-feature p, .section-head p { overflow-wrap: break-word; }
 }
 
 @media (max-width: 480px) {
