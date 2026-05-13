@@ -192,6 +192,7 @@ const renderSharedNav = () => {
     <ul class="nav-links">
       <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
       <li>${createNavLinkMarkup({ href: ROUTES.workshops, label: 'Workshops', active: isWorkshopsPath })}</li>
+      <li>${createNavLinkMarkup({ href: ROUTES.sharkAi, label: 'Services', active: isSharkAiPath })}</li>
       <li class="nav-has-dropdown">
         <a href="${ROUTES.portfolio}" class="nav-link nav-link--dropdown${isPortfolioPath ? ' active' : ''}"${isPortfolioPath ? ' aria-current="page"' : ''}>Case Studies</a>
         <div class="nav-dropdown">
@@ -203,7 +204,6 @@ const renderSharedNav = () => {
       <li class="nav-has-dropdown">
         <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>AI Resources</a>
         <div class="nav-dropdown">
-          ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
           ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
         </div>
       </li>
@@ -216,6 +216,7 @@ const renderSharedNav = () => {
   <div class="nav-mobile" id="navMobile" hidden>
     ${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}
     ${createNavLinkMarkup({ href: ROUTES.workshops, label: 'Workshops', active: isWorkshopsPath })}
+    ${createNavLinkMarkup({ href: ROUTES.sharkAi, label: 'Services', active: isSharkAiPath })}
     ${createNavLinkMarkup({ href: ROUTES.portfolio, label: 'Case Studies', active: isPortfolioPath })}
     <div class="nav-mobile-sub">
       <a href="${ROUTES.hvac}">HVAC Local SEO</a>
@@ -224,7 +225,6 @@ const renderSharedNav = () => {
     </div>
     ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}
     <div class="nav-mobile-sub">
-      ${createDropdownItemMarkup({ href: ROUTES.sharkAi, label: 'Shark AI Solutions', description: 'Service options', active: isSharkAiPath })}
       ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
     </div>
     ${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}
