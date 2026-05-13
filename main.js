@@ -123,7 +123,7 @@ const isArticlesPath = currentPath.endsWith('/ai-resources')
   || currentPath.endsWith('/ai-resources.html')
   || /(?:^|\/)blog-[^/]+(?:\.html)?$/.test(currentPath);
 const isSharkAiPath = /(?:^|\/)shark-ai-solutions(?:\.html)?$/.test(currentPath);
-const isAiResourcesSection = isArticlesPath || isSharkAiPath;
+const isAiResourcesSection = isArticlesPath;
 const ROUTES = {
   home: '/',
   workshops: '/workshops',
@@ -188,7 +188,7 @@ const renderSharedNav = () => {
 
   nav.innerHTML = `
   <div class="nav-inner">
-    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <a href="${ROUTES.home}" class="nav-logo"><img src="logo.webp" alt="Shark Branding Solutions" height="58" style="display:block"></a>
     <ul class="nav-links">
       <li>${createNavLinkMarkup({ href: ROUTES.home, label: 'Home', active: isHomePath })}</li>
       <li>${createNavLinkMarkup({ href: ROUTES.workshops, label: 'Workshops', active: isWorkshopsPath })}</li>
@@ -201,12 +201,7 @@ const renderSharedNav = () => {
           <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
         </div>
       </li>
-      <li class="nav-has-dropdown">
-        <a href="${ROUTES.articles}" class="nav-link nav-link--dropdown${isAiResourcesSection ? ' active' : ''}"${isAiResourcesSection ? ' aria-current="page"' : ''}>AI Resources</a>
-        <div class="nav-dropdown">
-          ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-        </div>
-      </li>
+      <li>${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}</li>
       <li>${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}</li>
       <li>${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}</li>
     </ul>
@@ -224,9 +219,6 @@ const renderSharedNav = () => {
       <a href="${ROUTES.chamberCaseStudy}">North Tampa Bay Chamber</a>
     </div>
     ${createNavLinkMarkup({ href: ROUTES.articles, label: 'AI Resources', active: isAiResourcesSection })}
-    <div class="nav-mobile-sub">
-      ${createDropdownItemMarkup({ href: ROUTES.articles, label: 'Articles', description: 'Blog page', active: isArticlesPath })}
-    </div>
     ${createNavLinkMarkup({ href: ROUTES.about, label: 'About', active: isAboutPath })}
     ${createNavLinkMarkup({ href: ROUTES.contact, label: 'Contact', active: isContactPath })}
     <a href="${ROUTES.freeReport}" class="btn btn-primary">Free Visibility Audit</a>
