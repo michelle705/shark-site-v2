@@ -1,0 +1,24 @@
+name = "onboarding"
+main = "src/index.js"
+compatibility_date = "2026-04-22"
+workers_dev = true
+
+[vars]
+ASANA_DUPLICATE_MODE = "project"
+# Project duplication mode:
+ASANA_TEMPLATE_PROJECT_GID = "1213638268637823"
+# Optional. Comma-separated duplicate fields. Defaults are set in code.
+ASANA_DUPLICATE_INCLUDE = "task_subtasks,task_attachments,task_notes,task_assignee,task_dates,task_dependencies,task_followers,task_projects,task_tags,members,notes,forms,rules"
+# Task duplication mode only:
+ASANA_PROJECT_GID = "1213638268637823"
+ASANA_SECTION_GID = ""
+ASANA_TEMPLATE_TASK_GID = ""
+# Optional. JSON mapping from onboarding payload keys to Asana custom field IDs.
+# String values are treated as direct custom field IDs.
+# Object values can define enum mappings.
+# Example:
+# ASANA_CUSTOM_FIELD_MAP = "{\"websiteUrl\":\"123\",\"gbpAccess\":{\"gid\":\"456\",\"type\":\"enum\",\"options\":{\"Yes\":\"789\",\"No\":\"790\",\"Not Sure\":\"791\"}}}"
+ASANA_CUSTOM_FIELD_MAP = "{}"
+
+# Store this as a secret instead of plain text:
+# wrangler secret put ASANA_PAT

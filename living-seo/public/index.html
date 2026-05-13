@@ -1,0 +1,568 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Living SEO Dashboard</title>
+    <style>
+      :root {
+        --bg: #08111f;
+        --bg-soft: #0f1c30;
+        --panel: rgba(13, 24, 42, 0.86);
+        --panel-strong: #11233f;
+        --line: rgba(140, 168, 204, 0.18);
+        --line-strong: rgba(140, 168, 204, 0.32);
+        --text: #f2f6fb;
+        --muted: #8fa6c4;
+        --accent: #7ef0c8;
+        --accent-strong: #19c38f;
+        --warn: #ffcf6e;
+        --danger: #ff7e7e;
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+        --radius-xl: 28px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --radius-sm: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(25, 195, 143, 0.2), transparent 26%),
+          radial-gradient(circle at top right, rgba(52, 113, 255, 0.22), transparent 22%),
+          linear-gradient(180deg, #07101c 0%, #08111f 52%, #091424 100%);
+      }
+
+      .shell {
+        width: min(1440px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 20px 0 28px;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .sidebar {
+        padding: 22px;
+        position: sticky;
+        top: 20px;
+        align-self: start;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        font-size: 0.72rem;
+        margin-bottom: 10px;
+      }
+
+      h1, h2, h3, h4, p {
+        margin-top: 0;
+      }
+
+      .sidebar h1 {
+        font-size: 2.3rem;
+        line-height: 0.92;
+        margin-bottom: 12px;
+      }
+
+      .sidebar p,
+      .muted {
+        color: var(--muted);
+      }
+
+      .stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .project-list {
+        margin-top: 22px;
+      }
+
+      .project-card {
+        width: 100%;
+        text-align: left;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--text);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        cursor: pointer;
+        transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      .project-card:hover,
+      .project-card.active {
+        transform: translateY(-1px);
+        border-color: var(--line-strong);
+        background: rgba(126, 240, 200, 0.08);
+      }
+
+      .project-card strong {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .project-meta,
+      .mini-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .pill.ok {
+        color: var(--accent);
+      }
+
+      .pill.warn {
+        color: var(--warn);
+      }
+
+      .pill.danger {
+        color: var(--danger);
+      }
+
+      .content {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero {
+        padding: 26px;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      .hero h2 {
+        font-size: clamp(2.1rem, 4vw, 3.6rem);
+        line-height: 0.94;
+        margin-bottom: 10px;
+        max-width: 12ch;
+      }
+
+      .hero-copy {
+        max-width: 68ch;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 16px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .primary {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+        color: #062017;
+        font-weight: 700;
+      }
+
+      .secondary {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border: 1px solid var(--line);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 2rem;
+        margin-top: 8px;
+      }
+
+      .cols-2 {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .section-header h3,
+      .section-header h4 {
+        margin-bottom: 0;
+      }
+
+      .event-list,
+      .run-list,
+      .keyword-table,
+      .source-grid,
+      .detail-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .event-card,
+      .run-item,
+      .source-card,
+      .detail-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .event-card h4,
+      .run-item h4,
+      .detail-card h4 {
+        margin-bottom: 8px;
+      }
+
+      .event-card ul,
+      .detail-card ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+
+      .keyword-table {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      th {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        border: 1px solid var(--line);
+      }
+
+      .badge.leader {
+        color: var(--accent);
+        border-color: rgba(126, 240, 200, 0.35);
+        background: rgba(126, 240, 200, 0.08);
+      }
+
+      .badge.visible {
+        color: #8ebeff;
+        border-color: rgba(142, 190, 255, 0.28);
+        background: rgba(142, 190, 255, 0.08);
+      }
+
+      .badge.chasing {
+        color: var(--warn);
+        border-color: rgba(255, 207, 110, 0.25);
+        background: rgba(255, 207, 110, 0.08);
+      }
+
+      .badge.buried,
+      .badge.unranked {
+        color: var(--danger);
+        border-color: rgba(255, 126, 126, 0.25);
+        background: rgba(255, 126, 126, 0.08);
+      }
+
+      .empty,
+      .notice {
+        border: 1px dashed var(--line);
+        border-radius: var(--radius-lg);
+        padding: 18px;
+        color: var(--muted);
+      }
+
+      .notice {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .detail-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .source-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 1180px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+
+        .stats,
+        .detail-grid,
+        .source-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .cols-2,
+        .stats,
+        .detail-grid,
+        .source-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-top {
+          flex-direction: column;
+        }
+
+        .shell {
+          width: min(100%, calc(100% - 18px));
+        }
+
+        th:nth-child(3),
+        td:nth-child(3),
+        th:nth-child(4),
+        td:nth-child(4) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="layout">
+        <aside class="panel sidebar">
+          <div class="eyebrow">Living SEO</div>
+          <h1>Defend rankings you already earned.</h1>
+          <p>
+            Search Console should discover the keyword universe. A live SERP source should tell you when those rankings
+            start slipping and who moved past you.
+          </p>
+
+          <div class="stack project-list" id="projectList"></div>
+        </aside>
+
+        <section class="content">
+          <section class="panel hero">
+            <div class="hero-top">
+              <div>
+                <div class="eyebrow" id="heroEyebrow">Dashboard</div>
+                <h2 id="projectTitle">Loading project…</h2>
+                <p class="hero-copy" id="projectCopy">Pulling project state, run history, and latest defense signals.</p>
+              </div>
+              <div class="actions">
+                <button class="secondary" id="refreshDashboard">Refresh</button>
+                <button class="secondary" id="connectGsc">Connect GSC</button>
+                <button class="secondary" id="syncGsc">Sync GSC Close Wins</button>
+                <button class="primary" id="runMonitor">Run Live Monitor</button>
+              </div>
+            </div>
+
+            <div class="stats" id="statsGrid"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Source Readiness</h3>
+              <span class="muted">Keyword discovery, live rankings, and operator alerting</span>
+            </div>
+            <div class="source-grid" id="sourceGrid"></div>
+          </section>
+
+          <section class="cols-2">
+            <section class="panel section">
+              <div class="section-header">
+                <h3>Outrank Queue</h3>
+                <span class="muted" id="eventMeta"></span>
+              </div>
+              <div class="event-list" id="eventList"></div>
+            </section>
+
+            <section class="panel section">
+              <div class="section-header">
+                <h3>Threat Watch</h3>
+                <span class="muted" id="threatMeta"></span>
+              </div>
+              <div class="event-list" id="threatList"></div>
+            </section>
+          </section>
+
+          <section class="cols-2">
+            <section class="panel section">
+              <div class="section-header">
+                <h3>Recent Runs</h3>
+                <span class="muted" id="runMeta"></span>
+              </div>
+              <div class="run-list" id="runList"></div>
+            </section>
+
+            <section class="panel section">
+              <div class="section-header">
+                <h3>Current Winners</h3>
+                <span class="muted" id="winnerMeta"></span>
+              </div>
+              <div class="event-list" id="winnerList"></div>
+            </section>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Wesley Chapel Page Cluster</h3>
+              <span class="muted" id="clusterMeta">Tracking the pages tied to the last optimization pass</span>
+            </div>
+            <div class="keyword-table" id="clusterTable"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Close Win Watchlist</h3>
+              <span class="muted">Local keywords near the edge in your primary service area</span>
+            </div>
+            <div class="keyword-table" id="keywordTable"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Local Opportunity Watchlist</h3>
+              <span class="muted">Broader local commercial queries from Search Console</span>
+            </div>
+            <div class="keyword-table" id="opportunityTable"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Project Shape</h3>
+              <span class="muted">Coverage, competitor scope, and storage status</span>
+            </div>
+            <div class="detail-grid" id="detailGrid"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Outrank Playbook</h3>
+              <span class="muted">Best current moves across SEO, GEO, and AEO</span>
+            </div>
+            <div class="detail-grid" id="playbookGrid"></div>
+            <div class="event-list" id="playbookEvents" style="margin-top:12px;"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Analysis Guardrails</h3>
+              <span class="muted">What the system should and should not automate</span>
+            </div>
+            <div id="guardrailList"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h3>Operator Log</h3>
+            </div>
+            <div class="notice" id="statusMessage">Loading dashboard…</div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+

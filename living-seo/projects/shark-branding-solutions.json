@@ -1,0 +1,108 @@
+{
+  "slug": "shark-branding-solutions",
+  "projectName": "Shark Branding Solutions",
+  "business": {
+    "name": "Shark Branding Solutions",
+    "domain": "sharkbrandingsolutions.com"
+  },
+  "watchedCompetitors": [
+    {
+      "name": "Outplay Marketing",
+      "domain": "outplaymarketing.com"
+    },
+    {
+      "name": "Dasinfomedia",
+      "domain": "dasinfomedia.com"
+    }
+  ],
+  "keywords": [
+    {
+      "keyword": "ai visibility consultant tampa",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "ai visibility consulting tampa bay",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "ai visibility consulting for local businesses",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "how to rank on chatgpt for local business",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "geo for local businesses",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "generative engine optimization for local business",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "answer engine optimization for local business",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "ai visibility seo for local businesses",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "local seo visibility audit",
+      "location": "United States",
+      "device": "desktop"
+    },
+    {
+      "keyword": "google business profile optimization tampa",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "tampa marketing consultant fl",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "tampa bay marketing consultant florida",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "wesley chapel marketing consultant fl",
+      "location": "Wesley Chapel, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "lutz fl marketing consultant",
+      "location": "Lutz, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "land o lakes fl marketing consultant",
+      "location": "Land O' Lakes, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "st petersburg fl marketing consultant",
+      "location": "St. Petersburg, FL",
+      "device": "desktop"
+    },
+    {
+      "keyword": "ai workshops tampa bay",
+      "location": "Tampa, FL",
+      "device": "desktop"
+    }
+  ],
+  "snapshotRules": {
+    "topResultsPerKeyword": 5
+  }
+}

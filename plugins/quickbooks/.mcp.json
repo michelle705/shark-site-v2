@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "quickbooks": {
+      "command": "[TODO: node | python | npx]",
+      "args": [
+        "[TODO: path-or-package-for-your-quickbooks-mcp-server]"
+      ],
+      "env": {
+        "QUICKBOOKS_CLIENT_ID": "${QUICKBOOKS_CLIENT_ID}",
+        "QUICKBOOKS_CLIENT_SECRET": "${QUICKBOOKS_CLIENT_SECRET}",
+        "QUICKBOOKS_REDIRECT_URI": "${QUICKBOOKS_REDIRECT_URI}",
+        "QUICKBOOKS_REALM_ID": "${QUICKBOOKS_REALM_ID}",
+        "QUICKBOOKS_ACCESS_TOKEN": "${QUICKBOOKS_ACCESS_TOKEN}",
+        "QUICKBOOKS_REFRESH_TOKEN": "${QUICKBOOKS_REFRESH_TOKEN}"
+      }
+    }
+  }
+}

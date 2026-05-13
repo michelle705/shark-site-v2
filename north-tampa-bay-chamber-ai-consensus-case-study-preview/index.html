@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/">
+<title>Preview: NTBC AI Consensus Case Study | Shark Branding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Preview case study: AI consensus on business leadership in Wesley Chapel for the North Tampa Bay Chamber.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root {
+  --ntbc-ink: #071a29;
+  --ntbc-panel: rgba(255,255,255,0.08);
+  --ntbc-line: rgba(255,255,255,0.14);
+  --ntbc-glow: rgba(24,181,216,0.18);
+  --ntbc-soft: #eef7fa;
+}
+.ntbc-preview-page .page-hero {
+  min-height: 72vh;
+  justify-content: flex-start;
+  padding-top: 112px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(24,181,216,0.28), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(255,255,255,0.08), transparent 24%),
+    linear-gradient(135deg, #061726 0%, #0a3140 52%, #0d5164 100%);
+}
+.ntbc-preview-page .page-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(180deg, rgba(6,23,38,0) 0%, rgba(6,23,38,0.92) 100%);
+  pointer-events: none;
+}
+.ntbc-preview-page .hero-grid {
+  opacity: 0.7;
+}
+.ntbc-breadcrumb {
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ntbc-breadcrumb-trail {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(6,23,38,0.34);
+  backdrop-filter: blur(10px);
+}
+.ntbc-breadcrumb-trail a,
+.ntbc-breadcrumb-trail span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+}
+.ntbc-breadcrumb-trail .current {
+  color: #fff;
+}
+.ntbc-hero-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 24px 86px;
+}
+.ntbc-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #dff8ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.ntbc-hero-kicker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #18B5D8;
+  box-shadow: 0 0 18px rgba(24,181,216,0.7);
+}
+.ntbc-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(290px, 380px);
+  gap: 28px;
+  align-items: end;
+}
+.ntbc-hero-copy h1 {
+  margin-bottom: 18px;
+  max-width: 760px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+.ntbc-hero-copy .section-intro {
+  margin: 0 0 28px;
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+}
+.ntbc-proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.ntbc-proof-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+.ntbc-proof-pill strong {
+  display: block;
+  color: #fff;
+  font-size: 17px;
+}
+.ntbc-proof-pill span {
+  display: block;
+  color: rgba(255,255,255,0.66);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.ntbc-proof-mark {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(24,181,216,0.16);
+  border: 1px solid rgba(24,181,216,0.28);
+  color: #9feaf7;
+  font-weight: 800;
+}
+.ntbc-platform-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+.ntbc-platform-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.ntbc-platform-card strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.ntbc-platform-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.68);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ntbc-hero-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.ntbc-rank-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 30px 28px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(233,248,252,0.98));
+  box-shadow: 0 18px 46px rgba(1,17,27,0.28);
+}
+.ntbc-rank-card::before {
+  content: "";
+  position: absolute;
+  inset: -40px -10px auto auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(24,181,216,0.22), transparent 68%);
+}
+.ntbc-rank-card small {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #5a7080;
+  margin-bottom: 14px;
+}
+.ntbc-rank-card .score {
+  font-family: 'DM Serif Display', serif;
+  font-size: 108px;
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  color: #0a3140;
+  margin-bottom: 14px;
+}
+.ntbc-rank-card p {
+  margin: 0;
+  color: #385161;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.ntbc-rank-mini {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+.ntbc-rank-mini-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.ntbc-rank-mini-card strong {
+  display: block;
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.ntbc-rank-mini-card span {
+  color: rgba(255,255,255,0.66);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.ntbc-floating-band {
+  position: relative;
+  z-index: 3;
+  max-width: 1120px;
+  margin: -42px auto 0;
+  padding: 0 24px;
+}
+.ntbc-band-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid rgba(10,49,64,0.08);
+  box-shadow: 0 18px 42px rgba(3,21,31,0.12);
+}
+.ntbc-band-primary {
+  padding: 34px 38px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5fbfd 100%);
+}
+.ntbc-band-primary h2 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1;
+}
+.ntbc-band-primary p {
+  margin: 0;
+  color: #52626d;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.ntbc-band-secondary {
+  padding: 30px 32px;
+  background: linear-gradient(135deg, #0b2535 0%, #0e4253 100%);
+  color: #fff;
+}
+.ntbc-band-secondary h3 {
+  margin: 0 0 18px;
+  font-size: 15px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.ntbc-band-list {
+  display: grid;
+  gap: 14px;
+}
+.ntbc-band-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.ntbc-band-item strong {
+  color: #9feaf7;
+}
+.ntbc-band-item p {
+  margin: 0;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.65;
+}
+.ntbc-summary-card {
+  position: relative;
+  padding: 42px 40px;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(24,181,216,0.06), rgba(255,255,255,1)),
+    #fff;
+  border: 1px solid rgba(24,181,216,0.18);
+  box-shadow: 0 18px 38px rgba(4,19,28,0.08);
+}
+.ntbc-summary-card::before {
+  content: "AI Snapshot";
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #0a3140;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.ntbc-summary-card p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #4d5c67;
+}
+.ntbc-phase-card {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.ntbc-phase-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -60px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(24,181,216,0.14), transparent 68%);
+}
+.ntbc-phase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(24,181,216,0.12);
+  border: 1px solid rgba(24,181,216,0.18);
+  color: #90e5f4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.ntbc-phase-rank {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.ntbc-phase-card ul {
+  margin-top: 16px;
+}
+.ntbc-impact-section {
+  background:
+    radial-gradient(circle at top right, rgba(24,181,216,0.08), transparent 20%),
+    linear-gradient(180deg, #f8fbfd 0%, #ffffff 100%);
+}
+.ntbc-impact-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+}
+.ntbc-impact-lead {
+  position: sticky;
+  top: 92px;
+}
+.ntbc-impact-stack {
+  display: grid;
+  gap: 20px;
+}
+.ntbc-impact-card {
+  padding: 30px 28px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid #e3edf1;
+  box-shadow: 0 10px 28px rgba(3,21,31,0.06);
+}
+.ntbc-impact-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #0a3140;
+  font-size: 18px;
+}
+.ntbc-impact-card p {
+  margin: 0;
+  color: #54636f;
+  line-height: 1.8;
+}
+.ntbc-quote-panel {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #091d2d 0%, #0b3443 100%);
+  padding: 34px;
+  box-shadow: 0 20px 40px rgba(4,18,27,0.18);
+}
+.ntbc-quote-mark {
+  width: 140px;
+  height: 140px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9feaf7;
+  font-family: 'DM Serif Display', serif;
+  font-size: 96px;
+  line-height: 1;
+}
+.ntbc-quote-copy p {
+  margin: 0 0 14px;
+  color: rgba(255,255,255,0.9);
+  font-size: 24px;
+  line-height: 1.45;
+}
+.ntbc-quote-copy span {
+  color: rgba(255,255,255,0.58);
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.ntbc-conclusion-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: 52px 48px;
+  background:
+    radial-gradient(circle at top right, rgba(24,181,216,0.12), transparent 24%),
+    linear-gradient(135deg, #ffffff 0%, #f7fcfd 100%);
+  border: 1px solid rgba(24,181,216,0.16);
+  box-shadow: 0 22px 44px rgba(3,21,31,0.08);
+}
+.ntbc-conclusion-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 280px;
+  gap: 28px;
+  align-items: center;
+}
+.ntbc-conclusion-badge {
+  padding: 24px 24px 22px;
+  border-radius: 24px;
+  background: #0a3140;
+  color: #fff;
+}
+.ntbc-conclusion-badge small {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.ntbc-conclusion-badge strong {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 46px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.ntbc-conclusion-badge span {
+  color: rgba(255,255,255,0.74);
+  line-height: 1.7;
+}
+.ntbc-cta-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: rgba(255,255,255,0.68);
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .ntbc-breadcrumb { padding: 0 18px; }
+  .ntbc-hero-shell { padding: 22px 18px 72px; }
+  .ntbc-hero-layout,
+  .ntbc-impact-grid,
+  .ntbc-quote-panel,
+  .ntbc-conclusion-grid,
+  .ntbc-band-grid { grid-template-columns: 1fr !important; }
+  .ntbc-platform-strip,
+  .ntbc-rank-mini { grid-template-columns: 1fr !important; }
+  .ntbc-preview-page .page-hero { min-height: auto; padding-top: 96px; }
+  .ntbc-hero-copy h1 { font-size: clamp(36px, 12vw, 52px); }
+  .ntbc-proof-row { flex-direction: column; }
+  .ntbc-rank-card { padding: 26px 24px 24px; }
+  .ntbc-rank-card .score { font-size: 88px; }
+  .ntbc-floating-band { margin-top: -28px; padding: 0 18px; }
+  .ntbc-band-primary, .ntbc-band-secondary, .ntbc-summary-card, .ntbc-conclusion-card { padding: 28px 24px; }
+  .ntbc-impact-lead { position: static; }
+  .ntbc-quote-mark { width: 92px; height: 92px; font-size: 64px; border-radius: 22px; }
+  .ntbc-quote-copy p { font-size: 20px; }
+  .cs-stat-bar-grid { grid-template-columns: 1fr !important; }
+  .cs-stat-bar-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 24px !important; }
+  .cs-stat-bar-grid > div:last-child { border-bottom: none; }
+  .cs-2col, .cs-3col, .cs-phase-grid, .cs-implications-grid { grid-template-columns: 1fr !important; }
+  .cs-section-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .cs-card-pad { padding: 28px 24px !important; }
+  .page-hero-inner h1, .page-hero-inner p { max-width: 100% !important; }
+}
+</style>
+<body class="ntbc-preview-page">
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="58" style="display:block"></a>
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/workshops" class="nav-link">Workshops</a></li>
+      <li><a href="/ai-visibility-consulting" class="nav-link">Consulting</a></li>
+      <li class="nav-has-dropdown"><a href="/portfolio" class="nav-link nav-link--dropdown">Case Studies</a><div class="nav-dropdown"><a href="/hvac-local-seo-case-study">HVAC Local SEO Case Study</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
+      <li><a href="/ai-resources" class="nav-link">AI Resources</a></li>
+    </ul>
+    <a href="/free-report" class="btn btn-primary nav-cta">Free Visibility Audit</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="navMobile" hidden>
+    <a href="/" class="nav-link">Home</a><a href="/workshops" class="nav-link">Workshops</a><a href="/ai-visibility-consulting" class="nav-link">Consulting</a><div class="nav-mobile-sub"><a href="/hvac-local-seo-case-study" class="nav-link">HVAC Local SEO</a><a href="/emorys-rock-realty-ai-visibility-case-study" class="nav-link">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study" class="nav-link">North Tampa Bay Chamber</a></div><a href="/about" class="nav-link">About</a><a href="/contact" class="nav-link">Contact</a>
+    <a href="/ai-resources" class="nav-link">AI Resources</a>
+    <a href="/free-report" class="btn btn-primary">Free Visibility Audit</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="ntbc-breadcrumb">
+    <div class="ntbc-breadcrumb-trail">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/portfolio">Case Studies</a>
+      <span>/</span>
+      <span class="current">NTBC Preview</span>
+    </div>
+  </div>
+  <div class="ntbc-hero-shell">
+    <div class="ntbc-hero-kicker">Preview Case Study "¢ AI Leadership Snapshot</div>
+    <div class="ntbc-hero-layout">
+      <div class="ntbc-hero-copy">
+        <h1 class="section-title">North Tampa Bay Chamber ranked #1 across Copilot, Grok, and Perplexity</h1>
+        <p class="section-intro">In April 2026 AI snapshots, NTBC was not just included in the conversation. It was consistently framed as the top business organization for growth, networking, and community credibility in Wesley Chapel and the surrounding market.</p>
+        <div class="ntbc-proof-row">
+          <div class="ntbc-proof-pill">
+            <div class="ntbc-proof-mark">#1</div>
+            <div>
+              <strong>Top-ranked chamber</strong>
+              <span>AI platforms treated NTBC as the strongest starting point for most local business needs.</span>
+            </div>
+          </div>
+          <div class="ntbc-proof-pill">
+            <div class="ntbc-proof-mark">3</div>
+            <div>
+              <strong>Major AI snapshots</strong>
+              <span>Copilot, Grok, and Perplexity all reinforced the same outcome.</span>
+            </div>
+          </div>
+        </div>
+        <div class="ntbc-platform-strip">
+          <div class="ntbc-platform-card" data-animate>
+            <strong>Copilot</strong>
+            <p>Surfaced NTBC as the strongest overall recommendation for businesses looking for reach and networking.</p>
+          </div>
+          <div class="ntbc-platform-card" data-animate data-delay="100">
+            <strong>Grok</strong>
+            <p>Extended NTBC's footprint into a regional economic hub serving the wider North Tampa corridor.</p>
+          </div>
+          <div class="ntbc-platform-card" data-animate data-delay="200">
+            <strong>Perplexity</strong>
+            <p>Kept NTBC in the lead for broad networking while mapping the surrounding support ecosystem.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="ntbc-hero-aside">
+        <div class="ntbc-rank-card" data-animate>
+          <small>Consensus Result</small>
+          <div class="score">#1</div>
+          <p>Ranked as the strongest all-around business organization in the Wesley Chapel market snapshot.</p>
+        </div>
+        <div class="ntbc-rank-mini">
+          <div class="ntbc-rank-mini-card" data-animate data-delay="100">
+            <strong>APR 2026</strong>
+            <span>Analysis window used for the snapshot and positioning review.</span>
+          </div>
+          <div class="ntbc-rank-mini-card" data-animate data-delay="200">
+            <strong>TOP PICK</strong>
+            <span>Repeatedly associated with growth, networking, and local relevance.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="ntbc-floating-band">
+  <div class="ntbc-band-grid">
+    <div class="ntbc-band-primary">
+      <h2>Not just visible. Dominant.</h2>
+      <p>Most case studies show a business appearing somewhere in AI answers. This one is stronger. NTBC emerged as the clear number one recommendation across three major AI environments, giving the chamber unusual leverage as a local authority signal.</p>
+    </div>
+    <div class="ntbc-band-secondary">
+      <h3>Why It Matters</h3>
+      <div class="ntbc-band-list">
+        <div class="ntbc-band-item">
+          <strong>01</strong>
+          <p>Members inherit credibility when AI repeatedly cites the chamber as the trusted starting point.</p>
+        </div>
+        <div class="ntbc-band-item">
+          <strong>02</strong>
+          <p>Partnerships launched through NTBC begin with stronger digital authority already in place.</p>
+        </div>
+        <div class="ntbc-band-item">
+          <strong>03</strong>
+          <p>The chamber becomes a distribution channel for visibility, not just events and introductions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cs-stat-bar" style="background:linear-gradient(135deg,#061C2C 0%,#0A3140 100%);padding:72px 0">
+  <div class="container" style="max-width:1100px">
+    <div class="cs-stat-bar-grid grid-3col" style="gap:0;text-align:center">
+      <div style="padding:48px 40px;border-right:1px solid rgba(255,255,255,0.08)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px">Platforms Reviewed</div>
+        <div style="font-size:60px;font-weight:800;color:#18B5D8;line-height:1;font-family:'DM Serif Display',serif;letter-spacing:-2px">3</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.65;max-width:220px;margin-left:auto;margin-right:auto">Copilot, Grok, and Perplexity all surfaced NTBC in the comparison snapshot</div>
+      </div>
+      <div style="padding:48px 40px;border-right:1px solid rgba(255,255,255,0.08)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px">Consensus Position</div>
+        <div style="font-size:60px;font-weight:800;color:#18B5D8;line-height:1;font-family:'DM Serif Display',serif;letter-spacing:-2px">#1</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.65;max-width:220px;margin-left:auto;margin-right:auto">NTBC was framed as the leading business organization for networking, growth, and local relevance</div>
+      </div>
+      <div style="padding:48px 40px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px">Bottom Line</div>
+        <div style="font-size:44px;font-weight:800;color:#18B5D8;line-height:1.05;font-family:'DM Serif Display',serif;letter-spacing:-1px">TOP PICK</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.65;max-width:220px;margin-left:auto;margin-right:auto">AI platforms treated NTBC as the strongest starting point for most businesses in the market</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light cs-section-pad" style="padding-top:96px;padding-bottom:96px">
+  <div class="container" style="max-width:1000px">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="section-label">Executive Summary</div>
+      <h2 class="section-title" style="max-width:760px;margin-left:auto;margin-right:auto">A clear cross-platform pattern emerged</h2>
+      <p class="section-intro" style="max-width:760px">Across multiple leading LLMs and search generative experiences, the North Tampa Bay Chamber did not land in a vague top tier. It landed in the top spot.</p>
+    </div>
+    <div data-animate class="ntbc-summary-card">
+      <p style="margin:0">This case study examines the digital visibility and ranking of the <strong>North Tampa Bay Chamber</strong> across real-time AI snapshots from <strong>Copilot</strong>, <strong>Grok</strong>, and <strong>Perplexity</strong>. The result was unusually clean. NTBC appeared as the primary chamber and the most dependable entry point for organizations looking to build relationships, strengthen local presence, and participate in the Wesley Chapel business community.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark cs-section-pad" style="padding-top:96px;padding-bottom:96px">
+  <div class="container" style="max-width:1100px">
+    <div style="text-align:center;margin-bottom:64px">
+      <div class="section-label section-label--light">Phase Breakdown</div>
+      <h2 class="section-title section-title--light" style="max-width:760px;margin-left:auto;margin-right:auto">Each platform reinforced a different part of NTBC's authority</h2>
+    </div>
+    <div class="cs-phase-grid grid-3col" style="gap:28px">
+      <article data-animate class="cs-card-pad ntbc-phase-card" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:44px 36px">
+        <div class="ntbc-phase-tag">Phase 1 / Copilot</div>
+        <div class="ntbc-phase-rank">Top recommendation</div>
+        <h3 style="font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35">Top Choice Validation in Copilot</h3>
+        <p style="color:rgba(255,255,255,0.72);font-size:15px;line-height:1.8;margin:0 0 18px">In direct local comparison, NTBC appeared as the top recommendation and strongest choice for business owners looking for reach, credibility, and consistent networking access.</p>
+        <ul style="margin:0;padding-left:18px;color:rgba(255,255,255,0.78);line-height:1.8">
+          <li>Positioned as the primary, established, award-winning chamber for the region</li>
+          <li>Connected with economic growth and dependable networking opportunities</li>
+          <li>Presented as the best fit for small businesses and growth-focused companies</li>
+        </ul>
+      </article>
+      <article data-animate data-delay="100" class="cs-card-pad ntbc-phase-card" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:44px 36px">
+        <div class="ntbc-phase-tag">Phase 2 / Grok</div>
+        <div class="ntbc-phase-rank">Regional hub effect</div>
+        <h3 style="font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35">Regional Dominance in Grok</h3>
+        <p style="color:rgba(255,255,255,0.72);font-size:15px;line-height:1.8;margin:0 0 18px">Grok expanded the story beyond Wesley Chapel and framed NTBC as an economic hub with influence across the wider North Tampa corridor.</p>
+        <ul style="margin:0;padding-left:18px;color:rgba(255,255,255,0.78);line-height:1.8">
+          <li>Coverage extended across Land O' Lakes, Lutz, and New Tampa</li>
+          <li>Highlighted breakfasts, ribbon cuttings, and member support systems</li>
+          <li>Labeled as the best business organization for most people in the area</li>
+        </ul>
+      </article>
+      <article data-animate data-delay="200" class="cs-card-pad ntbc-phase-card" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:44px 36px">
+        <div class="ntbc-phase-tag">Phase 3 / Perplexity</div>
+        <div class="ntbc-phase-rank">Networking authority</div>
+        <h3 style="font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35">Goal-Oriented Segmentation in Perplexity</h3>
+        <p style="color:rgba(255,255,255,0.72);font-size:15px;line-height:1.8;margin:0 0 18px">Perplexity kept NTBC in the lead while situating it inside a broader local support ecosystem built around entrepreneurship, service, and advocacy.</p>
+        <ul style="margin:0;padding-left:18px;color:rgba(255,255,255,0.78);line-height:1.8">
+          <li>Ranked number one for broad local networking</li>
+          <li>Connected naturally with SMARTstart @ The Grove and Rotary Club of Wesley Chapel</li>
+          <li>Reinforced NTBC's role in small-business support and local advocacy</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light cs-section-pad ntbc-impact-section" style="padding-top:96px;padding-bottom:96px">
+  <div class="container" style="max-width:1100px">
+    <div class="ntbc-impact-grid">
+      <div class="ntbc-impact-lead">
+        <div class="section-label">Strategic Implications</div>
+        <h2 class="section-title" style="margin-bottom:18px">Why this matters in 2026</h2>
+        <p style="font-size:17px;color:#56646f;line-height:1.85;margin:0">The ranking is more than a vanity signal. When AI systems repeatedly choose the same organization, they create an authority shortcut for buyers, members, partners, and adjacent brands.</p>
+      </div>
+      <div class="ntbc-impact-stack">
+        <div data-animate class="ntbc-impact-card">
+          <strong>1. AI visibility advantage</strong>
+          <p>Because AI systems repeatedly cite NTBC, chamber members gain second-hand visibility when buyers ask who to trust, where to network, or which local organizations matter most.</p>
+        </div>
+        <div data-animate data-delay="100" class="ntbc-impact-card">
+          <strong>2. Leadership synergy</strong>
+          <p>With the 2026 leadership team, including Chair Tony Benge and Chair-Elect Chad Emory, the chamber appears aligned with business development, commercial momentum, and real estate growth.</p>
+        </div>
+        <div data-animate data-delay="200" class="ntbc-impact-card">
+          <strong>3. Strategic entry point</strong>
+          <p>For organizations such as Shark Branding Solutions, NTBC's number one AI position makes the chamber the clearest launch platform for high-visibility initiatives like an AI Visibility Business Tool Kit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;padding-bottom:48px;background:#f8f9fb">
+  <div class="container" style="max-width:1100px;margin-bottom:32px">
+    <div class="ntbc-quote-panel" data-animate>
+      <div class="ntbc-quote-mark">#1</div>
+      <div class="ntbc-quote-copy">
+        <p>Across the snapshot, NTBC did not read like one good option among many. It read like the default answer.</p>
+        <span>Cross-platform AI consensus / Wesley Chapel market</span>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="max-width:1000px">
+    <div data-animate class="ntbc-conclusion-card">
+      <div class="ntbc-conclusion-grid">
+        <div>
+      <div class="section-label">Conclusion</div>
+          <h2 class="section-title" style="margin-bottom:18px">NTBC showed up as a triple-threat authority</h2>
+          <p style="font-size:17px;color:#555;line-height:1.85;margin:0 0 18px">Across the snapshot, the North Tampa Bay Chamber held three positions at once. It appeared as the top recommendation for general networking, the most credible business organization tied to economic growth, and a central connector to the wider Wesley Chapel support ecosystem.</p>
+          <p style="font-size:17px;color:#555;line-height:1.85;margin:0">For businesses looking to scale in the North Tampa corridor, this positioning makes NTBC the most visible point of entry in AI-assisted discovery.</p>
+        </div>
+        <div class="ntbc-conclusion-badge">
+          <small>Final Read</small>
+          <strong>Triple Threat</strong>
+          <span>General networking. Economic growth. Community connectivity. NTBC owned all three lanes in the snapshot.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="cta-bg"><div class="cta-grid"></div></div>
+  <div class="container cta-inner">
+    <div class="section-label section-label--light">Preview Version</div>
+    <h2 class="cta-headline">If this is the direction, I can turn the main NTBC page into this flagship version next</h2>
+    <p class="cta-sub">This preview keeps the original case study untouched while giving you a sharper, more premium version to react to first.</p>
+    <div class="cta-actions">
+      <a href="/north-tampa-bay-chamber-ai-visibility-case-study" class="btn btn-ghost btn-xl">View Current Main Page</a>
+      <a href="/contact" class="btn btn-primary btn-xl">Use This Version</a>
+    </div>
+    <div class="ntbc-cta-note">
+      <span>Next step:</span>
+      <span>swap this into the main case study, or keep refining the preview.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo"><img src="logo.png" alt="Shark Branding Solutions" height="50" style="display:block"></a>
+      <p>Your customers are already searching.<br>The question is - are they finding you?</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/shark-branding-solutions" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></a>
+        <a href="https://www.facebook.com/sharkbrandingsolutions" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://www.instagram.com/sharkbrandingsolutions/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/@SharkBrandingSolutions" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="currentColor" stroke-width="2"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>Navigation</h4><a href="/">Home</a><a href="/about">About</a><a href="/ai-visibility-consulting">Consulting</a><a href="/portfolio">Portfolio</a><a href="/workshops">Workshops</a><a href="/contact">Contact</a><a href="/free-report">Free Visibility Report</a><a href="/ai-resources">AI Resources</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/ai-visibility-consulting">AI Visibility Consulting</a><a href="/local-seo-visibility-audit">Local SEO Visibility Audit</a><a href="/geo-for-local-businesses">GEO for Local Businesses</a><a href="/north-tampa-bay-chamber-ai-visibility-toolkit">AI Visibility Toolkit</a></div>
+      <div class="footer-col"><h4>Case Studies</h4><a href="/hvac-local-seo-case-study">HVAC Local SEO</a><a href="/emorys-rock-realty-ai-visibility-case-study">Emory's Rock Realty</a><a href="/north-tampa-bay-chamber-ai-visibility-case-study">North Tampa Bay Chamber</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:info@sharkbrandingsolutions.com">info@sharkbrandingsolutions.com</a><a href="tel:7278556505">(727) 855-6505</a><span>27251 Suite b14 #805, Wesley Chapel, FL 33544</span><h4 style="margin-top:16px">Service Areas</h4><a href="/tampa-marketing-consultant">Tampa</a><a href="/tampa-bay-marketing-consultant">Tampa Bay</a><a href="/lutz-marketing-consultant">Lutz</a><a href="/land-o-lakes-marketing-consultant">Land O' Lakes</a><a href="/wesley-chapel-marketing-consultant">Wesley Chapel</a><a href="/st-petersburg-marketing-consultant">St. Petersburg</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><span>&copy; 2026 Shark Branding Solutions. All rights reserved.</span><span>sharkbrandingsolutions.com</span></div></div>
+</footer>
+<script src="main.js"></script>
+<script
+  src="https://cdn.apigateway.co/webchat-client..prod/sdk.js"
+  data-widget-id="8ee4a57a-2a34-11f1-a54e-268b4f3b96a8"
+  defer
+></script>
+</body>
+</html>
+
+
