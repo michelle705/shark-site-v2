@@ -601,6 +601,9 @@ h1 em, h2 em, .t-display em, .t-h1 em, .t-h2 em {
   background: rgba(255,255,255,0.98);
   border-top: 1px solid var(--c-border);
   backdrop-filter: blur(20px);
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  max-height: calc(100dvh - var(--nav-h));
 }
 
 .nav-mobile[hidden]  { display: none !important; }
