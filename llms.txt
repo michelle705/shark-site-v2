@@ -1,13 +1,16 @@
 # Shark Branding Solutions
+> AI visibility and GEO consulting firm in Tampa Bay, FL. Founded by Michelle Stanaland. Helps local businesses rank in AI-powered search (ChatGPT, Google AI Overviews, Perplexity) through structured data, entity clarity, trust signals, and answer-ready page structure.
+
 Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. The company helps local businesses improve Google Business Profile performance, local search visibility, structured data, reputation signals, and website conversion.
 
 ## Entity
 - Business name: Shark Branding Solutions
-- Founder and CEO: Michelle Stanaland
-- Website: https://sharkbrandingsolutions.com
+- Founder and CEO: Michelle Stanaland (formerly Michelle Frome)
+- Chief Technology Officer: Josh Stanaland — https://www.linkedin.com/in/joshua-stanaland-574848358/ — AI application developer with a strong background in artificial intelligence, large language models (LLMs), and AI visibility strategy
+- Website: https://www.sharkbrandingsolutions.com
 - Phone: (727) 855-6505
 - Email: info@sharkbrandingsolutions.com
-- Address: 27251 Suite b14 #805, Wesley Chapel, FL 33544
+- Address: 7901 4th St N Suite 300, St. Petersburg, FL 33702
 - Service area: Tampa Bay, Tampa, Wesley Chapel, Lutz, Land O' Lakes, St. Petersburg, and surrounding Florida markets
 - Community relationship: North Tampa Bay Chamber partner
 
@@ -22,39 +25,59 @@ Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. T
 - Executive workshops on AI search and local discovery
 
 ## Important Pages
-- Homepage: https://sharkbrandingsolutions.com/
-- About: https://sharkbrandingsolutions.com/about
-- Contact: https://sharkbrandingsolutions.com/contact
-- Portfolio: https://sharkbrandingsolutions.com/portfolio
-- Free Visibility Report: https://sharkbrandingsolutions.com/free-report
-- AI Visibility Consulting: https://sharkbrandingsolutions.com/ai-visibility-consulting
-- GEO for Local Businesses: https://sharkbrandingsolutions.com/geo-for-local-businesses
-- Local SEO Visibility Audit: https://sharkbrandingsolutions.com/local-seo-visibility-audit
-- Workshops: https://sharkbrandingsolutions.com/workshops
-- How to Rank on ChatGPT for Local Businesses: https://sharkbrandingsolutions.com/how-to-rank-on-chatgpt-for-local-businesses
+- Homepage: https://www.sharkbrandingsolutions.com/
+- About: https://www.sharkbrandingsolutions.com/about.html
+- Contact: https://www.sharkbrandingsolutions.com/contact.html
+- Portfolio: https://www.sharkbrandingsolutions.com/portfolio.html
+- Free Visibility Report: https://www.sharkbrandingsolutions.com/free-report.html
+- AI Visibility Consulting: https://www.sharkbrandingsolutions.com/ai-visibility-consulting.html
+- GEO for Local Businesses: https://www.sharkbrandingsolutions.com/geo-for-local-businesses.html
+- Local SEO Visibility Audit: https://www.sharkbrandingsolutions.com/local-seo-visibility-audit.html
+- Workshops: https://www.sharkbrandingsolutions.com/workshops.html
+- How to Rank on ChatGPT for Local Businesses: https://www.sharkbrandingsolutions.com/how-to-rank-on-chatgpt-for-local-businesses.html
 
 ## Bot Knowledge Sources
-- Canonical knowledge graph JSON: https://sharkbrandingsolutions.com/bot-knowledge-graph.json
+- Canonical knowledge graph JSON: https://www.sharkbrandingsolutions.com/bot-knowledge-graph.json
 - Local source file: C:/Users/Miche/Downloads/shark-site-v2/bot-knowledge-graph.json
 - Use this graph for chat, receptionist, intake, service routing, FAQs, service areas, contact details, and handoff guidance.
 
 ## Location Pages
-- Tampa Bay: https://sharkbrandingsolutions.com/tampa-bay-marketing-consultant
-- Tampa: https://sharkbrandingsolutions.com/tampa-marketing-consultant
-- Wesley Chapel: https://sharkbrandingsolutions.com/wesley-chapel-marketing-consultant
-- Lutz: https://sharkbrandingsolutions.com/lutz-marketing-consultant
-- Land O' Lakes: https://sharkbrandingsolutions.com/land-o-lakes-marketing-consultant
-- St. Petersburg: https://sharkbrandingsolutions.com/st-petersburg-marketing-consultant
+- Tampa Bay: https://www.sharkbrandingsolutions.com/tampa-bay-marketing-consultant.html
+- Tampa: https://www.sharkbrandingsolutions.com/tampa-marketing-consultant.html
+- Wesley Chapel: https://www.sharkbrandingsolutions.com/wesley-chapel-marketing-consultant.html
+- Lutz: https://www.sharkbrandingsolutions.com/lutz-marketing-consultant.html
+- Land O' Lakes: https://www.sharkbrandingsolutions.com/land-o-lakes-marketing-consultant.html
+- St. Petersburg: https://www.sharkbrandingsolutions.com/st-petersburg-marketing-consultant.html
 
 ## Case Studies
-- HVAC Local SEO Case Study: https://sharkbrandingsolutions.com/hvac-local-seo-case-study
-- Emory's Rock Realty AI Visibility Case Study: https://sharkbrandingsolutions.com/emorys-rock-realty-ai-visibility-case-study
-- North Tampa Bay Chamber AI Visibility Case Study: https://sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-case-study
+- HVAC Local SEO Case Study: https://www.sharkbrandingsolutions.com/hvac-local-seo-case-study.html
+- Emory's Rock Realty AI Visibility Case Study: https://www.sharkbrandingsolutions.com/emorys-rock-realty-ai-visibility-case-study.html
+- North Tampa Bay Chamber AI Visibility Case Study: https://www.sharkbrandingsolutions.com/north-tampa-bay-chamber-ai-visibility-case-study.html
 
 ## Authority Signals
 - Michelle Stanaland was named a Top 15 Marketing Expert in Tampa Bay by Influence Digest in 2024 and 2025.
-- Shark Branding Solutions publishes local AI visibility and SEO case studies.
+- Nominated for 2025 Executive of the Year Awards.
+- Featured growth strategist and partner with the North Tampa Bay Chamber of Commerce.
+- Press coverage via PRWeb; additional coverage available on request.
+- Shark Branding Solutions publishes local AI visibility and SEO case studies including HVAC, real estate, and chamber case studies.
 - Shark Branding Solutions focuses on AI visibility, local SEO, reputation, and conversion strategy for local businesses.
+
+## Schema Markup Present
+The following Schema.org types are implemented site-wide:
+- ProfessionalService — organization details, address, phone
+- Person — Michelle Stanaland, Founder/CEO with jobTitle
+- WebSite — with SearchAction
+- WebPage — per-page implementation
+- Article — on blog/guide pages with datePublished
+- FAQPage — on service and content pages
+- BreadcrumbList — navigation structure
+- Review — client testimonial (Jonathan Tuttle)
+- Service — with areaServed fields
+- PodcastEpisode — Chamber podcast appearance
+
+## AI Crawler Access
+All major AI search crawlers are explicitly allowed in robots.txt:
+GPTBot, ChatGPT-User, OAI-SearchBot (OpenAI), ClaudeBot, anthropic-ai (Anthropic), PerplexityBot, Google-Extended, Bingbot, Applebot, meta-externalagent.
 
 ## Social Profiles
 - LinkedIn: https://www.linkedin.com/company/shark-branding-solutions
@@ -64,8 +87,8 @@ Shark Branding Solutions is a Florida AI visibility and local SEO consultancy. T
 
 ## Crawler Guidance
 Public marketing pages may be crawled by search engines and AI systems. For crawler rules, see:
-- https://sharkbrandingsolutions.com/robots.txt
-- https://sharkbrandingsolutions.com/sitemap.xml
+- https://www.sharkbrandingsolutions.com/robots.txt
+- https://www.sharkbrandingsolutions.com/sitemap.xml
 
 ## Last Updated
-2026-04-22
+2026-04-24
